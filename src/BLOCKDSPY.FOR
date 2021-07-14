@@ -1,5 +1,5 @@
       BLOCK DATA BLKHLP
-      INCLUDE  'DEKSPY.FOR;'
+      INCLUDE  'DEKSPY.INC'
       DATA  TEXSPY (   1 )   /  'KEY WORD NO.  1:  "HEADING"     ----  -
      1---  ----                                '  /
       DATA  TEXSPY (   2 )   /  '  Response will be the printing of the 

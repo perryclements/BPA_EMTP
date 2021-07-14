@@ -1,7 +1,7 @@
       SUBROUTINE OVER41
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       REAL*8          TEXT1, TEXT2, TEXT3, T1, T2, T3                      15411
       REAL*8          TEXT6, TEXT7, TEXT8, TEXT9                        M22.5718
       REAL*8          TEXT10, TEXT11, TEXT12, AUPPER, ALOWER, TYPEC     M22.5719
@@ -522,8 +522,8 @@ C     THIS INCLUDES DOING ANY APPROPRIATE CALCULATIONS.                 M42.7961
 C     OLD 91,92,93 TYPES CHANGED TO NEW 91,99,98 TYPES                  M42.7962
 C     RESPECTIVELY.                                                     M42.7963
 C                                                                       M42.7964
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*80 CARD, BLANKS, WORK                                   M42.7967
       REAL*8         TEXT(14)                                           M42.7968
 C                                                                       M42.7969
@@ -742,8 +742,8 @@ C       optimal, we mean a showing of the greatest precision within the M42.8179
 C       minimum space.  On input,  N14  is the maximum column width, butM42.8180
 C       on output, it signals the beginning column number.  That is, theM42.8181
 C       character string  ANSI32(N14:32)  is to be displayed.           M42.8182
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*1  ONEBYT                                               M42.8185
       CHARACTER*5  ANSI5                                                M42.8186
       IF ( IPRSUP .GE. 1 )                                              M42.8187
@@ -861,7 +861,7 @@ C     ENTER LOOP FOR CASE OF "9999.." (MOVE LEFT, ROUNDING UPWARD):     M42.8263
       SUBROUTINE STORE(I,J,N,D2R,D2X,D1R,D1X)                           M27.3402
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       COMMON  /ZPRINT/  ZOUTR(120),ZOUTX(120)                           M28.7048
       IF ( IPRSUP  .GE.  5 )                                            M35.8995
      1 WRITE (LUNIT6, 2472)  I, J, N, D2R, D2X, D1R, D1X                M35.8996
@@ -933,7 +933,7 @@ C     TO US AT BPA BY PROF. HERMANN W. DOMMEL OF THE UNIVERSITY OF      M29.3509
 C     BRITISH COLUMBIA (VANCOUVER, B.C., CANADA) ON DECEMBER            M29.3510
 C     18, 1980.   THIS USES  [A], [B]  REPRESENTATION.   ORIGINAL       M29.3511
 C     FILE IS  [SCOTT]HWD.FOR;1 ,   AS READ FROM HERMANN'S CARDS.       M29.3512
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
 C     IF NUMBER OF WINDINGS IS TO BE INCREASED FROM 10 TO N,            M29.3514
 C     THEN SIMPLY CHANGE 10 TO N AND 55 TO N*(N+1)/2, 30 TO 3*N         M29.3515
 C     AND 60 TO 6*N IN NEXT 6 LINES AND IN ONE LINE BETWEEN STATEMENT   M29.3516
@@ -1518,7 +1518,7 @@ C     GO TO 835   PACIFIC POWER: UNREACHABLE S.N. 839.  WSM.            M35.8999
       SUBROUTINE NEWTON (X, MAXIT, ERR)                                 M29.4088
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       COMMON /NEWT1/ RWIN(10),ZHL,ZHT,ZLT,K,M,IDELT, LOGSIX             M29.4089
       DIMENSION X(1)                                                    M29.4090
       I = 0                                                             M29.4091

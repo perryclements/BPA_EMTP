@@ -1,7 +1,7 @@
       SUBROUTINE OVER42
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       DIMENSION  CURRR(101), FLUX(101), SSS(90)                            15667
 C     THE FOLLOWING LIMIT CHECKS OVERFLOW OF  CURR, FLUX                   15668
       IF ( IPRSUP  .GE.  1 )                                            M32, 282
@@ -339,7 +339,7 @@ C     READ INPUT CARD USING CIMAGE                                         15699
       SUBROUTINE HYSDAT                                                 M25.1232
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       DIMENSION B(50),H(50),ITOP(1,4),IBOT(1,4)                         M25.1234
 C     SET THE TOP AND BOTTOM POINTERS.                                  M29.4123
       DATA ITOP/1,5,15,29/                                              M29.4124
@@ -523,7 +523,7 @@ C     RESCALE THE LOOP AND WRITE TO THE PUNCH UNIT.                     M25.1303
       SUBROUTINE ARRDAT                                                 M27.3449
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
 C     PROGRAM TO PERFORM LEAST-SQUARES FIT OF STRAIGHT-LINE SEGMENTS TO M27.3451
 C     A SET OF DATA POINTS. THE NUMBER OF SEGMENTS IS LIMITED TO MAXEXP M27.3452
       DIMENSION V(200),C(200),VC(200),CC(200),CK(200)                   M37.8040
@@ -1026,7 +1026,7 @@ C     THIS MODULE USES THE ANSI 77 FORTRAN FEATURES AND MAY, THEREFORE, M39.3425
 C     NOT RUN ON SYSTEMS THAT DO NOT HAVE THOSE CAPABILITIES.           M39.3426
 C     IT IS ASSUMED THAT THE DATA CASE TO BE PROCESSED IS A VALID ONE,  M39.3427
 C     I.E., IT DID EXECUTE CORRECTLY ON THE OLDER PROGRAM VERSIONS      M39.3428
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       DIMENSION ZK(20)                                                  M39.3430
       CHARACTER*80 CBUFF, BBUFF(35)                                     M39.3431
       CHARACTER*30 CBLANK                                               M39.3432

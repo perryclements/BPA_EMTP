@@ -1,7 +1,7 @@
       SUBROUTINE OVER51
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       IF ( IPRSUP  .GE.  1 )                                            M32,2229
      1 WRITE ( LUNIT6, 4567 )  KILL                                     M39.3624
  4567 FORMAT ( 24H BEGIN "OVER51".  KILL =,  I8 )                       M39.3625
@@ -21,7 +21,7 @@
       SUBROUTINE SUBR51                                                 M39.3635
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       DIMENSION  KPEN(20)                                               M39.3637
 C     NOTE. --- AS THE STRUCTURE OF THE EMTP ERROR OVERLAYS CHANGE,     M39.3638
 C               THE FOLLOWING ASSIGNMENTS MAY HAVE TO BE ALTERED ...    M39.3639

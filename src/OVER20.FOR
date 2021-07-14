@@ -1,8 +1,8 @@
       SUBROUTINE OVER20
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       EQUIVALENCE  (MONCAR(1),    KNT),   (MONCAR(2),  KBASE)           M37.6131
       EQUIVALENCE  (MONCAR(3), LTDELT),   (MONCAR(4),    ISW)           M37.6132
       EQUIVALENCE                         (MONCAR(10), MTAPE)           M37.6133
@@ -343,8 +343,8 @@ C     UNIVERSAL MODULE  "TABLES"  ACTUALLY DUMPS MEMORY ONTO DISK.      M28.6597
 C     LOGIC ASSOCIATED WITH OTHER THAN  MEMSAV=0  OR  MEMSAV=1          M30.1013
 C     CAN GENERALLY BE IGNORED BY OTHER SYSTEMS;  IT APPLIES            M30.1014
 C     ONLY TO RTM (REAL TIME MONITOR) USE OF BPA VAX.                   M30.1015
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*132  ANSI132                                            M40.5778
       COMMON  /COMLOCK/  LOCKER(2)   ! Share with "OVER1" only          M40.5779
       IF ( IPRSUP  .GE.  1 )                                            M28.6599
@@ -405,9 +405,9 @@ C     NEXT, FOR RTM USE, RESTORE KEY "OVDRIVKOM.FOR" VARIABLES:         M30.1068
      1      INTEGER*4 (I-N)
 C     MODULE OF INTERACTIVE EMTP ONLY, WHICH SERVICES "EMTSPY".         M35.1683
 C     IF NO INTERACTIVE USE, CONVERT TO DUMMY MODULE ("RETURN").        M35.1684
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
       SAVE                                                                      
       DATA  N18   /   0   /                                                     
       N18 = N18 + 1                                                             
@@ -479,11 +479,11 @@ C     END-OF-FILE DURING DISK READ, SO SWITCH TO KEYBOARD INPUT:        M38.3599
      1      INTEGER*4 (I-N)
 C     MODULE OF INTERACTIVE EMTP ONLY, WHICH SERVICES "EMTSPY".         M35.1702
 C     THIS IS THE PRINCIPLE MODULE, CALLED BY "EMTSPY".                 M35.1703
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*8   CHARD7                                              M37.6148
       REAL*8         SPYTIM(2), SPDATE(2)                               M36.1679
       SAVE                                                              M35.1712
@@ -1949,10 +1949,10 @@ C     $$$$$$$  KEY WORD NO.  2:  "STOP"     $$$$  $$$$  $$$$  $$$$  $$$$M35.2794
      1      INTEGER*4 (I-N)
 C     MODULE OF INTERACTIVE EMTP ONLY, WHICH SERVICES "EMTSPY".         M36.1887
 C     THIS IS THE 2ND HALF OF PRINCIPLE MODULE "SPYING".                M36.1888
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       DIMENSION     MMHOLD(20)                                          M36.1893
       REAL*8          TEXT1                                             M36.1894
       SAVE                                                              M36.1895
@@ -3578,8 +3578,8 @@ C     MODULE OF INTERACTIVE EMTP ONLY, WHICH SERVICES "EMTSPY".         M35.2802
 C     IF NO INTERACTIVE EMTP USE, THIS MODULE CAN BE DELETED.           M36.3109
 C     UNIVERSAL INITIALIZATION MODULE FOR "SPYING".   CONSTANTS         M36.3110
 C     MUST BE SET ONLY ONCE, AT THE BEGINNING OF EXECUTION ONLY.        M36.3111
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*8  TEXTAY(75)                                                   
 C     NEXT COME ALL POSSIBLE KEY-WORD RESPONSES TO "SPY:" PROMPT:       M36.3113
       DATA  TEXTAY(1)   /  'HEADING '  /                                M36.3114
@@ -3717,8 +3717,8 @@ C     IF NO INTERACTIVE USE, CONVERT TO DUMMY MODULE ("RETURN").        M35.2853
 C       VAX-11 INSTALLATION-DEPENDENT EMTP MODULE WHICH SERVES          M35.2854
 C       TO READ SPY COMMAND FROM MUNIT5 IF: 1) CTRL-C INTERRUPT         M38.4529
 C       HAS OCCURRED, OR 2) IF  LOCKBR = 1  UPON ENTRY.                 M38.4530
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       COMMON /COMKWT/  KWTVAX    ! MAGIC BLOCK FOR CTRL-C TRAPPING      M35.2857
       DIMENSION  IDUM(3)   !  DUMMY VECTOR FOR CTRL-C HANDLING          M35.2858
       EXTERNAL KWITER       ! NEEDED FOR CTRL-C INITIALIZATION          M35.2859
@@ -3774,7 +3774,7 @@ C     IF NO INTERACTIVE USE, CONVERT TO DUMMY MODULE ("RETURN").        M38.4569
 C     THIS MODULE PROVIDES A SPECIAL-PURPOSE CONNECTION TO THE          M38.4570
 C     MORE GENERAL "FLAGER".  HERE, WE ONLY WANT TO SENSE A             M38.4571
 C     USER-KEYED INTERRUPT (NO SPY INPUT IS TO BE READ).                M38.4572
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       N24 = LOCKBR   ! SAVE CURRENT TIME-SLICING FLAG VALUE             M38.4574
       N25 = KFILE5   ! SAVE CURRENT STATUS OF INPUT CONNECTION          M38.4575
       LOCKBR = 0         ! TEMPORARILY TURN TIME-SHARING ON             M38.4576
@@ -3798,8 +3798,8 @@ C     IDEA IS BY ALBERT H. SCHMIDT, BPA ROUTE EOGA.  AT THE KEYBOARD,   M37.6902
 C     CTRL-G WILL RING THE BELL, AND THE ASCII CHARACTER 7 IS           M37.6903
 C     EQUIVALENT WITHIN A PROGRAM.  SHORTAGE OF 1 BELL IS DUE TO        M37.6904
 C     CARRIAGE CONTROL, MAYBE (SEE N8 = J + 1, RATHER THAN J, BELOW).   M37.6905
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       REAL*8        SPYTIM(2), SPDATE(2)                                M37.6908
       D13 = 2.0           ! INITIALIZE TIME DELAY AT TWO SECONDS        M37.6909
       CALL TIME44 ( SPYTIM(1) )    ! EMTP WALL-CLOCK TIME               M37.6910
@@ -3832,7 +3832,7 @@ C     IF NO INTERACTIVE USE, THIS MODULE CAN BE DELETED.                M37.6934
 C       VAX-11   MODULE DESIGNED TO STALL FOR  D8  SECONDS.             M37.6935
 C       PRESENT USE OF DISK WRITES IS TEMPORARY ONLY, AND SHOULD        M37.6936
 C       LATER BE REPLACED BY A LESS-WASTEFUL, TRUE HIBERNATION.         M37.6937
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       N23 = D8    ! INTEGER NUMBER OF SECONDS FOR HIBERNATION           M37.6939
       DO 3641  J=1, N23    ! LOOP ONCE FOR EACH SECOND OF DELAY         M37.6940
       DO 3624  K=1, 6      ! ONE SECOND = ABOUT 6 WRITES TO DISK        M37.6941
@@ -3854,7 +3854,7 @@ C       VAX-11  INSTALLATION-DEPENDENT EMTP MODULE WHICH SERVES         M35.2872
 C       CONTROL INTERACTIVE USAGE.  IF NONE, DESTROY THE MODULE.        M35.2873
 C       PURPOSE IS TO SENSE USER-KEYED INTERRUPT, AND SET FLAG.         M35.2874
 C       NAME "COMKWT" IS RESERVED (CONNECTED TO "CONTROLC.OBJ")         M35.2875
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       COMMON /COMKWT/  KWTVAX                                                   
       DIMENSION  IDUM(3)                                                M35.2878
       KWTVAX = 1                                                                
@@ -3868,7 +3868,7 @@ C     UTILITY WHICH SERVES TO REPLACE  "%%%%%%%%"  STRINGS OF DISK      M35.3917
 C     FILES BY PARAMETERS OF  "@?"  CALL.   COLUMNS 1, ... N7  ARE      M35.3918
 C     SEARCHED, OF CHARACTER VECTOR  "VBYTE" .                          M35.3919
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.3920
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*1  VBYTE(1)                                             M35.3922
       DO 1297  K=1, N7                                                          
       IF ( VBYTE(K)  .NE.  '%' )   GO TO 1297                                   
@@ -3910,7 +3910,7 @@ C     (VBYTE(J), J=1, NCHAR)  TO SEE IF IT IS A LEGAL FLOATING-POINT    M35.3950
 C     NUMBER.   IF SO,  "KILL"  IS TO BE SET TO ZERO;  IF NUMBER IS     M35.3951
 C     STRUCTURALLY DEFICIENT,  "KILL"  IS TO BE SET POSITIVE.           M35.3952
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.3953
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*1   VBYTE(1)                                            M35.3955
       KILL = 0                                                                  
       KOLDIG = 0                                                                
@@ -3969,7 +3969,7 @@ C     FOLLOWING CODE CONSIDERS RAMIFICATIONS OF JUST-FOUND DIGIT:       M35.3992
      1      INTEGER*4 (I-N)
 C     MODULE OF INTERACTIVE EMTP USAGE ONLY, WHICH SERVICES "EMTSPY".   M35.4009
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.4010
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*1   C4                                                  M35.4012
       IF ( IPRSPY .LT. 1 )  GO TO 4204                                          
       WRITE (MUNIT6, 4203)  IBEGCL, BYTBUF(IBEGCL:IBEGCL)               M37.7042
@@ -4044,8 +4044,8 @@ C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M37.7060
 C     FOR CHARACTER*132 SPY DISPLAY CHANNEL MUNIT6, THIS SERVES         M37.7061
 C     TO ACTUALLY OUTPUT THE LINE TO THE SPY DISPLAY DEVICE.            M37.7062
 C       VAX-11  INSTALLATION-DEPENDENT EMTP MODULE.                     M37.7063
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
 C     TEMPORARILY, UNTIL WE LEARN HOW TO WRITE TO A 2ND CRT FOR         M37.7066
 C     VAX/VMS, WE WILL JUST WRITE TO LUNIT6:                            M37.7067
       IF ( IABS(KVERFY) .EQ. 34543 ) GO TO 9000  ! NO SPY WINDOWS       M38.4582
@@ -4063,8 +4063,8 @@ C     VAX/VMS, WE WILL JUST WRITE TO LUNIT6:                            M37.7067
 C     MODULE OF INTERACTIVE EMTP USAGE ONLY, WHICH SERVICES "EMTSPY".   M37.7076
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M37.7077
 C     ONE BLANK LINE IS WRITTEN ON SPY SCREEN BY THIS MODULE.           M37.7078
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
 C     TEMPORARILY, UNTIL WE LEARN HOW TO WRITE TO A 2ND CRT FOR         M37.7081
 C     VAX/VMS, WE WILL JUST WRITE TO LUNIT6 IN UNIVERSAL FORM:          M37.7082
  5621 WRITE (LUNIT6, 5624)                                              M37.7083
@@ -4077,8 +4077,8 @@ C     MODULE OF INTERACTIVE EMTP ONLY, WHICH SERVICES "EMTSPY".         M37.7087
 C     IF NO INTERACTIVE USE, THIS MODULE CAN BE DELETED.                M37.7088
 C     ARGUMENTS N1 AND N2 ARE NODE NOS., WITH POSSIBLE "-" SIGNS.       M37.7089
 C     PURPOSE IS TO LOAD AND PRINT CORRESPONDING NAMES FOR "OUTPUT"     M37.7090
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       SAVE                                                                      
       REAL*8         TEXT10(10), TERRA                                  M37.7094
       DATA  TERRA  / 6HTERRA  /                                                 
@@ -4121,7 +4121,7 @@ C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M37.7128
 C     THIS NEAR-UNIVERSAL MODULE SERVES TO BUILD THE CHARACTER*132      M37.7129
 C     OUTPUT VECTOR OUTLIN OF THE "EXAMINE" COMMAND OF SPY.             M37.7130
 C     COMPUTERS WITH INDEX PROBLEMS (E.G., PRIME) NEED REPLACEMENT      M37.7131
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       IF ( IPRSPY .LT. 1 ) GO TO 1718                                           
       WRITE (MUNIT6, 1707)  NUMEX, IMIN(1), LOCOUT(1)                   M37.7134
  1707 FORMAT (' TOP OF "EXAMIN".  NUMEX, IMIN(1), LOCOUT(1) =', 3I6 )   M37.7135
@@ -4210,7 +4210,7 @@ C     NEW CONTENTS.  OTHERWISE, D4 IS THE NUMERIC VALUE TO BE           M37.7211
 C     DEPOSITED, AND INTYPE GIVES THE MODE (1=INTEGER, 0=REAL).         M37.7212
 C     BOUNDING SUBSCRIPTS ON THE DEPOSIT ARE N1 AND N2, RESPECTIVELY.   M37.7213
 C     COMPUTERS WITH INDEX PROBLEMS (E.G., PRIME) NEED REPLACEMENT      M37.7214
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       IF ( IPRSPY .LT. 1 ) GO TO 1846                                           
       WRITE (MUNIT6, 1707)  IND, INTYPE, IASCII(IND), D4, ANSI8         M37.7217
  1707 FORMAT (' TOP OF "DEPOSI".   IND, INTYPE, IASCII(IND),',          M37.7218
@@ -4266,7 +4266,7 @@ C     IN EXCESS OF THE LAST TABLE ROW "MAX".   THE TO ROW NUMBERS ARE   M35.4068
 C     PASSED BACK AS  "N1"  AND  "N2"  ARGUMENTS.   IF THIS EXTRACTION  M35.4069
 C     WAS SUCCESSFUL,  "KILL"  IS SET TO ZERO;  IF IT FAILED,  KILL = 1.M35.4070
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.4071
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       KILL = 0                                                                  
 C     CHECK FOR ENGLISH REQUEST "TOP" (FOR THE TOP OF THE FILE):        M35.4074
       IF ( BYTBUF(1:1)   .NE.  'T' )  GO TO 2071                        M35.4075
@@ -4355,7 +4355,7 @@ C     INTEGER OUTPUTS ARE  (LIDNT1, LIDNT2)  OF COMMON.   THE ONLY      M35.4143
 C     ARGUMENT IS  "KILL",  WHICH TELLS WHETHER THE OPERATION WAS A     M35.4144
 C     SUCCESS:  "0" MEANS SUCCESS,  "1" MEANS ERROR.                    M35.4145
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.4146
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       IF ( IPRSPY .LT. 1 )  GO TO 2615                                          
       WRITE (MUNIT6, 2613)   BYTBUF                                     M37.7270
  2613 FORMAT ( ' TOP "SOSRANGE".  BYTBUF(A20) =',   A20  )              M35.4150
@@ -4461,8 +4461,8 @@ C     PROMPT IN CHARACTER*80 VARIABLE PROM80 OF DECK "DEKSPY".          M35.4241
 C     THE PROMPT MUST END WITH COLON (":").  THEN LINE FEED             M35.4242
 C     WILL BE SUPPRESSED, SO SUBSEQUENT READ IS TO RIGHT OF ":".        M35.4243
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.4244
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       N2 = 80                                                           M35.4246
       DO 1394  J=1, 80                                                  M35.4247
       IF ( PROM80(N2:N2) .NE. ' ' )  GO TO 1426                         M35.4248
@@ -4595,7 +4595,7 @@ C     THE USER HAS MADE A MISTAKE, THEREBY AVOIDING POSSIBLE            M35.4325
 C     DEATH OF INTERACTIVE EMTP EXECUTION DUE TO TYPING ERROR.          M35.4326
 C     ANSI IS THE INPUT BEING PROCESSED, FOR N8 NUMBERS.  UPON          M35.4327
 C     EXIT, ANSI WILL BE CONVERTED TO 4E20.0 FIXED-FORMAT DATA.         M35.4328
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       CHARACTER*80  ANSI, HOLD                                          M35.4330
       IF ( IPRSPY .LT. 3 )  GO TO 3582                                          
       WRITE (MUNIT6, 3579)  N8, ANSI(1:40)                              M37.7292
@@ -4668,13 +4668,13 @@ C     EXIT, ANSI WILL BE CONVERTED TO 4E20.0 FIXED-FORMAT DATA.         M35.4328
       SUBROUTINE LOCATN                                                 M35.4393
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'FIXCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'FIXCOM.INC'                                           
       LOCATE(   1)  =  LOCINT ( BUS1   )                                M35.4401
       LOCATE(   2)  =  LOCINT ( BUS2   )                                M35.4402
       LOCATE(   3)  =  LOCINT ( BUS3   )                                M35.4403
@@ -5410,7 +5410,7 @@ C     EXIT, ANSI WILL BE CONVERTED TO 4E20.0 FIXED-FORMAT DATA.         M35.4328
       RETURN                                                            M35.5133
       END                                                               M35.5134
       BLOCK DATA                                                        M35.5135
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       DATA SYMB(  1) / 'BUS1  '/,  IVEC(  1) /  0/,  IASCII(  1) /1/    M35.5137
       DATA SYMB(  2) / 'BUS2  '/,  IVEC(  2) /  0/,  IASCII(  2) /1/    M35.5138
       DATA SYMB(  3) / 'BUS3  '/,  IVEC(  3) /  0/,  IASCII(  3) /1/    M35.5139
@@ -6150,7 +6150,7 @@ C     MODULE OF INTERACTIVE EMTP ONLY, WHICH SERVICES "EMTSPY".         M36.3401
 C     IF NO INTERACTIVE EMTP USE, THIS MODULE CAN BE DELETED.           M36.3402
 C     IT IS CALLED ONLY BY "SYSDEP", FOR STORAGE IN "DEKPLT".           M35.5872
 C     SEPARATE MODULE NEEDED BECAUSE "DEKPLT" HAS NO IMPLICIT.          M35.5873
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       L4PLOT = LUNIT4                                                           
       RETURN                                                            M35.5876
       END                                                               M35.5877
@@ -6161,8 +6161,8 @@ C     UNIVERSAL MODULE OF INTERACTIVE EMTP (SPY OF "EMTSPY").           M37. 831
 C     IF NON-INTERACTIVE VERSION, MODULE CAN BE DESTROYED.  THIS        M37. 832
 C     MODULE IS CALLED ONLY TO DISPLAY ERRONEOUS FILE6(ISTEP), &        M37. 833
 C     PROMPT USER TO SEND A CORRECTED COPY.  CALLED BY "DATAIN".        M37. 834
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       WRITE (MUNIT6, 1218)  ISTEP                                       M37. 837
  1218 FORMAT ( '   ? ? ?   Trouble with input data.  last card',        M37. 838
      1         ' number',  I5,  '   is in error.'   )                   M37. 839
@@ -6199,8 +6199,8 @@ C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.5928
       BLOCK DATA BLKPLT                                                 M35.5931
 C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.5932
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.5933
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       DATA TEXFNT  /  'F7X13.B '  /                                             
       DATA  XYTITL(1:24)  /  '                        '  /              M35.5936
       DATA  HEADL(1:16)   /  '                '  /                      M35.5937
@@ -6378,8 +6378,8 @@ C     END PARAMETERS OF TEKTRONIX SCREEN                                M35.6060
       SUBROUTINE TPPLOT                                                         
 C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.6108
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.6109
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       SAVE                                                              M35.6112
       IF ( NEXMOD .GT. 4 ) GO TO 3769                                           
       IF ( NEXMOD .NE. 4 ) GO TO 1742                                           
@@ -6551,8 +6551,8 @@ C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.6262
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.6263
 C     THIS MODULE DOES NOTHING OTHER THAN SERVICE THE "HELP"            M37.7390
 C     SUBCOMMAND OF THE "PLOT" COMMAND OF SPY.                          M37.7391
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       N8 = N1                                                                   
       IF ( BUFFIN(5:10) .NE. '      ' )  GO TO 3618                     M37.7394
  3613 K = NUMKEY + N8 + 1                                                       
@@ -6599,8 +6599,8 @@ C     SUBCOMMAND OF THE "PLOT" COMMAND OF SPY.                          M37.7391
       SUBROUTINE PLTVAR                                                         
 C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.6601
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.6602
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       IF ( IPRSPY .LT. 1 ) GO TO 1003                                           
       WRITE (MUNIT6, 1002)  NEXMOD                                      M38.4711
  1002 FORMAT ( ' ENTER "PLTVAR".  NEXMOD =',  I4 )                      M38.4712
@@ -6918,8 +6918,8 @@ C     IF ( BUFFIN(1:4) .EQ. 'SPY ' ) GO TO 9835 ! ABORT "PLOT" USE      M38.4749
       SUBROUTINE TIMVAL                                                         
 C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.6856
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.6857
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       MAXEVK = MAXEV - 30                                               M35.6860
       IF ( IPRSPY .LT. 1 ) GO TO 1549                                           
       WRITE (MUNIT6, 1386)  MONITR, LIMFIX, VMIN, VMAX                  M38.4757
@@ -7582,8 +7582,8 @@ C     CHECK IF SPECIAL "PLTVAR" CALL FOR ROLLING PLOT PAGING:           M38.4826
       SUBROUTINE BACK14                                                         
 C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.7388
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.7389
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       IF ( IPRSPY .LT. 1 ) GO TO 1483                                           
       WRITE (MUNIT6, 1478)  TSTEP                                       M37.7751
  1478 FORMAT ( ' TOP OF  "BACK14" .   TSTEP =', E15.5 )                 M37.7752
@@ -7594,8 +7594,8 @@ C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.7389
       SUBROUTINE SETRTM                                                         
 C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.7399
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.7400
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       SAVE                                                              M35.7403
       LUNT15 = 15                                                               
       CLOSE ( UNIT=LUNT15 )                                             M35.7404
@@ -7687,8 +7687,8 @@ C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.7400
       SUBROUTINE CHRPLT                                                         
 C     MODULE USED ONLY FOR INTERACTIVE EMTP (SERVICE TO "EMTSPY").      M35.7463
 C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.7464
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       DIMENSION   TEMP(6)                                               M35.7467
       CHARACTER*9  KUNIT6                                               M35.7468
       CHARACTER*1   DOL(131), LETTER(20)                                M36.3498
@@ -7908,8 +7908,8 @@ C     FOR NON-INTERACTIVE EMTP, THIS MODULE CAN BE DESTROYED.           M35.8165
 C     THE ONE AND ONLY USE IS TO PROVIDE CALCOMP COPIES OF WHAT         M35.8166
 C     IS ON THE SCREEN (FOR "PLOT" COMMAND OF "EMTSPY"), WITH           M35.8167
 C     BPA PSEUDO-CALCOMP VERSATEK CALLS ACTUALLY USED.                  M35.8168
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'DEKPLT.FOR;/NOLIST'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKPLT.INC'                                           
       IF ( KILLPL  .EQ.  0 )   GO TO 2005                               M35.8171
       CALL PLOT ( 0.0, 0.0, 999 )                                       M35.8172
       RETURN                                                            M35.8173

@@ -1,13 +1,13 @@
       SUBROUTINE OVER15
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
-      INCLUDE  'SPACE2.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'SPACE2.INC'                                           
       DIMENSION   ISPUM(1)                                              M28.4662
       EQUIVALENCE          (D2, SM )                                    M29.1998
       EQUIVALENCE    ( SPUM(1), ISPUM(1) )                              M28.4663
@@ -861,8 +861,8 @@ C     PARTITIONS OF SIZE  LIST 12:  (XMAX TMAX XMIN TMIN) .             M27.1322
       SUBROUTINE TOP15                                                  M28.4678
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       DIMENSION  NSUBKM(1)                                              M37.4987
       EQUIVALENCE  ( KKNONL(1), NSUBKM(1) )                             M37.4988
       EQUIVALENCE (LSTAT(14), KNUM)                                     M28.4687
@@ -994,9 +994,9 @@ C 309  IF (KODSEM(I) .NE. 0 .AND. IMODEL(I) .NE. -4)  GO TO 903         M43.2246
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY  TYPE 59 S.M.  MODELING               M38.2986
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
       REAL*8          TEXTA,TEXTB,DIGIT,TEXT1,TEXT2,BUSVEC              M38.2988
       DIMENSION  TEXTA(15),  DIGIT(10),  TEXTB(3),  BUSVEC(1)           M29.1506
       DATA TEXTA(1)   /6HID    /                                        M16. 927
@@ -1136,9 +1136,9 @@ C     THIS MODULE IS USED ONLY BY  TYPE 59 S.M.  MODELING               M38.2986
       DIMENSION  REAMQS(1), EPSOM(1), DCOEF(1), KCOIL(1)                M27.1366
       DIMENSION  VOLTUM(1), ANGLUM(1), NODFUM(1), NODMUM(1)             M31.3158
       DIMENSION  KUMOUT(1), JUMOUT(1), UMOUTP(1)                        M27.1367
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
       DIMENSION  NSUBKM(1)                                              M37.5032
       EQUIVALENCE ( KKNONL(1), NSUBKM(1) )                              M37.5033
 C  JCLTAC(KCL AND KCL+1) ARE DEFINED AND INITIALIZED IN UMRENU          M39.2713

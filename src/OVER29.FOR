@@ -1,9 +1,9 @@
       SUBROUTINE SUBR29                                                 M32.6529
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DECK29.FOR;/NOLIST'                                           
-      INCLUDE  'LABL29.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DECK29.INC'                                           
+      INCLUDE  'LABL29.INC'                                           
       REAL*8        TEXT                                                M32.6533
       DIMENSION  TEXT(1), ARRAY(1)                                      M32.6534
       EQUIVALENCE  ( KARRAY(1), TEXT(1), ARRAY(1) )                     M32.6535
@@ -64,9 +64,9 @@
       REAL*8        BUS                                                 M32.6583
       DIMENSION BUS(1), KMSWIT(1), KDEPSW(1), IBRNCH(1), JBRNCH(1)      M32.6584
       DIMENSION AKEY(1), TSTAT(1), TCLOSE(1), TOPEN(1)                  M32.6585
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DECK29.FOR;/NOLIST'                                           
-      INCLUDE  'LABL29.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DECK29.INC'                                           
+      INCLUDE  'LABL29.INC'                                           
       DIMENSION ARRAY(1)                                                M32.6586
       EQUIVALENCE ( ARRAY(1), KARRAY(1) )                               M32.6587
       EQUIVALENCE  (MONCAR(1),    KNT),   (MONCAR(2),  KBASE)           M37.7919
@@ -374,9 +374,9 @@ C     CHECK FOR "BEGIN NEW DATA CASE" OR "BNDC" CARD:                   M32.6732
       DIMENSION  IBRNCH(1), JBRNCH(1), AKEY(1)                          M32.6775
       DIMENSION  TSTAT(1), TCLOSE(1), TOPEN(1)                          M32.6776
       REAL*8        BUS                                                 M32.6777
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DECK29.FOR;/NOLIST'                                           
-      INCLUDE  'LABL29.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DECK29.INC'                                           
+      INCLUDE  'LABL29.INC'                                           
       DIMENSION  KOUNT1(25), KOUNT2(25), KOUNT3(25)                     M13.3046
       DIMENSION  NORMAL(25), ITEMP(264), TEXNAM(10)                     VAX.2984
       EQUIVALENCE  (MONCAR(1),    KNT),   (MONCAR(2),  KBASE)           M37.7924
@@ -1387,7 +1387,7 @@ CC    K1 = K * 2 + ( ICONT - 2 )                                        VAX.3002
      1      INTEGER*4 (I-N)
 C     UNIVERSAL MODULE CALLED ONLY BY "INNR29" OF OVERLAY 29.           M35.8735
 C     SOME LOGIC IS SIMILAR TO "LINPLT" OF OVERLAY 31.                  M35.8736
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       DIMENSION  KUT(131), KTSIN(4), KDIG(10)                           M35.8737
 C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M35.8738
       DATA  KUT(1)  / 1H  /                                             M35.8739
@@ -1484,7 +1484,7 @@ C     BEGIN CODE TO ENCODE 3-DIGIT KLM ON RIGHT EDGE OF KUT:            M35.8784
       DIMENSION  ARRAY(MAXSQ,MAXSQ), ARRSAV(MAXSQ,MAXSQ)                M32.7159
       DIMENSION  SOLN(MAXSQ), RHS(MAXSQ), YMAT(NMAX,NMAX2)              M32.7160
       DIMENSION  KSPARS(LSPARS,LSPARS)                                  M32.7161
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       REAL*8        TEXTA, TEXTB, TEXT1, TEXT2, CHARA                   M32.7163
       REAL*8        CHARB, CHARC, CHARQ, TEXT80, TEXT9                  M35.8813
 C     FOLLOWING DIMENSIONED VECTOR WITH "35" REALLY SHOULD BE           M32.7165
@@ -1915,7 +1915,7 @@ C     WITH BOTH Z-GROUND AND Z-SKY MODES NOW KNOWN, PUNCH BRANCH CARDS: M32.7510
      1      INTEGER*4 (I-N)
 C     INSTALLATION-DEPENDENT MODULE OF OVERLAY 29,  CALLED ONLY         M31.3700
 C     FOR  "TABULATE ENERGIZATION RESULTS"  USAGE.                      M31.3701
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       CHARACTER*20 FILN20                                               M31.3703
       BYTE FILNAM(20), C1                                               M31.3704
       EQUIVALENCE (FILN20, FILNAM(1) )                                  M31.3705

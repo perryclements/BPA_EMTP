@@ -1,9 +1,9 @@
       SUBROUTINE OVER5 
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
       COMMON /a8sw/ A8SW(400)                                           M39.1011
       DIMENSION  AKEY(1), TSTAT(1)                                      M33. 205
       EQUIVALENCE  ( AKEY(1), ADELAY(1) ),  ( TSTAT(1), CRIT(1) )       M33. 206
@@ -573,13 +573,13 @@ C     CODE FOR INPUT OF EMTP SOURCES IS IN  "OVER5A" .                  M28.3865
       SUBROUTINE OVER5A                                                 M28.3876
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       DIMENSION  ISPUM(1), KPEN(4)                                      M39.1032
       EQUIVALENCE  ( SPUM(1), ISPUM(1) )                                M32.1313
       REAL*8           TEXT12                                           M28.3883
@@ -1146,8 +1146,8 @@ C     DEGENERATE CASE WITHOUT LINEAR BRANCHES; ADD INFINITE R:          M32.1454
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     OVERLAY-5  U.M.  MODULE CALLED BY "OVER5A".                       M32.1492
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
       IF ( NCLFIX  .GT.  0 )   GO TO 1758                               M27. 686
       NCLFIX = 20                                                       M27. 687
       NUMFIX = 3                                                        M27. 688
@@ -1262,11 +1262,11 @@ C     LATER, WHEN WE HAVE TIME.                                         M27. 751
      3 NSMTAC, NRSYN, NTORQ, MLUM, NPARUM, NGROUP, NALL, NANGRE,
      4 NEXCSW, LIMASU, LOPSS2, LOPSS1, LOPSS8, LOPSS9, LOPSS10,
      5 LOPSS4, NSHARE
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
       REAL*8        TEXTA(101), TEXT3,TEXT4,TEXT5                       M38.1134
       REAL*8        TEXTM, TESM1, TESM2, TESM3, TESM4, TESM5            M32.1522
       REAL*8        TESM6, TESM7, TESM8, TEXT6, TEXT7                   M38.1135
@@ -2305,11 +2305,11 @@ C  TRANSFER OF UM VARIABLES.                                            M32.2803
      3 NSMTAC, NRSYN, NTORQ, MLUM, NPARUM, NGROUP, NALL, NANGRE,
      4 NEXCSW, LIMASU, LOPSS2, LOPSS1, LOPSS8, LOPSS9, LOPSS10,
      5 LOPSS4, NSHARE
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
       REAL*8        TEXTA(101), TEXT3,TEXT4,TEXT5                       M42.3141
       REAL*8        TEXTM, TESM1, TESM2, TESM3, TESM4, TESM5            M42.3142
       REAL*8        TESM6, TESM7, TESM8, TEXT6, TEXT7                   M42.3143
@@ -3603,11 +3603,11 @@ C  END READING SM TYPE-59 DATA INPUT $$$$$$$$$$$$$$$$$$$$$$$$$$         M42.4426
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY TYPE-59 BRANDWAJN  S.M.  MODEL        M31. 879
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
 C     THE FOLLOWING ARRAY IS SIZED 3 (NN4-1) * N50 ( N50 = 50  AT PRE-  M39.1266
 C     SENT ) + NN10 ( NO. OF CLASS 1 REQUESTS <=15 AT PRESENT> ) ****** M39.1267
       DIMENSION   NPBUF( 165 )                                                  

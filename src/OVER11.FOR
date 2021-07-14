@@ -1,10 +1,10 @@
       SUBROUTINE OVER11
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SPACE2.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'DEKSPY.INC'
       COMMON /a8sw/ A8SW(400)                                           M39.1586
       COMMON / LINEMODEL / KEXACT, NSOLVE, FMINSV, NUMRUN,NPHLMT
       COMMON / LINEMODEL / CHAR80, CHLMFS(18)
@@ -1005,12 +1005,12 @@ C     READ INPUT CARD USING CIMAGE                                         10545
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY BRANDWAJN (TYPE-59) S.M. MODEL        M31.2684
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SPACE2.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
       REAL*8         TEXT1                                              M28.4287
       DATA  TEXT1   /  6H  1ST   /                                      M20.2596
       KARC = 0                                                          M38.2220
@@ -1772,9 +1772,9 @@ C     ERASE SYNCHRONOUS MACHINES FROM SOURCE TABLES  * * * * * * * * * *M20.3222
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY BRANDWAJN (TYPE-59) S.M. MODEL        M32.3739
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
       DIMENSION SCI( 1 )                                                M22.3481
       DIMENSION VNR(3), VNI(3), AX(9), AY(9)                            M32.3740
       CNI = SCI(1)                                                      M32.3741
@@ -1950,8 +1950,8 @@ C     PROCESS THE Q - AXIS     *   *   *   *   *   *   *   *   *   *   *M32.3797
      1 CURRK, CURIK, CURRM, CURIM )                                        10572
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       IF ( IPRSUP  .GE.  1 )                                            M32.3904
      1 WRITE (LUNIT6, 1006)  L, ERK, EIK, ERM, EIM                      M32.3905
  1006 FORMAT ( 41H TOP OF "SSOUT".  L, ERK, EIK, ERM, EIM =,            M32.3906

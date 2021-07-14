@@ -1,9 +1,9 @@
       SUBROUTINE OVER10
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SPACE2.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SPACE2.INC'                                           
       DIMENSION ITEMP(1)                                                M31.2445
       EQUIVALENCE  ( ITEMP(1), VOLTK(1) )                               M31.2446
       LOCATN(I,J)=(J*J-J)/2+I                                                   
@@ -997,10 +997,10 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
 C     THIS MODULE OF OVERLAY 10 IS CALLED ONLY ONCE, IF AND ONLY        M36.1077
 C     IF THE DATA CASE INVOLVES PHASOR POWER (P+JQ, ETC.)               M36.1078
 C     CONSTRAINTS.  THIS IS EMTP LOAD FLOW OF "FIX SOURCE" REQUEST.     M36.1079
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SPACE2.FOR;/NOLIST'                                           
-      INCLUDE  'DECK10.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'DECK10.INC'                                           
       DIMENSION   VDIFF(20)                                                     
       IF (IPRSUP .GE. 2) WRITE (LUNIT6,10)                              M37.3708
    10 FORMAT(/,33H TOP OF FXSOUR = LOAD FLOW MODULE)                    M37.3709
@@ -1341,8 +1341,8 @@ C     DONE WITH ALL ITERATIONS, REDEFINE VECTOR CREST AND TIME1         M37.3770
       SUBROUTINE SSEQIV( IKF, ISFD, OMEGAL, OMEGAC )                    M32.3365
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       DIMENSION  UR(1), UI(1)                                           M32.3368
       EQUIVALENCE ( VOLTI(1), UR(1) ), ( VOLTK(1), UI(1) )              M32.3369
 C     THIS ROUTINE PRODUCES A S.S. EQUIVALENT OF THE BRANCHES.THIS      M32.3370

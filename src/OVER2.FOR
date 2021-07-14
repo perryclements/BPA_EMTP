@@ -1,10 +1,10 @@
       SUBROUTINE OVER2 
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'
-      INCLUDE  'LABL02.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'
+      INCLUDE  'LABL02.INC'                                           
 C           %INCLUDE  '//c/tsu/cables.INS.FTN'                          M44.   1
       COMMON / LINEMODEL / KEXACT, NSOLVE, FMINSV, NUMRUN,NPHLMT
       COMMON / LINEMODEL / CHAR80, CHLMFS(18)
@@ -1629,9 +1629,9 @@ C     PROCESS DISTRIBUTED LINE INSIDE SUBROUTINE  "DISTR2" .            M28.2883
      1      INTEGER*4 (I-N)
 C     OVERLAY 2 MODULE USED ONLY FOR FREQUENCY-DEPENDENT                M32.1142
 C     REPRESENTATION OF GENERATOR EQUIVALENTS.                          M32.1143
-      INCLUDE  'LABL02.FOR;/NOLIST'                                           
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'LABL02.INC'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
 C     THIS ROUTINE READS-IN THE BRANCH DATA FOR THE MODES  * * * * * * *M32.1147
 C     I N I T I A L I Z E   C O U N T E R S    *   *   *   *   *   *   *M32.1148
       IDK = 2 * IKF                                                     M32.1149
@@ -1704,9 +1704,9 @@ C     READ INPUT CARD USING CIMAGE                                      M32.1158
       SUBROUTINE NONLN2                                                 M28.2891
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABL02.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'LABL02.INC'                                           
       REAL*8        TEXT1, TEXT2, TEXT3                                 M42.2121
       DATA  TEXT1   /  6HSINGLE  /                                      M28.2897
       DATA  TEXT2   /  6H FLASH  /                                      M28.2898
@@ -2338,9 +2338,9 @@ C     READ INPUT CARD USING CIMAGE                                      M28.3303
       SUBROUTINE DISTR2                                                 M39.1004
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABL02.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'LABL02.INC'                                           
       DIMENSION CBLHST(1)                                               M44.  20
       EQUIVALENCE  ( CNVHST(1),  CBLHST(1) )                            M44.  21
       DIMENSION  WK1(1)                                                 M43. 392
@@ -3769,8 +3769,8 @@ C     DEFINE NEW ADDRESS FOR FOLLOWING UNTRANSPOSED LINE                M32.1236
       SUBROUTINE OVER3                                                  M39.1006
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       DIMENSION TRSER(1),TXSER(1)                                       M42.2135
       EQUIVALENCE (TRSER(1),E(1)),(TXSER(1),F(1))                       M42.2136
       DIMENSION  MAPCAS(1),  MAPINV(1), NODE1(1), NODE2(1)              M31. 775
@@ -4491,9 +4491,9 @@ C                                   END K-LOOP                          M42.2720
       SUBROUTINE OVER4                                                  M39.1009
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SPACE1.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'SPACE1.INC'                                           
       DIMENSION  BUFFIN (8)                                             M16. 545
 C     FREQUENCY DEPENDENT LINE. ********************************        M29.1338
       IF ( IPRSUP  .GE.  1 )                                            M32.1255

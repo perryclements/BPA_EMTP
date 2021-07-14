@@ -1,10 +1,10 @@
       SUBROUTINE OVER16
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
       DIMENSION  XX(1)                                                     12586
       EQUIVALENCE (  XK(1), XX(1) )                                        12588
       DIMENSION  ISPUM(1)                                               M32.4947
@@ -52,11 +52,11 @@
       SUBROUTINE SUBTS1                                                    12597
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR'   ! WSM + THL
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'   ! WSM + THL
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       COMMON  /a8sw/ A8SW(400)                                          M39.2798
       DIMENSION         NSUBKM(1), ISPUM(1), SWCOLD(100)                M42.6677
       EQUIVALENCE  (SPUM(1),  ISPUM(1)),  (KKNONL(1),  NSUBKM(1))       M39.2800
@@ -1294,9 +1294,9 @@ C              CALL TO SOLVUM IF NO COMPENSATION OF UM POWER CIRCUITS : M33.1513
 C     MODULE OF INTERACTIVE EMTP ONLY, ASSOCIATED WITH "EMTSPY".        M36.1486
 C     NON-INTERACTIVE VERSIONS CAN REPLACE BY A DUMMY MODULE.           M36.1487
 C     THIS MODULE IS CALLED ONLY BY "SUBTS1" OF OVERLAY 16.             M36.1488
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
 C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M36.1489
       DATA  IXCOPT  / 0 /                                               M36.1490
       DATA  XCON  / 0.0 /                                               M36.1491
@@ -1388,8 +1388,8 @@ C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M36.1489
       SUBROUTINE SWITCH                                                 M32.5259
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       EQUIVALENCE ( KTRLSW(1), N20 )                                            
 C     OVERLAY-16 MODULE CALLED BY "SUBTS1" IF AND ONLY IF ONE OR MORE   M32.5263
 C     SWITCHES HAS JUST CHANGED STATUS (IF KTRLSW(1) .GT. 0).   THE     M32.5264
@@ -2068,10 +2068,10 @@ C     %%%%%%%%%%%%%%%%%%%  END   DELETABLE SOPHISTICATED LOGIC  %%%%%%%%M32.5928
       SUBROUTINE  TACS3                                                 M13.2599
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
 C     INTRINSIC  ABSZ, COSZ                                             M32.5939
       IF ( IPRSUP  .GE.  1 )                                            M32.5940
      1 WRITE ( LUNIT6, 4567 )                                           M32.5941
@@ -2342,8 +2342,8 @@ C                                                  $$$  TERMINATION  $$$M13.2769
       SUBROUTINE SUBTS2                                                    13222
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
 C     %INCLUDE  '//c/tsu/cables.INS.FTN'                                M44.1680
       EQUIVALENCE     (H1, SK),     (D2, SM )                              13227
       EQUIVALENCE     ( IPRSOV(35), IPOINT )                            M39.2903
@@ -3900,8 +3900,8 @@ C     BVALUE(KCOUNT) = D2                                               M23.4410
       SUBROUTINE FDCINJ( IKF, ISFD, IBF )                               M32.5970
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       DIMENSION  UR(40)                                                 M32.5973
 C     THIS ROUTINE UPDATES THE CURRENT INJECTIONS FOR THE INDIVIDUAL    M32.5974
 C     BRANCHES AS WELL AS FOR THE EQUIVALENT  BRANCHES INSERTED INTO THEM32.5975
@@ -3994,12 +3994,12 @@ C     CONVERT MODAL CURRENT INJECTIONS TO PHASE COORDINATES    *   *   *M32.6046
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY BRANDWAJN (TYPE-59) S.M. MODEL        M31.3338
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       DIMENSION VSMOUT(1)                                               M39.2950
       EQUIVALENCE ( ISMOUT(1), VSMOUT(1) )                              M39.2951
       DIMENSION MASSEX(1)                                               M38.3141
@@ -4572,10 +4572,10 @@ C     UPDATE THE APPROPRIATE ELEMENTS OF THE MATRIX (YKM)  *************M32.6151
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY BRANDWAJN (TYPE-59) S.M. MODEL        M31.3340
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
       IF ( IPRSUP  .GE.  1 )                                            M32.6165
      1 WRITE( LUNIT6, 6000 )                                            M39.3026
  6000 FORMAT( 24H  "BEGIN MODULE INCREM." )                             M39.3027
@@ -4859,9 +4859,9 @@ C                                   END K-LOOP                             13608
       SUBROUTINE SUBTS3                                                    13613
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
       DIMENSION  XX(1),  VOLTA(1)                                       M31.3342
       DIMENSION  NSUBKM(1)                                              M37.5646
       EQUIVALENCE  ( KKNONL(1), NSUBKM(1) )                             M37.5647
@@ -4869,9 +4869,9 @@ C                                   END K-LOOP                             13608
       EQUIVALENCE (  XK(1), XX(1) ),  ( VOLTI(1), VOLTA(1) )            M31.3343
       EQUIVALENCE   ( MONCAR(2), KBASE )                                        
       EQUIVALENCE   ( IPRSOV(36), IUPPER )                              M39.3068
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
       DIMENSION VSMOUT(1)                                               M39.3069
       EQUIVALENCE ( ISMOUT(1), VSMOUT(1) )                              M39.3070
 C     INTRINSIC  ABSZ, COSZ, EXPZ                                       M32.6197
@@ -5327,9 +5327,9 @@ C     ELEMENTS.  THIS IS USED IN  "SUBTS4"  SUPERPOSITION.              M25. 930
       SUBROUTINE ZINCOX ( NS )                                          M37.5665
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       DIMENSION FOLD( 1 )                                               M37.5667
       DIMENSION KSING( 1 ), KINDEP( 1 )                                 M37.5668
       EQUIVALENCE ( KSING(1), CCHAR(1) )                                M37.5669
@@ -5865,9 +5865,9 @@ C     WHICH HAS   NTOT = 5  ,   IBR = 5  ,    AND   DELTAT = 0.1   .    M14.2605
 C       PRECEDING COMMENTS APPLIED BEFORE THE SPRING OF 1981,           M30. 957
 C       WHEN INTERACTIVE CONTROL WAS DEVISED.  RAMPING OF COMMON        M35.5878
 C       VARIABLES IS DONE HERE (REMOTE CONTROL FROM "EMTSPY").          M35.5879
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
 C     INTRINSIC  ABSZ                                                   M32.6463
       DATA  N16  / 0 /                                                  M35.5883
  1637 IF ( IPRSUP  .GE.  1 )                                            M35.5884
@@ -5980,7 +5980,7 @@ C    B(8)       VB       BLOCK VOLTAGE                                  M14.2478
 C    B(9)       WT       ACCUMULATED ENERGY SINCE FLASHOVER             M14.2479
 C    B(10)      FV       VOLTAGE DIVISION FACTOR                        M14.2480
 C    B(11)      FI       CURRENT DIVISION FACTOR                        M14.2481
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
       DIMENSION  A(1), B(1)                                             M14.2483
       LL8 = 8                                                           M22.5022
       IF (IPRSUP .GE. 2)                                                M18. 832
@@ -6128,11 +6128,11 @@ C  CORRECT ARRESTER INTERNAL NODE VOLTAGES                              M14.2571
       DIMENSION VOLTUM(1), ANGLUM(1), NODFUM(1), NODMUM(1)              M31.3572
       DIMENSION KUMOUT(1), JUMOUT(1), UMOUTP(1)                         M31.3573
       DIMENSION ZTHS3(3,3), SMAT(3,3), ZMAT(3,3)                        M28.5590
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
 C   JCLTAC(KCL AND KCL+1) ARE INITIALIZED IN "UMRENU"                   M39.3076
 C   JCLTAC(KCL+2) IS INITIALIZED IN "UMINIT".                           M39.3077
 C   AT EVERY TIME-STEP T SOLVUM MAY BE CALLED THREE TIMES (AT           M33.1901
@@ -7704,9 +7704,9 @@ C CALCULATION OF SOLUTION                                               M27.2548
       SUBROUTINE SUBTS4                                                    13931
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'UMDECK.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'UMDECK.INC'                                           
       DIMENSION  XX(1)                                                     13935
       DIMENSION  NSUBKM(1)                                              M37.6114
       EQUIVALENCE  ( KKNONL(1), NSUBKM(1) )                             M37.6115

@@ -5,9 +5,9 @@ C     UNIVERSAL MODULE OF INTERACTIVE EMTP (SPY OF "EMTSPY").           M37. 156
 C     IF NON-INTERACTIVE VERSION, MODULE CAN BE DESTROYED.              M37. 157
 C     FIRST EMTP DATA INPUT, AND "SPY" CHOICE, ARE MADE HERE.           M37. 158
 C     MODULE IS CALLED ONLY BY INSTALLATION-DEPENDENT "EREXIT".         M37. 159
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'   
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'LABCOM.INC'   
       COMMON / LINEMODEL / KEXACT, NSOLVE, FMINSV, NUMRUN, nphlmt
       COMMON / LINEMODEL / CHAR80, CHLMFS(18)
       CHARACTER*6 CHLMFS

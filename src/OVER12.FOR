@@ -1,12 +1,12 @@
       SUBROUTINE OVER12
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR/NOLIST'    ! WSM + THL
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
-      INCLUDE  'SPACE2.FOR;/NOLIST'                                           
-      INCLUDE  'DEKSPY.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'    ! WSM + THL
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'DEKSPY.INC'                                           
       DIMENSION  WK1(1)                                                 M43.1155
       EQUIVALENCE ( SEMAUX(1), WK1(1) )                                 M43.1156
       DIMENSION  AKEY(1), TSTAT(1)                                      M33.1025
@@ -1174,8 +1174,8 @@ C                                                                       M43.1299
       SUBROUTINE DTEQIV( IKF, ISFD, D2, AZR, AZI )                      M32.4174
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
       DIMENSION  UR(2)                                                  M32.4177
 C     THIS ROUTINE PRODUCES THE COMPANION MODEL TO BE INSERTED INTO THE M32.4178
 C     TR TABLES. IT ALSO NORMALIZES THE L AND C DATA TO HENRY AND FARAD M32.4179
@@ -1277,10 +1277,10 @@ C                                   END K-LOOP                             11068
       SUBROUTINE  TACS2                                                 M13.1548
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNCOM.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNCOM.INC'                                           
       REAL*8        DUMJ, ALNODE, TEXNAM(5)                             M39.1801
       DIMENSION DUM9(10), DUMJ(9)                                       M38.2387
       EQUIVALENCE  (MONCAR(2),  KBASE),   (MONCAR(3), LTDELT)           M37.4112
@@ -2680,9 +2680,9 @@ C     ***  SUPERIMPOSING DC STEADY-STATE  ***                           M39.2343
       SUBROUTINE CSUPDC( L )                                            M39.2363
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
       KJSUP = KINSUP + LSTAT(65)                                        M39.2367
       KKSUP = KJSUP  + LSTAT(65)                                        M39.2368
  2001 IF ( IPRSUP .LT. 6 )  GO TO 1000                                  M39.2369
@@ -2831,9 +2831,9 @@ C     --- MIN/MAX TRACKING, CONTROLLED ACCUMULATOR OR COUHTER ---       M39.2496
       SUBROUTINE CSUPAC( L, OMEGAR )                                    M39.2512
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
       KJSUP = KINSUP + LSTAT(65)                                        M39.2516
       KKSUP = KJSUP  + LSTAT(65)                                        M39.2517
  1000 NNN = KXAR + NUK + LSTAT(64)                                      M39.2518
@@ -2926,10 +2926,10 @@ C     --- MIN/MAX TRACKING, CONTROLLED ACCUMULATOR OR COUHTER ---       M39.2597
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY BRANDWAJN (TYPE-59) S.M. MODEL        M31.2774
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
 C     CONSTRUCT THE CONSTANT MATRICES OF COEFFICIENTS  **************** M37.4503
       IMK = 0                                                                   
       N17 = 0                                                                   
@@ -3057,10 +3057,10 @@ C)    MULTIPLICATION OF TWO MATRICES STORED AS VECTORS BY COLUMNS       M20.3510
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED ONLY BY BRANDWAJN (TYPE-59) S.M. MODEL        M31.2776
-      INCLUDE  'BLKCOM.FOR;/NOLIST'                                           
-      INCLUDE  'LABCOM.FOR;/NOLIST'                                           
-      INCLUDE  'TACSAR.FOR;/NOLIST'                                           
-      INCLUDE  'SYNMAC.FOR;/NOLIST'                                           
+      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'SYNMAC.INC'                                           
 C     THIS ROUTINE CALCULATES THE MATRICES OF THE ELECTRICAL PART  *****M20.3540
       IBR = IBROLD                                                      M20.3543
       IT = ITOLD                                                        M20.3544
