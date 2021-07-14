@@ -732,13 +732,13 @@ C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M42.1016
       LL1 = 1                                                           M25. 101
       LL2 = 2                                                           M25. 102
       LL4 = 4                                                           M42.1018
-      NWORD1 = LOCINT( VOLTBC(1) )  -  LOCINT( KPEN(1) )                M31. 176
+      NWORD1 = LOCF( VOLTBC(1) )  -  LOCINT( KPEN(1) )                   M31. 176
       NWORD2 = LOCINT(IDISTX(1)) - LOCINT(LUNSAV(15))                   M39.  73
-      N4 = LOCINT( MSMOUT ) -  LOCINT( Z(1) )  +  1                     M39.  74
-      N5 = LOCINT(LBSTAC)  -  LOCINT(ETAC(1))  +  1                     M38. 195
+      N4 = LOCINT( [MSMOUT] ) -  LOCF( Z(1) )  +  1                        M39.  74
+      N5 = LOCINT([LBSTAC])  -  LOCF(ETAC(1))  +  1                        M38. 195
       IF ( KBASE  .EQ.  0 )                                             M28. 309
-     1 NWORD1 = LOCINT(IDISTX(1)) - LOCINT(BUSONE(1))                   M28. 310
-      N9 = LOCINT(ISTART)  -  LOCINT(BUSUM(1))  +  1                    M28. 311
+     1 NWORD1 = LOCINT(IDISTX(1)) - LOCF(BUSONE(1))                     M28. 310
+      N9 = LOCINT([ISTART])  -  LOCF(BUSUM(1))  +  1                       M28. 311
       REWIND LUNIT2                                                     M39.  75
       IF ( NCHAIN  .EQ.  1 )   GO TO 3289                               M29. 976
       IF ( NCHAIN  .EQ.  20 )  GO TO 3289                               M29. 977

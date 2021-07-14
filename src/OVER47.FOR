@@ -2,7 +2,7 @@
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK47.INC'                                           
+      INCLUDE  'DECK29.INC'                                           
       INCLUDE  'LABL47.INC'                                           
       DIMENSION  LLTEMP(20)                                             M35.9239
       DIMENSION  RTG(1), ITG(1), CTG(1)                                 M35.9240

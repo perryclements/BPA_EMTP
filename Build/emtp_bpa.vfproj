@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="11.0" ProjectIdGuid="{DEC5115D-C71B-47A3-BDD0-F984969428D8}">
+	<Platforms>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="..\src" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Debug|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="..\src" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" AdditionalIncludeDirectories="..\src" RuntimeLibrary="rtMultiThreadedDLL"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" AdditionalIncludeDirectories="..\src" RuntimeLibrary="rtMultiThreadedDLL"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd">
+		<File RelativePath="..\src\BLKCOM.INC"/>
+		<File RelativePath="..\src\DECK10.INC"/>
+		<File RelativePath="..\src\DECK29.INC"/>
+		<File RelativePath="..\src\DECK31.INC"/>
+		<File RelativePath="..\src\DECK39.INC"/>
+		<File RelativePath="..\src\DECK44.INC"/>
+		<File RelativePath="..\src\DECK45.INC"/>
+		<File RelativePath="..\src\DECK47.INC"/>
+		<File RelativePath="..\src\DEKPLT.INC"/>
+		<File RelativePath="..\src\DEKSPY.INC"/>
+		<File RelativePath="..\src\FIXCOM.INC"/>
+		<File RelativePath="..\src\LABCOM.INC"/>
+		<File RelativePath="..\src\LABL02.INC"/>
+		<File RelativePath="..\src\LABL29.INC"/>
+		<File RelativePath="..\src\LABL39.INC"/>
+		<File RelativePath="..\src\LABL44.INC"/>
+		<File RelativePath="..\src\LABL45.INC"/>
+		<File RelativePath="..\src\LABL47.INC"/>
+		<File RelativePath="..\src\SPACE1.INC"/>
+		<File RelativePath="..\src\SPACE2.INC"/>
+		<File RelativePath="..\src\SYNCOM.INC"/>
+		<File RelativePath="..\src\SYNMAC.INC"/>
+		<File RelativePath="..\src\TACSAR.INC"/>
+		<File RelativePath="..\src\UMDECK.INC"/>
+		<File RelativePath="..\src\VOLT45.INC"/></Filter>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<File RelativePath="..\src\BUILD1.F"/>
+		<File RelativePath="..\src\BUILD2.F"/>
+		<File RelativePath="..\src\CALC.F"/>
+		<File RelativePath="..\src\CALSTO.F"/>
+		<File RelativePath="..\src\COMB.F"/>
+		<File RelativePath=".\ConsoleFortran1.f90"/>
+		<File RelativePath="..\src\DATAIN.FOR"/>
+		<File RelativePath="..\src\ELEC.F"/>
+		<File RelativePath="..\src\ERRSTP.F"/>
+		<File RelativePath="..\src\INIT.F"/>
+		<File RelativePath="..\src\INLMFS.FOR"/>
+		<File RelativePath="..\src\MAIN00.FOR"/>
+		<File RelativePath="..\src\MAIN10.FOR"/>
+		<File RelativePath="..\src\NEWMODS.FOR"/>
+		<File RelativePath="..\src\NTACS1.F"/>
+		<File RelativePath="..\src\NTACS1A.F"/>
+		<File RelativePath="..\src\NTACS1B.F"/>
+		<File RelativePath="..\src\NTACS2.F"/>
+		<File RelativePath="..\src\NTACS3.F"/>
+		<File RelativePath="..\src\OVER1.FOR"/>
+		<File RelativePath="..\src\OVER10.FOR"/>
+		<File RelativePath="..\src\OVER11.FOR"/>
+		<File RelativePath="..\src\OVER12.FOR"/>
+		<File RelativePath="..\src\OVER13.FOR"/>
+		<File RelativePath="..\src\OVER14.FOR"/>
+		<File RelativePath="..\src\OVER15.FOR"/>
+		<File RelativePath="..\src\OVER16.FOR"/>
+		<File RelativePath="..\src\OVER2.FOR"/>
+		<File RelativePath="..\src\OVER20.FOR"/>
+		<File RelativePath="..\src\OVER29.FOR"/>
+		<File RelativePath="..\src\OVER31.FOR"/>
+		<File RelativePath="..\src\OVER39.FOR"/>
+		<File RelativePath="..\src\OVER41.FOR"/>
+		<File RelativePath="..\src\OVER42.FOR"/>
+		<File RelativePath="..\src\OVER44.FOR"/>
+		<File RelativePath="..\src\OVER45.FOR"/>
+		<File RelativePath="..\src\OVER47.FOR"/>
+		<File RelativePath="..\src\OVER5.FOR"/>
+		<File RelativePath="..\src\OVER51.FOR"/>
+		<File RelativePath="..\src\OVER52.FOR"/>
+		<File RelativePath="..\src\OVER53.FOR"/>
+		<File RelativePath="..\src\OVER54.FOR"/>
+		<File RelativePath="..\src\OVER55.FOR"/>
+		<File RelativePath="..\src\OVER6.FOR"/>
+		<File RelativePath="..\src\OVER7.FOR"/>
+		<File RelativePath="..\src\OVER8.FOR"/>
+		<File RelativePath="..\src\OVER9.FOR"/>
+		<File RelativePath="..\src\PMODL.F"/>
+		<File RelativePath="..\src\PSTMT.F"/>
+		<File RelativePath="..\src\PTACS.F"/>
+		<File RelativePath="..\src\PUSE.F"/>
+		<File RelativePath="..\src\PUTIL1.F"/>
+		<File RelativePath="..\src\PUTIL2.F"/>
+		<File RelativePath="..\src\STEP.F"/>
+		<File RelativePath="..\src\SYNSTP.F"/>
+		<File RelativePath="..\src\TREAD.F"/>
+		<File RelativePath="..\src\USE1.F"/>
+		<File RelativePath="..\src\USE2.F"/>
+		<File RelativePath="..\src\XPR1.F"/>
+		<File RelativePath="..\src\XPR2.F"/>
+		<File RelativePath="..\src\XREF1.F"/>
+		<File RelativePath="..\src\XREF2.F"/></Filter></Files>
+	<Globals/></VisualStudioProject>

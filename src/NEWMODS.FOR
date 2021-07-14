@@ -241,7 +241,7 @@
       SUBROUTINE DIMENS ( LSIZE, NCHAIN, BUS1, BUS2 )                           
       IMPLICIT REAL*8 (A-H, O-Z)                                                
       DIMENSION  LSIZE(62)                                                      
-      REAL          BUS1, BUS2                                                  
+      REAL*8          BUS1, BUS2                                                  
       IF ( NCHAIN  .GE.  29 )   GO TO 2900                                      
       LSIZE( 1)  =    3002                                                      
       LSIZE( 2)  =    3000                                                      

@@ -1,1 +1,1 @@
-      COMMON  / C29B01 /   KARRAY(1)
+      COMMON  / C29B01 /   KARRAY( 1992869 )

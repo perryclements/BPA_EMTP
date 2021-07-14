@@ -18,7 +18,7 @@ C                PRECEDING ARRAYS).                                     M10.   5
 C     FLAG-3.   BEGIN CLASS-3  /BLANK/  VARIABLES                       M10.   7
 C               (INTEGER-NUMERIC USAGE ONLY, WITH ARRAYS                M10.   8
 C                PRECEDING SCALARS).                                    M10.   9
-      INCLUDE  'DECK31.INC'                                           
+      INCLUDE  'DECK29.INC'                                           
       COMMON   /LDEC31/  KALCOM                                                 
       DIMENSION ARRAY(1), EVDOUB(1)                                     M28.6626
       REAL*8         AUPPER, DAYTIM, TEXTAX, HORZL, SEXT, BUSLST        M09.  41
@@ -1671,7 +1671,7 @@ C     SEGMENTED, 1, VAX E/T CAN SKIP TRANSLATION OF REWIND:             M29.2707
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK31.INC'                                           
+      INCLUDE  'DECK29.INC'                                           
       DIMENSION EVDOUB(2)                                               M39.3307
       EQUIVALENCE ( EVDOUB(1), KARRAY(1) )                              M28.6887
       IF ( NFOUR  .GT.  0 )   GO TO 3184                                M28.6888

@@ -2373,8 +2373,8 @@ C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M32.1216
       IF ( IPRSUP  .GE.  1 )                                            M32.1220
      1 WRITE ( LUNIT6, 4567 )                                           M32.1221
  4567 FORMAT ( 24H  "BEGIN MODULE DISTR2." )                            M32.1222
-      N45 = LOCINT ( IDA )                                              M43. 396
-      N46 = LOCINT ( IFKC )                                             M43. 397
+      N45 = LOCINT ( [IDA] )                                              M43. 396
+      N46 = LOCINT ( [IFKC] )                                             M43. 397
       ISECTI = 400
       IF ( IPRSUP  .GE.  4 )                                            M43. 398
      1 write (*,*) ' Top distr2.  N45, N46, IDA, IFKC =',               M43. 399

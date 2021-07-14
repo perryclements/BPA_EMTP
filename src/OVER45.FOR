@@ -13,7 +13,7 @@ C)     4)  PHASE TO MODE TRANSFORMATION MATRICES.                       M16.4563
 C)  THIS ROUTINE PUNCHES THE BRANCH CARDS TO BE READ IN AS DATA WHEN    M16.4564
 C)  USING THE 'SEMLYEN RECURSIVE CONVOLUTION' FREQUENCY DEPENDENT LINE. M16.4565
       INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK45.INC'                                           
+      INCLUDE  'DECK29.INC'                                           
       INCLUDE  'LABL45.INC'                                           
       DIMENSION STG(11)                                                 M39.3617
       DIMENSION  LLTEMP(20)                                             M22.6284

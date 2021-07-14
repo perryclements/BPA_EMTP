@@ -1,7 +1,8 @@
       SUBROUTINE SUBR44                                                 M22.6091
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.INC'
+      INCLUDE  'DECK29.INC'                                           
       INCLUDE  'DECK44.INC'                                           
       INCLUDE  'LABL44.INC'                                           
       DIMENSION  LLTEMP(20)                                             M22.6093
@@ -85,7 +86,8 @@ C     LIST-ZERO "KARRAY" IS ALWAYS 1ST, AND MAYBE "OVER29":             M31.6302
      2          NDIM,NTRI,NSQR2)                                        M31.6352
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.INC'
+      INCLUDE  'DECK29.INC'                                                 
       INCLUDE  'DECK44.INC'                                           
       INCLUDE  'LABL44.INC'                                           
       INCLUDE  'VOLT45.INC'    
@@ -2036,7 +2038,8 @@ C     SHUNT IMPEDANCE MATRIX FOR SYMMETRICAL COMP. IS IN P+J*Z.         M14.3869
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'LABL44.INC' 
+      INCLUDE  'DECK29.INC'                                           
       INCLUDE  'DECK44.INC'                                           
       IF ( IPRSUP .GE. 1 )  WRITE (*,*) ' Top "PUNPIE".'                M42.8331
       WRITE (LUNIT7, 1201)                                              M42.8332
@@ -2068,7 +2071,8 @@ C     SHUNT IMPEDANCE MATRIX FOR SYMMETRICAL COMP. IS IN P+J*Z.         M14.3869
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'LABL44.INC'              
+      INCLUDE  'DECK29.INC'                                                 
       INCLUDE  'DECK44.INC' 
       COMMON  /LINEMODEL/ KEXACT, NSOLVE, FMINSV, KBRNUM, NUMRUN
       REAL*8        TEXT1, TEXT2, TEXT3, TEXT4, TEXT5, TEXT6            M32, 327

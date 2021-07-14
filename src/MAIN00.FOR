@@ -1698,3 +1698,50 @@ C)    COLUMN ETC.). Y MUST NOT BE IDENTICAL WITH X.                     M15. 340
       Y(K)=YY                                                           M42. 797
       GO TO 1                                                           M42. 798
       END                                                               M42. 799
+
+!! dummy routines
+      subroutine plot(x,y,i)
+    	return
+    	end
+      subroutine plots(i,j,k)
+  	return
+  	end
+      subroutine factor(x)
+  	return
+  	end
+      subroutine newpen(i)
+  	return
+      end
+!!      subroutine symbol(x,y,z,w,v,i,q,j)
+!!  	return
+!!      end   
+!!      subroutine axis(x,y,z,w,d,g,h,q,a)
+!!  	return
+!!      end
+      subroutine symbol(x,y,z,w,v,i)
+  	return
+      end        
+!!      subroutine axis(x,y,z,w,d,g,h,q)
+!!	return
+!!      end      
+      subroutine number(x,y,z,w,d,i)
+	return
+	end
+      subroutine scale(x,y,i,j,g)
+	return
+	end
+      subroutine line(x,y,i,j,k,l)
+	return
+	end
+      subroutine ancho(i)
+  	return
+  	end
+      subroutine grid1(x,y,i,g,k,h,l)
+  	return
+  	end
+      subroutine movabs(i,j)
+  	return
+  	end
+      subroutine dshabs(i,j,k)
+  	return
+      end      

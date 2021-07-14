@@ -1,8 +1,8 @@
       SUBROUTINE use1
       IMPLICIT REAL*8 (A-H, O-Z),  INTEGER*4 (I-N)
       INCLUDE  'tacsto.ins'
-      INCLUDE  'blkcom.for'  ! WSM + THL
-      INCLUDE  'tacsar.for'  ! WSM + THL
+      INCLUDE  'blkcom.inc'  ! WSM + THL
+      INCLUDE  'tacsar.inc'  ! WSM + THL
       INCLUDE  'labcom.ins'  ! WSM + THL
 CCCC  COMMON  / C0B014 /   SPTACS(  29 )  ! WSM + THL
       sptr=sptr-1

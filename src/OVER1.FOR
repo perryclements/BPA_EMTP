@@ -777,8 +777,8 @@ C     READ INPUT CARD USING CIMAGE                                      M13. 337
  9200 NCHAIN = 51                                                       M42.1152
       LSTAT(18) = 1                                                     M42.1153
  9800 LASTOV = 1                                                        M16. 349
-      N5 = LOCINT ( IDA )                                               M43. 112
-      N6 = LOCINT ( IFKC )                                              M43. 113
+      N5 = LOCINT ( [IDA] )                                               M43. 112
+      N6 = LOCINT ( [IFKC] )                                              M43. 113
 C      write (*,*) ' End over1.  N5, N6, IDA, IFKC =',                  M43. 114
 C     1                          N5, N6, IDA, IFKC                      M43. 115
       IF ( IPRSUP  .GE.  1 )                                            M32. 703
@@ -786,6 +786,7 @@ C     1                          N5, N6, IDA, IFKC                      M43. 115
  4568 FORMAT ( 23H "EXIT  MODULE OVER1." )                              M32. 705
 99999 RETURN                                                            M42.1154
       END                                                               M42.1155
+
       SUBROUTINE TACS1C                                                 M37.1093
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
@@ -2340,7 +2341,7 @@ C     WRITE (*,*)  ' Exit "NMINCR".   N12 =',  N12,  '   TEXTA =', TEXTAM40. 464
  4499 D1 = ALOG1Z(FLTINF)                                               M42.1422
       IUTY(KIUTY+11) = D1 + 0.5                                         M39. 435
 C                                                        $$$  INPUT  $$$M13. 364
-      LBSTAC  =  LOCF( ISMTAC(1) )     -     LOCF( ETAC(1) )            M18. 246
+      LBSTAC  =  LOCINT( ISMTAC(1) )     -     LOCF( ETAC(1) )            M18. 246
       NTOTAC = 0                                                        M13. 366
       NSU = 0                                                           M13. 372
       NSUDV = LSTAT(63)                                                 M39. 436

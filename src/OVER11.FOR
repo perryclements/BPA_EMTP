@@ -801,7 +801,8 @@ C     READ INPUT CARD USING CIMAGE.                                        10437
       WRITE (LUNIT4) ( ( JCH2(I), JCH2(I), I=1, NUMNVO), JJ=1,LTEMP ),
      1               ( ( JCH2(I), JCH2(I), I=1, NUMNVO), JJ = 1,LTEMP),
      1               ( JCH2(I), JCH2(I), I = 1, N74 ),
-     2 (((N8, N9, I=1, NUMNVO),(N18, N19, I=1, NUMNVO)),JJ=1,LTEMP),
+     !!2 (((N8, N9, I=1, NUMNVO),(N18, N19, I=1, NUMNVO)),JJ=1,LTEMP),
+     2 ((N8, N9, I=1, NUMNVO),JJ=1,LTEMP),
      2 (N28, N29, I = 1, N74 ),
      2 (N28, N29, I = 1, N74 )
       IF ( IPRSUP  .GE.  1 )                                            M21.  73

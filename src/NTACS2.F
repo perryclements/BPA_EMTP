@@ -1,8 +1,8 @@
       SUBROUTINE nTACS2
       IMPLICIT REAL*8 (A-H, O-Z),  INTEGER*4 (I-N)
       INCLUDE  'tacsto.ins'        
-      INCLUDE  'blkcom.for'                     ! WSM + THL manual modification for BPA EMTP
-      INCLUDE  'tacsar.for'                     ! WSM + THL manual modification for BPA EMTP
+      INCLUDE  'blkcom.inc'                     ! WSM + THL manual modification for BPA EMTP
+      INCLUDE  'tacsar.inc'                     ! WSM + THL manual modification for BPA EMTP
       INCLUDE  'labcom.INS'                     ! WSM + THL manual modification for BPA EMTP
 CCCC      COMMON  / C0B002 /   YKM   (   1 )    ! WSM + THL manual modification for BPA EMTP
 CCCC      COMMON  / C0B014 /   SPTACS(  29 )    ! WSM + THL manual modification for BPA EMTP

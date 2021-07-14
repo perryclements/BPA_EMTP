@@ -1,5 +1,5 @@
-      COMMON  / C29B01 /   KARRAY(1)
-      COMMON  / C44B02 /   P     (1)
+C      COMMON  / C29B01 /   KARRAY(1)
+      COMMON  / C44B02 /   P     (22155)
       COMMON  / C44B03 /   Z     (1)
       COMMON  / C44B04 /   IC    (1)
       COMMON  / C44B05 /   R     (1)
