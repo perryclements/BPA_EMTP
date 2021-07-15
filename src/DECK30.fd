@@ -1,6 +1,6 @@
       COMMON  / SPAC01 /   TP    (   30000 )
       COMMON  / SPAC02 /   NORDER(    3002 )
-      COMMON  / SPAC03 /   INDEX (    3002 )
+      COMMON  / SPAC03 /   INDEX1 (    3002 )
       COMMON  / SPAC04 /   DIAG  (    3002 )
       COMMON  / SPAC05 /   DIAB  (    3002 )
       COMMON  / SPAC06 /   SOLR  (    3002 )

@@ -1,5 +1,9 @@
 C     000000            DEFINITION OF TABLE NAMES                 000000M22.  15
-      DIMENSION ISBLK (1), INSUP (1), JOUT  (1), ICOLCS(1), ILNTAB(1)   M39.  14
+C      INCLUDE 'LABCOM.fd'
+C      DIMENSION ISBLK (SIZE(SPTACS) * 2)
+C     + , INSUP (SIZE(SPTACS) * 2), JOUT(SIZE(SPTACS) * 2)
+C     + , ICOLCS(SIZE(SPTACS) * 2), ILNTAB(SIZE(SPTACS) * 2)  
+      DIMENSION ISBLK(1), INSUP(1), JOUT(1), ICOLCS(1), ILNTAB(1)
       DIMENSION KSUS  (1), IUTY  (1), IVARB (1)                         M39.  15
       DIMENSION RSBLK (1), UD1   (1), XTCS  (1), ATCS  (1), XAR   (1)   M39.  16
       DIMENSION PARSUP(1), AWKCS (1)                                    M39.  17

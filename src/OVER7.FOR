@@ -4,7 +4,7 @@
       INCLUDE  'BLKCOM.fd'                                           
       INCLUDE  'LABCOM.fd'                                           
       INCLUDE  'SPACE2.fd'                                           
-      DIMENSION LORDER(1), NDEX(1)                                      M31. 906
+      DIMENSION LORDER(SIZE(ICH2)), NDEX(SIZE(E) * 2)                                      M31. 906
       EQUIVALENCE ( ICH2(1), LORDER(1) ),  ( E(1), NDEX(1) )            M31. 907
       EQUIVALENCE ( IOFKOL, IOFGND ), ( IOFKOR, IOFBND )                M33. 605
 C     FOLLOWING CARRIES "NEXT" AMONG OVER6, INSERT, OVER7, & OVER9:     M37.2897
@@ -26,7 +26,7 @@ C     FOLLOWING CARRIES "NEXT" AMONG OVER6, INSERT, OVER7, & OVER9:     M37.2897
       N1 = I + IOFKOL                                                   M19. 800
       N2 = I + IOFKOR                                                   M19. 801
       NDX1 = LSWTCH + I                                                 M32.3020
-      WRITE (LUNIT6, 4055) I, KOLUM(N1),KORDER(N2),KOWNT(I),LOC(I),     M19. 802
+      WRITE (LUNIT6, 4055) I, KOLUM(N1),KORDER(N2),KOWNT(I),LOCX(I),     M19. 802
      1                     KODE(I), KBUS(I),MBUS(I),NR(I),              M32.3021
      2                     LENGTH(I), KMSWIT(I), KMSWIT(NDX1)           M32.3022
  4055 FORMAT(12I8)                                                      M19. 805
@@ -77,7 +77,7 @@ C     NEXT DELETE OBVIOUSLY ZERO-CELL ZEROING OF VECTORS:               M31. 917
       JSUB = NCN + 1                                                    M31. 920
       CALL SUBSCR ( JSUB, LBUS, 220, 1 )                                M31. 921
       I = NDEX(NCN+1)                                                   M42.4657
-      INDEX(NELIM) = IOFFD +1                                           M42.4658
+      INDEX1(NELIM) = IOFFD +1                                           M42.4658
       CALL SUBSCR ( NELIM, LBUS, 220, 2 )                               M31. 922
       IF( IPRSUP .LE. 25 )  GO TO 222                                   M42.4659
       WRITE(LUNIT6, 4061)  NELIM, NCN, IOFFD, NTOT, NCURR, NEXT,        M22.3211
@@ -92,7 +92,7 @@ C     NEXT DELETE OBVIOUSLY ZERO-CELL ZEROING OF VECTORS:               M31. 917
       DO 4066  II = 1, 15                                               M19. 815
       N1 = II + IOFKOL                                                  M19. 816
       N2 = II + IOFKOR                                                  M19. 817
-      WRITE (LUNIT6, 4064) II, KOLUM(N1),KORDER(N2),KOWNT(II),LOC(II),  M19. 818
+      WRITE (LUNIT6, 4064) II, KOLUM(N1),KORDER(N2),KOWNT(II),LOCX(II),  M19. 818
      1                     ICH1(II), ICH2(II), NDEX(II)                 M19. 819
  4064 FORMAT(22X, 8I8)                                                  M19. 820
  4066 CONTINUE                                                          M19. 821
@@ -118,8 +118,8 @@ C     NEXT DELETE OBVIOUSLY ZERO-CELL ZEROING OF VECTORS:               M31. 917
       N1 = I + IOFKOL                                                   M19. 825
       N2 = I + IOFKOR                                                   M19. 826
       IF ( IPRSUP  .GE.  3 )                                            M19. 827
-     1 WRITE (LUNIT6, 5233) I, NORDER(I), INDEX(I), ILOC(I), LORDER(I), M19. 828
-     1                     KOWNT(I), LOC(I), KOLUM(N1), KORDER(N2)      M19. 829
+     1 WRITE (LUNIT6, 5233) I, NORDER(I), INDEX1(I), ILOC(I), LORDER(I), M19. 828
+     1                     KOWNT(I), LOCX(I), KOLUM(N1), KORDER(N2)      M19. 829
  5233 FORMAT(50X, 9I8)                                                  M19. 830
  5235 CONTINUE                                                          M19. 831
       IF (IOFFD .LE. 0)   GO TO 233                                     M42.4673
@@ -132,10 +132,10 @@ C     NEXT DELETE OBVIOUSLY ZERO-CELL ZEROING OF VECTORS:               M31. 917
   233 IF( NELIM .GT. NTOT )  GO TO 5236                                 M42.4678
       DO 236 I = NELIM , NTOT                                           M42.4679
       CALL SUBSCR ( I, LBUS, 233, 1 )                                   M31. 931
-      INDEX(I) = IOFFD +1                                               M42.4680
+      INDEX1(I) = IOFFD +1                                               M42.4680
       K = LORDER(I)                                                     M42.4681
       CALL SUBSCR ( K, LBUS, 233, 2 )                                   M31. 932
-      J = LOC(K)                                                        M42.4682
+      J = LOCX(K)                                                        M42.4682
   234 IF (J .EQ. 0)   GO TO 236                                         M42.4683
       CALL SUBSCR ( J, LSIZ23, 234, 1 )                                 M31. 933
       ISUBS1 =  IOFKOL+J                                                M16.1143
@@ -151,11 +151,11 @@ C     NEXT DELETE OBVIOUSLY ZERO-CELL ZEROING OF VECTORS:               M31. 917
       J = KORDER(ISUBS1)                                                M16.1146
       GO TO 234                                                         M42.4688
   236 CONTINUE                                                          M42.4689
- 5236 INDEX(NTOT+1) = IOFFD + 1                                         M42.4690
+ 5236 INDEX1(NTOT+1) = IOFFD + 1                                         M42.4690
       JSUB = NTOT + 1                                                   M31. 937
       CALL SUBSCR ( JSUB, LBUS, 5236, 1 )                               M31. 938
       IF( IPRSUP .GE. 3 )                                               M42.4691
-     1 WRITE(LUNIT6, 5241)  ( I, NORDER(I), INDEX(I), ILOC(I),          M22.3213
+     1 WRITE(LUNIT6, 5241)  ( I, NORDER(I), INDEX1(I), ILOC(I),          M22.3213
      2   I=1, 20 )                                                      M22.3214
  5241 FORMAT ( /,  65H ARRAYS UPON EXIT FROM  'OVER7' .     ROW  NORDER M42.4692
      1  INDEX    ILOC  ,/,  ( 33X, 4I8 ) )                              M42.4693
@@ -237,8 +237,8 @@ C     ALTER RENUMBERING MAP TO PRODUCE THIS, IF  TSTART  .EQ.  -9988.   M32.3066
   240 NELIM = NELIM +1                                                  M42.4695
       IF (ISCHM .EQ. 1)   GO TO 200                                     M42.4696
       CALL SUBSCR ( I, LBUS, 240, 1 )                                   M31. 939
-      IF (LOC(I) .EQ. 0)   GO TO 200                                    M31. 940
-  260 IST = LOC(I)                                                      M42.4697
+      IF (LOCX(I) .EQ. 0)   GO TO 200                                    M31. 940
+  260 IST = LOCX(I)                                                      M42.4697
       CALL SUBSCR ( I, LBUS, 260, 1 )                                   M31. 941
       JST = IST                                                         M42.4698
       GO TO 290                                                         M42.4699
@@ -253,7 +253,7 @@ C     ALTER RENUMBERING MAP TO PRODUCE THIS, IF  TSTART  .EQ.  -9988.   M32.3066
       ISUBS1 =  IOFKOL+JST                                              M16.1149
       J = KOLUM(ISUBS1)                                                 M16.1150
       CALL SUBSCR ( J, LBUS, 290, 2 )                                   M31. 944
-      JB = LOC(J)                                                       M42.4704
+      JB = LOCX(J)                                                       M42.4704
       ICON = -1                                                         M42.4705
       JBS = 0                                                           M42.4706
   300 IF (JB .EQ. 0)   GO TO 200                                        M42.4707
@@ -314,7 +314,7 @@ C 320 ISUBS1 =  IOFKOR+IB                                               M31. 952
       CALL SUBSCR ( JBT, LSIZ23, 390, 1 )                               M31. 962
       KORDER(ISUBS1)     = MEXT                                         M16.1172
       GO TO 410                                                         M42.4724
-  400 LOC(J) = MEXT                                                     M42.4725
+  400 LOCX(J) = MEXT                                                     M42.4725
       CALL SUBSCR ( J, LBUS, 400, 1 )                                   M31. 963
   410 ISUBS1 =  IOFKOR+IB                                               M16.1173
       CALL SUBSCR ( IB, LSIZ23, 410, 1 )                                M31. 964
@@ -355,7 +355,7 @@ C 440 JBS = JB                                                          M31. 967
       GO TO 790                                                         M42.4739
   490 ISUBS1 =  IOFKOR+JB                                               M16.1184
       CALL SUBSCR ( JB, LSIZ23, 490, 1 )                                M31. 975
-      LOC(J) = KORDER(ISUBS1)                                           M16.1185
+      LOCX(J) = KORDER(ISUBS1)                                           M16.1185
       CALL SUBSCR ( J,  LBUS,   490, 2 )                                M31. 976
       GO TO 790                                                         M42.4740
   500 ISUBS1 =  IOFKOL+JB                                               M16.1186
@@ -406,14 +406,14 @@ C 510 JBS = JB                                                          M31. 979
   590 ISUBS1 =  IOFKOR+JB                                               M16.1207
       CALL SUBSCR ( JB, LSIZ23, 590, 1 )                                M31. 993
       CALL SUBSCR ( J,  LBUS,   590, 2 )                                M31. 994
-      LOC(J) = KORDER(ISUBS1)                                           M16.1208
+      LOCX(J) = KORDER(ISUBS1)                                           M16.1208
       ISUBS1 =  IOFKOR+JB                                               M16.1209
       JB = KORDER(ISUBS1)                                               M16.1210
       GO TO 310                                                         M42.4750
   600 ISUBS1 =  IOFKOL+IB                                               M16.1211
       CALL SUBSCR ( IB, LSIZ23, 600, 1 )                                M31. 995
       IF (KOLUM(ISUBS1)    .EQ. J)   GO TO 620                          M16.1212
-  610 LOC(J) = NEXT                                                     M42.4751
+  610 LOCX(J) = NEXT                                                     M42.4751
       CALL SUBSCR ( J, LBUS, 610, 1 )                                   M31. 996
       JB = NEXT                                                         M42.4752
       MEXT = NEXT                                                       M42.4753
@@ -435,7 +435,7 @@ C 615 GO TO 375    THERE WAS ONLY ONE TRANSFER TO 615                   M31.1004
       CALL SUBSCR ( IB, LSIZ23, 620, 1 )                                M31.1005
       IB = KORDER(ISUBS1)                                               M16.1219
   630 IF (IB .NE. 0)   GO TO 610                                        M42.4755
-  640 LOC(J) = 0                                                        M42.4756
+  640 LOCX(J) = 0                                                        M42.4756
       CALL SUBSCR ( J, LBUS, 640, 1 )                                   M31.1006
       GO TO 790                                                         M42.4757
 C 650 CONTINUE      ELIMINATE "CONTINUE" NOT END OF DO LOOP             M31.1007
@@ -567,7 +567,7 @@ C     CALL SUBSCR  NOT NEEDED HERE (J IS OK;  SEE BELOW 800):           M31.1057
       IF ( K  .GT.  0 )   ICH2(K) = J                                   M31.1071
       ICH2(J) = 0                                                       M42.4785
       GO TO 270                                                         M42.4786
- 1110 JS = LOC(I)                                                       M42.4787
+ 1110 JS = LOCX(I)                                                       M42.4787
       CALL SUBSCR ( I, LBUS, 1110, 1 )                                  M31.1072
       GO TO 1130                                                        M42.4788
  1120 ISUBS1 =  IOFKOR+JS                                               M16.1256
@@ -580,7 +580,7 @@ C     CALL SUBSCR  NOT NEEDED HERE (J IS OK;  SEE BELOW 800):           M31.1057
       J = KOLUM(ISUBS1)                                                 M16.1259
       CALL SUBSCR ( J,  LBUS,   1150, 2 )                               M31.1075
       IF (KOWNT(J) .LT. 0)   GO TO 1120                                 M42.4791
-      KS = LOC(J)                                                       M42.4792
+      KS = LOCX(J)                                                       M42.4792
       LS = KS                                                           M42.4793
       GO TO 1170                                                        M42.4794
  1160 ISUBS1 =  IOFKOR+KS                                               M16.1260
@@ -594,7 +594,7 @@ C     CALL SUBSCR  NOT NEEDED HERE (J IS OK;  SEE BELOW 800):           M31.1057
       K = KOLUM(ISUBS1)                                                 M16.1263
       JB = LS                                                           M42.4798
       CALL SUBSCR ( K,  LBUS,   1190, 2 )                               M31.1078
-      KB = LOC(K)                                                       M42.4799
+      KB = LOCX(K)                                                       M42.4799
  1200 ISUBS1 =  IOFKOL+JB                                               M16.1264
       ISUBS2 =  IOFKOL+KB                                               M16.1265
 C     IF (KOLUM(ISUBS1)    -KOLUM(ISUBS2)   ) 1210, 1250, 1270          M31.1079
@@ -679,7 +679,7 @@ C     CALL SUBSCR ( J, LBUS,  ----- NOT NEEDED.                         M31.1103
  1510 ICON = 0                                                          M42.4826
       CALL SUBSCR ( I, LBUS, 1510, 1 )                                  M31.1115
       IF (KOWNT(I) .LT. 0)   GO TO 170                                  M42.4827
-      KS = LOC(I)                                                       M42.4828
+      KS = LOCX(I)                                                       M42.4828
       LS = KS                                                           M42.4829
  1520 IF (KS .NE. 0)   GO TO 1540                                       M42.4830
  1530 J = ICON / 2                                                      M42.4831
@@ -690,7 +690,7 @@ C     CALL SUBSCR ( J, LBUS,  ----- NOT NEEDED.                         M31.1103
       CALL SUBSCR ( KS, LSIZ23, 1540, 1 )                               M31.1117
       K = KOLUM(ISUBS1)                                                 M16.1286
       JB = LS                                                           M42.4834
-      KB = LOC(K)                                                       M42.4835
+      KB = LOCX(K)                                                       M42.4835
       CALL SUBSCR ( K,  LBUS,   1540, 2 )                               M31.1118
  1550 ISUBS1 =  IOFKOL+JB                                               M16.1287
       ISUBS2 =  IOFKOL+KB                                               M16.1288

@@ -10,15 +10,14 @@ C      COMMON  /SPAC01/   BND   (1)
 C      COMMON  /SPAC10/   ILOC  (1)
 C      COMMON  /SPAC11/   GND   (1)
 	INCLUDE 'DECK30.fd'
-      DIMENSION                               ICH2(1)                   M25.  37
-      EQUIVALENCE                (   DIAG(1), ICH2(1)  )                M25.  37
-      DIMENSION                               LOC(1)                    M22. 483
-      EQUIVALENCE                (   DIAB(1), LOC(1)  )                 M22. 483
-      DIMENSION                                KOWNT(1)                 M32. 102
-      EQUIVALENCE                (   SOLR(1),  KOWNT(1)  )              M32. 102
-      DIMENSION                              KORDER(1)                  M28. 110
-      EQUIVALENCE                (   BND(1), KORDER(1)  )                M28. 110
-      DIMENSION                              KOLUM(1),                  M28. 112
-     1 FRANDN(1), IRANDN(1)                                             M23.  25
-      EQUIVALENCE                (   GND(1), KOLUM(1),                  M28. 112
-     1 FRANDN(1), IRANDN(1)  )                                          M23.  25
+      DIMENSION                  ICH2(SIZE(DIAG) * 2)                   M25.  37
+      EQUIVALENCE                (DIAG(1), ICH2(1))                     M25.  37
+      DIMENSION                  LOCX(SIZE(DIAB) * 2)                    M22. 483
+      EQUIVALENCE                (DIAB(1), LOCX(1))                     M22. 483
+      DIMENSION                  KOWNT(SIZE(SOLR) * 2)                  M32. 102
+      EQUIVALENCE                (SOLR(1),  KOWNT(1))                   M32. 102
+      DIMENSION                  KORDER(SIZE(TP) * 2)                   M28. 110
+      EQUIVALENCE                (TP(1), KORDER(1))                     M28. 110
+      DIMENSION  KOLUM(SIZE(GND) * 2), FRANDN(SIZE(GND))                 M28. 112
+     1 , IRANDN(SIZE(GND) * 2)                                             M23.  25
+      EQUIVALENCE (GND(1), KOLUM(1), FRANDN(1), IRANDN(1))                 M28. 112

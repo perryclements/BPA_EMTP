@@ -466,7 +466,7 @@ C     USE /C29B01/ SPACE FOR THIS, AS WELL AS ALL OF "LABCOM".          M37. 912
 C     ALSO NEEDED ARE UNCOUNTED HOLLERITH.  PARALLEL TO "VECISV".       M37. 913
       INCLUDE  'BLKCOM.fd'                                           
       INCLUDE  'DECK29.fd'                                           
-      DIMENSION  ARRAY(*), FARRAY(1)                                    M34.   5
+      DIMENSION  ARRAY(*), FARRAY(SIZE(KARRAY) / 2)                                    M34.   5
       EQUIVALENCE  ( KARRAY(1),  FARRAY(1) )                            M34.   6
 C     BLOCK /VECCOM/ IS SHARED BY "VECRSV" AND "VECISV".                M34.   7
 C     KOFVEC(KNTVEC) REMEMBERS INDEX FOR KNTVEC-TH DUMPING.             M37. 914
@@ -532,7 +532,7 @@ C     USE /C29B01/ SPACE FOR THIS, AS WELL AS ALL OF "LABCOM".          M37. 951
 C     ALSO NEEDED ARE UNCOUNTED HOLLERITH.  PARALLEL TO "VECISV".       M37. 952
       INCLUDE  'BLKCOM.fd'                                           
       INCLUDE  'DECK29.fd'                                           
-      DIMENSION   FARRAY(1)                                             M34.  58
+      DIMENSION   FARRAY(SIZE(KARRAY) / 2)                                             M34.  58
       EQUIVALENCE  ( KARRAY(1),  FARRAY(1) )                            M34.  59
       DIMENSION  KARR(1)                                                M34.  60
 C     BLOCK /VECCOM/ IS SHARED WITH "VECRSV" (SEE FOR MORE INFO)        M34.  61

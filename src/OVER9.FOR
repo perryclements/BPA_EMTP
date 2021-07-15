@@ -105,7 +105,7 @@ C     FOLLOWING CARRIES "NEXT" AMONG OVER6, INSERT, OVER7, & OVER9:     M37.3694
       JBRT = LAST                                                       M42.5890
       ISUBS1 =  IOFKOR+1                                                M16.1386
       CALL MOVE0 ( KORDER(ISUBS1)  , JBRT )                             M16.1387
-      CALL MOVE0 ( LOC(1), NTOT )                                       M42.5891
+      CALL MOVE0 ( LOCX(1), NTOT )                                       M42.5891
       I = 1                                                             M42.5892
       GO TO 1160                                                        M42.5893
  1150 I = II + 1                                                        M42.5894
@@ -144,10 +144,10 @@ C     1                      .AND. IMODEL(I) .NE. -4)                   M43.1110
  1370 IF (L .GT. II) GO TO 1220                                         M42.5922
       M = IABS(MBUS(L))                                                 M42.5923
       IF (M .EQ. K  .OR.  M .LT. 1)   GO TO 1360                        M42.5924
- 1400 KF = LOC(K)                                                       M42.5925
+ 1400 KF = LOCX(K)                                                       M42.5925
       IF (KF .EQ. 0) GO TO 1420                                         M42.5926
       GO TO 1440                                                        M42.5927
- 1420 LOC(K) = NEXT                                                     M42.5928
+ 1420 LOCX(K) = NEXT                                                     M42.5928
       GO TO 1480                                                        M42.5929
  1430 ISUBS1 =  IOFKOR+KF                                               M16.1388
       KF = KORDER(ISUBS1)                                               M16.1389
@@ -175,7 +175,7 @@ C     1                      .AND. IMODEL(I) .NE. -4)                   M43.1110
  1490 GO TO (1280, 1360),JSW                                            M42.5937
  1500 DO 1550  I=2, NTOT                                                M42.5938
       IK = 0                                                            M42.5939
-      IL = LOC(I)                                                       M42.5940
+      IL = LOCX(I)                                                       M42.5940
  1530 IF (IL .EQ. 0) GO TO 1550                                         M42.5941
       IK = IK + 1                                                       M42.5942
       ISUBS1 =  IOFKOR+IL                                               M16.1402
@@ -341,7 +341,7 @@ C     CURRENT SOURCE TREATED AS VOLTAGE SOURCE FOR S.S. :               M31.2438
       J = KMSWIT(NDX3)                                                  M32.3308
       IF ( I .GT. J )  I = J                                            M32.3309
  2530 J = IABS(KODE(I))                                                 M42.6060
- 2540 L = LOC(I)                                                        M42.6061
+ 2540 L = LOCX(I)                                                        M42.6061
       IF (L .NE. 0)   GO TO 2560                                        M42.6062
       ISUBS1 =  IOFKOR+NEXT                                             M16.1408
       NX = KORDER(ISUBS1)                                               M16.1409
@@ -349,7 +349,7 @@ C     CURRENT SOURCE TREATED AS VOLTAGE SOURCE FOR S.S. :               M31.2438
       KOLUM(ISUBS1)      = J                                            M16.1411
       ISUBS1 =  IOFKOR+NEXT                                             M16.1412
       KORDER(ISUBS1)      = 0                                           M16.1413
-      LOC(I) = NEXT                                                     M42.6063
+      LOCX(I) = NEXT                                                     M42.6063
       NEXT = NX                                                         M42.6064
       IF (KODE(I) .GE. 0)   KOWNT(I) = 1                                M42.6065
       GO TO 2610                                                        M42.6066
@@ -385,7 +385,7 @@ C     CURRENT SOURCE TREATED AS VOLTAGE SOURCE FOR S.S. :               M31.2438
       KOLUM(ISUBS1)   = J                                               M16.1439
       NEXT = NX                                                         M42.6071
  2600 IF( KOWNT(I)  .NE.  (-1) )  KOWNT(I) = KOWNT(I) + 1               M42.6072
- 2610 L = LOC(J)                                                        M42.6073
+ 2610 L = LOCX(J)                                                        M42.6073
       IF (L .NE. 0)   GO TO 2630                                        M42.6074
       ISUBS1 =  IOFKOR+NEXT                                             M16.1440
       NX = KORDER(ISUBS1)                                               M16.1441
@@ -393,7 +393,7 @@ C     CURRENT SOURCE TREATED AS VOLTAGE SOURCE FOR S.S. :               M31.2438
       KOLUM(ISUBS1)      = I                                            M16.1443
       ISUBS1 =  IOFKOR+NEXT                                             M16.1444
       KORDER(ISUBS1)      = 0                                           M16.1445
-      LOC(J) = NEXT                                                     M42.6075
+      LOCX(J) = NEXT                                                     M42.6075
       NEXT = NX                                                         M42.6076
       IF (KODE(J) .GE. 0)   KOWNT(J) = 1                                M42.6077
       GO TO 2690                                                        M42.6078

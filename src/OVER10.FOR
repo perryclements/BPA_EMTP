@@ -15,15 +15,15 @@
 c 3456789012345678901234567890123456789012345678901234567890123456789012M44. 732
       CALL MOVER0 ( SOLI(1), N14 )                                      M35.1206
       DO 3009 I = 1, NTOT                                                       
-      IA = INDEX(I)                                                             
+      IA = INDEX1(I)                                                             
       GO TO 3003                                                                
  3002 IA = IA +1                                                                
- 3003 IF (IA .EQ. INDEX(I+1))                                           M42.6111
+ 3003 IF (IA .EQ. INDEX1(I+1))                                           M42.6111
      1                   GO TO 3009                                             
       IB = ILOC(IA)                                                             
       IC = IA                                                                   
  3005 IC = IC +1                                                                
-      IF (IC .EQ. INDEX(I+1)) GO TO 3002                                        
+      IF (IC .EQ. INDEX1(I+1)) GO TO 3002                                        
       IF (IB .LE. ILOC(IC)) GO TO 3005                                          
       ILOC(IA) = ILOC(IC)                                                       
       ILOC(IC) = IB                                                             
@@ -40,7 +40,7 @@ c 3456789012345678901234567890123456789012345678901234567890123456789012M44. 732
       IF ( IA  .LT.  IBR )   IA = IBR                                   M42.6125
       IF ( IA  .LT.  IT )   IA = IT                                     M42.6126
       IF( IPRSUP .GE. 3 )                                               M42.6127
-     1 WRITE(LUNIT6,1139) ( I,NORDER(I), INDEX(I), ILOC(I),             M22.3250
+     1 WRITE(LUNIT6,1139) ( I,NORDER(I), INDEX1(I), ILOC(I),             M22.3250
      2  KBUS(I), KODE(I),  MBUS(I), NR(I), KODEBR(I), LENGTH(I),        M22.3251
      3  TR(I), TX(I), C(I), I=1, IA )                                   M22.3252
  1139 FORMAT ( //,  33H ARRAYS AT BEGINNING OF  OVER10 .   ,/,          M42.6128
@@ -102,7 +102,7 @@ C                                                                       M44. 736
       GO TO 3140                                                        M42.6145
  3130 IN = IC                                                                   
       IM = IG                                                                   
- 3140 IA = INDEX(IM)                                                            
+ 3140 IA = INDEX1(IM)                                                            
       IF (NR(I) .GE. 0) GO TO 3220                                              
       IF (C(J) .EQ. 0.0)   GO TO 3164                                           
       XX = TX(J)*OMEGAL -1.0/(C(J)*OMEGAC)                              M42.6151
@@ -113,7 +113,7 @@ C                                                                       M44. 736
       BB = -XX/DD                                                               
       GO TO 3180                                                        M42.6157
  3170 IA = IA + 1                                                       M42.6158
- 3180 IF (IA .LT. INDEX(IM + 1)) GO TO 3200                                     
+ 3180 IF (IA .LT. INDEX1(IM + 1)) GO TO 3200                                     
       LSTAT(19) = 3180                                                  M15. 761
       GO TO 3112                                                        M42.6160
  3200 IF (ILOC(IA) .NE. IN)                                             M42.6161
@@ -133,7 +133,7 @@ C                                                                       M44. 736
       BB = -XX/DD                                                       M42.6166
       GO TO 3240                                                        M42.6167
  3230 IA = IA + 1                                                       M42.6168
- 3240 IF (IA .LT. INDEX(IM + 1)) GO TO 3260                             M42.6169
+ 3240 IF (IA .LT. INDEX1(IM + 1)) GO TO 3260                             M42.6169
       LSTAT(19) = 3240                                                  M15. 762
       GO TO 3112                                                        M42.6170
  3260 IF (ILOC(IA).NE.IN)                                               M42.6171
@@ -351,10 +351,10 @@ C                                                                       M44. 756
       GO TO 4110                                                        M42.6317
  4030 MNA1B1 = NB1                                                      M42.6318
       MXA1B1 = NA1                                                      M42.6319
- 4040 L = INDEX(MNA1B1)                                                         
+ 4040 L = INDEX1(MNA1B1)                                                         
       GO TO 4060                                                                
  4050 L = L + 1                                                                 
- 4060 IF (L .LT. INDEX(MNA1B1+1))                                       M42.6323
+ 4060 IF (L .LT. INDEX1(MNA1B1+1))                                       M42.6323
      1             GO TO 4080                                                   
       KILL = 19                                                         M42.6324
       LSTAT(19) = 4080                                                  M15. 763
@@ -382,10 +382,10 @@ C                                                                       M44. 756
       GO TO 4220                                                        M42.6336
  4140 MNA1B2 = NB2                                                      M42.6337
       MXA1B2 = NA1                                                      M42.6338
- 4150 L = INDEX(MNA1B2)                                                 M42.6339
+ 4150 L = INDEX1(MNA1B2)                                                 M42.6339
       GO TO 4170                                                        M42.6340
  4160 L = L + 1                                                         M42.6341
- 4170 IF (L .LT. INDEX(MNA1B2 + 1)) GO TO 4190                          M42.6342
+ 4170 IF (L .LT. INDEX1(MNA1B2 + 1)) GO TO 4190                          M42.6342
       LSTAT(19) = 4170                                                  M15. 764
       GO TO 3112                                                        M42.6343
  4190 M = ILOC(L)                                                       M42.6344
@@ -408,10 +408,10 @@ C                                                                       M44. 756
       GO TO 4330                                                        M42.6354
  4250 MNA2B1 = NB1                                                      M42.6355
       MXA2B1 = NA2                                                      M42.6356
- 4260 L = INDEX(MNA2B1)                                                 M42.6357
+ 4260 L = INDEX1(MNA2B1)                                                 M42.6357
       GO TO 4280                                                        M42.6358
  4270 L = L + 1                                                         M42.6359
- 4280 IF (L .LT. INDEX(MNA2B1+1)) GO TO 4300                            M42.6360
+ 4280 IF (L .LT. INDEX1(MNA2B1+1)) GO TO 4300                            M42.6360
       LSTAT(19) = 4280                                                  M15. 765
       GO TO 3112                                                        M42.6361
  4300 M = ILOC(L)                                                       M42.6362
@@ -435,10 +435,10 @@ C                                                                       M44. 756
       GO TO 3430                                                        M42.6373
  4360 MNA2B2 = NB2                                                      M42.6374
       MXA2B2 = NA2                                                      M42.6375
- 4370 L = INDEX(MNA2B2)                                                 M42.6376
+ 4370 L = INDEX1(MNA2B2)                                                 M42.6376
       GO TO 4390                                                        M42.6377
  4380 L = L + 1                                                         M42.6378
- 4390 IF (L .LT. INDEX(MNA2B2+1)) GO TO 4410                            M42.6379
+ 4390 IF (L .LT. INDEX1(MNA2B2+1)) GO TO 4410                            M42.6379
       KILL = 20                                                         M42.6380
       LSTAT(19) = 4410                                                  M15. 766
       GO TO 9999                                                        M42.6381
@@ -468,12 +468,12 @@ C                                                      end of [y] budingM44. 761
       GO TO 3380                                                        M42.6391
  3370 IN = NA1                                                          M42.6392
       IM = NA2                                                          M42.6393
- 3380 IA = INDEX(IM)                                                    M42.6394
+ 3380 IA = INDEX1(IM)                                                    M42.6394
       GG = TR(K)                                                        M42.6395
       BB = TX(K)                                                        M42.6396
       GO TO 3400                                                        M42.6397
  3390 IA = IA + 1                                                       M42.6398
- 3400 IF (IA .LT. INDEX(IM + 1)) GO TO 3410                             M42.6399
+ 3400 IF (IA .LT. INDEX1(IM + 1)) GO TO 3410                             M42.6399
       LSTAT(19) = 3400                                                  M15. 768
       GO TO 3112                                                        M42.6400
  3410 IF (ILOC(IA) .NE. IN) GO TO 3390                                  M42.6401
@@ -508,13 +508,13 @@ C                                                                       M44. 763
       NROW2 = KBUS(N2)                                                  M19. 889
       NROW2=NORDER(NROW2)                                               M42.6420
       IF(NROW1.GT.NROW2)GOTO43420                                       M42.6421
-      ISTART=INDEX(NROW1)                                               M42.6422
-      ISTOP=INDEX(NROW1+1)-1                                            M42.6423
+      ISTART=INDEX1(NROW1)                                               M42.6422
+      ISTOP=INDEX1(NROW1+1)-1                                            M42.6423
       DO 43403 IY=ISTART,ISTOP                                          M42.6424
       IF(NROW2.EQ.ILOC(IY))GOTO43404                                    M42.6425
 43403 CONTINUE                                                          M42.6426
-43420 ISTART=INDEX(NROW2)                                               M42.6427
-      ISTOP=INDEX(NROW2+1)-1                                            M42.6428
+43420 ISTART=INDEX1(NROW2)                                               M42.6427
+      ISTOP=INDEX1(NROW2+1)-1                                            M42.6428
       DO 43410 IY=ISTART,ISTOP                                          M42.6429
       IF(NROW1.EQ.ILOC(IY))GOTO43404                                    M42.6430
 43410 CONTINUE                                                          M42.6431
@@ -529,13 +529,13 @@ C                                                                       M44. 763
       NROW2 = MBUS(N3)                                                  M19. 891
       NROW2=NORDER(NROW2)                                               M42.6435
       IF(NROW1.GT.NROW2)GOTO43412                                       M42.6436
-      ISTART=INDEX(NROW1)                                               M42.6437
-      ISTOP=INDEX(NROW1+1)-1                                            M42.6438
+      ISTART=INDEX1(NROW1)                                               M42.6437
+      ISTOP=INDEX1(NROW1+1)-1                                            M42.6438
       DO 43405 IY=ISTART,ISTOP                                          M42.6439
       IF(NROW2.EQ.ILOC(IY))GOTO43406                                    M42.6440
 43405 CONTINUE                                                          M42.6441
-43412 ISTART=INDEX(NROW2)                                               M42.6442
-      ISTOP=INDEX(NROW2+1)-1                                            M42.6443
+43412 ISTART=INDEX1(NROW2)                                               M42.6442
+      ISTOP=INDEX1(NROW2+1)-1                                            M42.6443
       DO 43414 IY=ISTART,ISTOP                                          M42.6444
       IF(NROW1.EQ.ILOC(IY))GOTO43406                                    M42.6445
 43414 CONTINUE                                                          M42.6446
@@ -559,13 +559,13 @@ C                                                                       M44. 763
       NROW2 = MBUS(N2)                                                  M19. 895
       NROW2=NORDER(NROW2)                                               M42.6457
       IF(NROW1.GT.NROW2)GOTO43415                                       M42.6458
-      ISTART=INDEX(NROW1)                                               M42.6459
-      ISTOP=INDEX(NROW1+1)-1                                            M42.6460
+      ISTART=INDEX1(NROW1)                                               M42.6459
+      ISTOP=INDEX1(NROW1+1)-1                                            M42.6460
       DO 43408 IY=ISTART,ISTOP                                          M42.6461
       IF(NROW2.EQ.ILOC(IY))GOTO43409                                    M42.6462
 43408 CONTINUE                                                          M42.6463
-43415 ISTART=INDEX(NROW2)                                               M42.6464
-      ISTOP=INDEX(NROW2+1) -1                                           M42.6465
+43415 ISTART=INDEX1(NROW2)                                               M42.6464
+      ISTOP=INDEX1(NROW2+1) -1                                           M42.6465
       DO 43416 IY=ISTART,ISTOP                                          M42.6466
       IF(NROW1.EQ.ILOC(IY))GOTO43409                                    M42.6467
 43416 CONTINUE                                                          M42.6468
@@ -604,7 +604,7 @@ C                                                                       M44. 766
       N1 = IOFGND + 1                                                           
       N2 = IOFBND + 1                                                           
       DO 4516  I=1, N3                                                          
-      WRITE(LUNIT6, 4514)  I, ILOC(I), INDEX(I), GND(N1), BND(N2),      M17. 507
+      WRITE(LUNIT6, 4514)  I, ILOC(I), INDEX1(I), GND(N1), BND(N2),      M17. 507
      1 DIAG(I), DIAB(I)                                                 M42.6487
  4514 FORMAT( 3I10, 2E20.8, 5X, 2E20.8 )                                M42.6488
       N1 = N1 + 1                                                               
@@ -762,7 +762,7 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
       IF (KODE(I) .GT. I) GO TO 5170                                            
       YY = DIAG(I)*DIAG(I) + DIAB(I)*DIAB(I)                                    
       IF( IPRSUP .GE. 6 )                                               M42.6564
-     1 WRITE(LUNIT6, 5023)  I, NCURR, INDEX(I), INDEX(I+1),             M22.3254
+     1 WRITE(LUNIT6, 5023)  I, NCURR, INDEX1(I), INDEX1(I+1),             M22.3254
      2  DIAG(I), DIAB(I)                                                M22.3255
  5023 FORMAT ( 41H NEW ROW  I  OF STEADY-STATE ELIMINATION.  ,          M42.6565
      1 7X, 1HI, 3X, 5HNCURR, 4X, 8HINDEX(I), 2X, 10HINDEX(I+1),         M42.6566
@@ -800,14 +800,14 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
       GO TO 15045                                                       M12. 414
  5045 DIAG(I) = DIAG(I) / YY                                               10022
       DIAB(I) = -DIAB(I)/YY                                                10023
-15045 II = INDEX(I)                                                     M12. 415
+15045 II = INDEX1(I)                                                     M12. 415
       GO TO 5060                                                           10025
  5050 ISUBS1 =  IOFGND+II                                               M16.1517
       GND(ISUBS1)    = GJ                                               M16.1518
       ISUBS1 =  IOFBND+II                                               M16.1519
       BND(ISUBS1)    = BJ                                               M16.1520
       II = II + 1                                                          10028
- 5060 IF (II .EQ. INDEX(I+1))GO TO 5010                                    10029
+ 5060 IF (II .EQ. INDEX1(I+1))GO TO 5010                                    10029
       J = ILOC(II)                                                         10030
       ISUBS1 =  IOFGND+II                                               M16.1521
       ISUBS2 =  IOFBND+II                                               M16.1522
@@ -837,13 +837,13 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
       SOLI(N12) = SOLI(N12) - GJ*SOLI(N13) - BJ*SOLR(N13)               M31.2541
       NL = NL + NTOT                                                    M31.2542
       IF ( NL  .LE.  LOOPSS(2) )   GO TO 5068                           M31.2543
- 5072 JA = INDEX(J)                                                        10044
+ 5072 JA = INDEX1(J)                                                        10044
       IA = II +1                                                           10045
- 5080 IF (IA .EQ. INDEX(I+1)) GO TO 5050                                   10046
+ 5080 IF (IA .EQ. INDEX1(I+1)) GO TO 5050                                   10046
       IK = ILOC(IA)                                                        10047
       GO TO 5110                                                           10048
  5100 JA = JA + 1                                                          10049
- 5110 IF (JA .LT. INDEX(J+1)) GO TO 5130                                   10050
+ 5110 IF (JA .LT. INDEX1(J+1)) GO TO 5130                                   10050
       LSTAT(19) = 5110                                                  M15. 771
       GO TO 3112                                                           10052
  5130 JK = ILOC(JA)                                                        10053
@@ -869,12 +869,12 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
       IA = IA + 1                                                          10063
       JA = JA + 1                                                          10064
       GO TO 5080                                                           10065
- 5170 II = INDEX(I)                                                        10066
+ 5170 II = INDEX1(I)                                                        10066
       J = KODE(I)                                                          10067
-      JJ = INDEX(J)                                                        10068
+      JJ = INDEX1(J)                                                        10068
       GO TO 5190                                                           10069
  5180 II = II + 1                                                          10070
- 5190 IF (II .GE. INDEX(I+1)) GO TO 5360                                   10071
+ 5190 IF (II .GE. INDEX1(I+1)) GO TO 5360                                   10071
       IA = ILOC(II)                                                        10072
       N1 = IA - J                                                          10073
       IF( N1 .GT. 0 )  GO TO 5230                                          10074
@@ -884,9 +884,9 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
       ISUBS1 =  IOFBND+II                                               M16.1554
       DIAB(J) = DIAB(J) + DIAB(I) + 2.*BND(ISUBS1)                      M16.1555
       GO TO 5180                                                           10078
- 5230 IF (JJ .LT. INDEX(J+1)) GO TO 5250                                   10079
+ 5230 IF (JJ .LT. INDEX1(J+1)) GO TO 5250                                   10079
       IF( IPRSUP .GE. 1 )                                                  10080
-     1 WRITE(LUNIT6, 5231)  ( INDEX(I), ILOC(I), I=1, 40 )              M17. 517
+     1 WRITE(LUNIT6, 5231)  ( INDEX1(I), ILOC(I), I=1, 40 )              M17. 517
  5231 FORMAT( /, 9H AT 5231   ,/, ( 1X, 10I12 ) )                          10082
       LSTAT(19) = 5231                                                  M15. 772
       GO TO 3112                                                           10084
@@ -902,15 +902,15 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
       BND(ISUBS1)    = BND(ISUBS1)    + BND(ISUBS2)                     M16.1561
       JJ = JJ + 1                                                          10091
       GO TO 5180                                                           10092
- 5300 KKK = INDEX(IA)                                                      10093
+ 5300 KKK = INDEX1(IA)                                                      10093
       GO TO 5320                                                           10094
  5310 KKK = KKK + 1                                                        10095
-      IF (KKK .LT. INDEX(IA+1))   GO TO 5320                               10096
+      IF (KKK .LT. INDEX1(IA+1))   GO TO 5320                               10096
       KILL = 24                                                            10097
       LSTAT(19) = 5320                                                  M15. 773
       LSTAT(16) = KKK                                                      10099
       LSTAT(15) = IA                                                       10100
-      LSTAT(14) = INDEX(IA+1)                                              10101
+      LSTAT(14) = INDEX1(IA+1)                                              10101
       GO TO 9999                                                           10102
  5320 KA = ILOC(KKK)                                                       10103
       IF (KA .NE. J)   GO TO 5310                                          10104
@@ -938,8 +938,8 @@ C     ASSIGN UNIT CURRENT SOURCES TO BEGIN THEVENIN CALCULATION:        M31.2482
  5757 I = NCURR                                                         M35.1233
  5510 IF (I .EQ. 0) GO TO 6000                                             10113
       IF (KODE(I) .GT. I) GO TO 5560                                       10114
-      II = INDEX(I)                                                        10115
- 5540 IF (II .EQ. INDEX(I+1)) GO TO 5570                                   10116
+      II = INDEX1(I)                                                        10115
+ 5540 IF (II .EQ. INDEX1(I+1)) GO TO 5570                                   10116
       J = ILOC(II)                                                         10117
       ISUBS1 =  IOFGND+II                                               M16.1568
       ISUBS2 =  IOFBND+II                                               M16.1569
@@ -1087,8 +1087,8 @@ C     BEGIN CALCULATION OF NODE CURRENTS                                M36.1143
  7350 IF( I .GT. NTOT )  GO TO 7390                                             
       VR = SOLR(I)                                                      M36.1160
       VI = SOLI(I)                                                      M36.1161
-      JJ = INDEX(I)                                                     M36.1162
-      KKK = INDEX(I+1)                                                  M36.1163
+      JJ = INDEX1(I)                                                     M36.1162
+      KKK = INDEX1(I+1)                                                  M36.1163
       E(I) = E(I)  +  DIAGG(I)*VR - DIABB(I)*VI                         M36.1164
       F(I) = F(I)  +  DIAGG(I)*VI + DIABB(I)*VR                         M36.1165
       GO TO 7370                                                        M36.1166
@@ -1099,8 +1099,8 @@ C     BEGIN CALCULATION OF NODE CURRENTS                                M36.1143
       DEI = GNDD(JJ)   *VI + BNDD(JJ)   *VR                             M36.1171
       E(J) = E(J) + DER                                                 M36.1172
       F(J) = F(J) + DEI                                                 M36.1173
-      E(I) = E(I)  +  GNDD(JJ)   *SOLR(J) - BNDD(JJ)   *SOLI(J)         M36.1174
-      F(I) = F(I)  +  GNDD(JJ)   *SOLI(J) + BNDD(JJ)   *SOLR(J)         M36.1175
+      E(I) = E(I)  +  GNDD(JJ) *SOLR(J) - BNDD(JJ) *SOLI(J)             M36.1174
+      F(I) = F(I)  +  GNDD(JJ) *SOLI(J) + BNDD(JJ) *SOLR(J)             M36.1175
       GO TO 7360                                                        M36.1176
  7380 I = I + 1                                                         M36.1177
       GO TO 7350                                                        M36.1178
@@ -1267,8 +1267,8 @@ C     CALCULATION OF VOLTAGE CHANGE                                     M36.1289
       I = NCURR                                                                 
  5510 IF (I .EQ. 0) GO TO 1000                                                  
       IF (KODE(I) .GT. I) GO TO 5560                                    M36.1327
-      II = INDEX(I)                                                     M36.1328
- 5540 IF (II .EQ. INDEX(I+1)) GO TO 5570                                M36.1329
+      II = INDEX1(I)                                                     M36.1328
+ 5540 IF (II .EQ. INDEX1(I+1)) GO TO 5570                                M36.1329
       J = ILOC(II)                                                      M36.1330
       ISUBS1 =  IOFGND+II                                               M36.1331
       ISUBS2 =  IOFBND+II                                               M36.1332

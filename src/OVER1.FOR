@@ -2069,7 +2069,7 @@ C     FOR EXPLICIT DIRECTORY (E.G., "[PLT]" ), IF DESIRED.              M28.1840
       IF (ICAT .GT. 2) GO TO 120                                        M24. 352
   100 CLOSE (UNIT=LUNIT4, DISPOSE='SAVE')                               M29.1146
       GO TO 140                                                         M24. 354
-  120 CLOSE (UNIT=LUNIT4, DISPOSE='DELETE')                             M29.1147
+  120 CLOSE (UNIT=LUNIT4, DISPOSE='SAVE')                               M29.1147
   140 CONTINUE                                                          M24. 356
       CLOSE ( UNIT=LUNIT9 )                                             M35. 605
       CLOSE ( UNIT=LUNT10 )                                             M35. 606
@@ -2079,10 +2079,7 @@ C     FOR EXPLICIT DIRECTORY (E.G., "[PLT]" ), IF DESIRED.              M28.1840
       CLOSE ( UNIT=LUNT14 )                                             M35. 610
       CLOSE ( UNIT=LUNT15 )                                             M35. 611
  !!1342 OPEN (UNIT=LUNIT1, TYPE='NEW', FORM='FORMATTED')                  M36. 313
- 1342 open(unit=LUNIT1, iostat=nstat, file='fort.1', status='old')
-      if (nstat == 0) then
-          close(LUNIT1, status='delete')
-      endif    
+ 1342 open(unit=LUNIT1, iostat=nstat, TYPE='SCRATCH', action='write')
       OPEN (UNIT=LUNIT2, TYPE='SCRATCH', FORM='FORMATTED',              M29.1150
      1      DISPOSE='DELETE' )                                          M29.1151
       OPEN ( UNIT=LUNIT3, TYPE='SCRATCH', FORM='UNFORMATTED',           M35. 612
@@ -2123,23 +2120,25 @@ C     ACCORDING TO 1ST APPEARANCE (SIZE OF VARDIM OUTPUT):              M31. 347
      1          ' DIGITAL (DEC) VAX-11/780 TRANSLATION AS',             M25. 192
      2          ' USED BY BPA IN PORTLAND, OREGON  97208;',             M28.1845
      3          '  USA.'  )                                             M28.1846
-      DECODE (4, 3641, DATE1(1) ) COL(25), COL(6), COL(7)               M24. 412
- 3641 FORMAT (2A1, 1X, A1)                                              M24. 413
-      IF ( COL(25)  .EQ.  '0' ) GO TO 3642                              M35. 620
-      IF ( COL(6)   .EQ.  '0' ) COL(6) = LETTRA                         M35. 621
-      IF ( COL(6)   .EQ.  '1' ) COL(6) = LETTRB                         M35. 622
-      IF ( COL(6)   .EQ.  '2' ) COL(6) = LETTRC                         M35. 623
- 3642 CONTINUE                                                          M25. 194
-      DECODE (4, 3641, DATE1(2) ) COL(8)                                M25. 195
-      DECODE (16, 3652, TCLOCK(1) ) ( COL(J), J=9, 14 )                 M24. 419
- 3652 FORMAT (2A1, 1X, A1, 4X, A1, 1X, 2A1 )                            M24. 420
-      WRITE (ANSI32, 3668)  ( COL(J), J=1, 18 )                         M36. 314
- 3668 FORMAT ( 18A1, 14X )                                              M36. 315
+ !!     DECODE (4, 3641, DATE1(1) ) COL(25), COL(6), COL(7)               M24. 412
+ !!3641 FORMAT (2A1, 1X, A1)                                              M24. 413
+ !!     IF ( COL(25)  .EQ.  '0' ) GO TO 3642                              M35. 620
+ !!     IF ( COL(6)   .EQ.  '0' ) COL(6) = LETTRA                         M35. 621
+ !!     IF ( COL(6)   .EQ.  '1' ) COL(6) = LETTRB                         M35. 622
+ !!     IF ( COL(6)   .EQ.  '2' ) COL(6) = LETTRC                         M35. 623
+ !!3642 CONTINUE                                                          M25. 194
+ !!     DECODE (4, 3641, DATE1(2) ) COL(8)                                M25. 195
+ !!     DECODE (16, 3652, TCLOCK(1) ) ( COL(J), J=9, 14 )                 M24. 419
+ !!3652 FORMAT (2A1, 1X, A1, 4X, A1, 1X, 2A1 )                            M24. 420
+ !!     WRITE (ANSI32, 3668)  ( COL(J), J=1, 18 )                         M36. 314
+ !!3668 FORMAT ( 18A1, 14X )                                              M36. 315
+      WRITE (ANSI32, '(A,A)') TRIM(ANSI32), '.pl4'
       IF (IPRSUP .GE. 1 )                                               M24. 423
      1 WRITE (LUNIT6, 3672) ANSI32                                      M36. 316
  3672 FORMAT ( /,  ' IN  #SYSDEP# ,   ANSI32 =',  A32 )                 M36. 317
-      OPEN (UNIT=LUNIT4, STATUS='NEW', FILE=ANSI32,                     M36. 318
-     2       FORM='UNFORMATTED')                                        M29.1156
+      
+      OPEN (UNIT=LUNIT4, FILE=ANSI32, FORM='UNFORMATTED'                    M36. 318
+     2       , action='write')                                          M29.1156
       BLANK = BUSNM1                                                    M24. 427
       TRASH = BUSNM2                                                    M24. 428
       TERRA = BUSNM3                                                    M24. 429

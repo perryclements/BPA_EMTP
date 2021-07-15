@@ -323,8 +323,8 @@ C              MULTIPLE  PI  SECTION  CALCULATIONS                         10268
       DO 7380  I=1, NTOT                                                M36.1386
       VR = SOLR(I)                                                         10371
       VI = SOLI(I)                                                         10372
-      JJ = INDEX(I)                                                        10373
-      KKK = INDEX(I+1)                                                     10374
+      JJ = INDEX1(I)                                                        10373
+      KKK = INDEX1(I+1)                                                     10374
       E(I) = E(I)  +  DIAG(I)*VR - DIAB(I)*VI                              10376
       F(I) = F(I)  +  DIAG(I)*VI + DIAB(I)*VR                              10377
       GO TO 7370                                                           10378
@@ -514,9 +514,9 @@ C              MULTIPLE  PI  SECTION  CALCULATIONS                         10268
      5  15H    QK (VARS)  ,  15H  POWER FACTOR      )                   M32.3595
  8350 DO 7400  K=1, NTOT                                                M32.3596
       J = NORDER(K)                                                        10394
- 7400 INDEX(J) = K                                                         10395
+ 7400 INDEX1(J) = K                                                         10395
       IF ( IPRSUP  .GE.  3 )                                            M31.2642
-     1 WRITE(LUNIT6, 7401)  ( I, NORDER(I), INDEX(I), KODE(I), E(I),    M17. 526
+     1 WRITE(LUNIT6, 7401)  ( I, NORDER(I), INDEX1(I), KODE(I), E(I),    M17. 526
      1 F(I), DIAG(I), DIAB(I), I=1, NTOT )                                 10398
  7401 FORMAT ( /,  1X,                                                  M31.2643
      1  32H     ROW  NORDER   INDEX    KODE,  14X, 1HE,  14X,           M31.2644
@@ -529,13 +529,13 @@ C              MULTIPLE  PI  SECTION  CALCULATIONS                         10268
       F(J) = F(J) + F(I)                                                   10405
       GO TO 7440                                                           10406
  7410 L = 1                                                                10407
-      KKK = INDEX(I)                                                       10408
+      KKK = INDEX1(I)                                                       10408
       IF( KKK .EQ. 1 )  GO TO 7440                                         10409
       AUPPER(1) = BUS(KKK)                                              M11. 122
  7420 IF( J .GE. I )  GO TO 7430                                           10411
       IF ( L  .LT.  13 )                                                M12. 421
      1 L = L + 1                                                        M12. 422
-      KKK = INDEX(J)                                                       10413
+      KKK = INDEX1(J)                                                       10413
       AUPPER(L) = BUS(KKK)                                              M11. 123
       IF ( AUPPER(L)  .EQ.  BLANK )                                     M32.3597
      1 AUPPER(L) = TERRA                                                M32.3598

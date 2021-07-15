@@ -3,7 +3,7 @@
       INCLUDE  'tacsto.ins'        
       INCLUDE  'blkcom.fd'                     ! WSM + THL manual modification for BPA EMTP
       INCLUDE  'tacsar.fd'                     ! WSM + THL manual modification for BPA EMTP
-      INCLUDE  'labcom.INS'                     ! WSM + THL manual modification for BPA EMTP
+      INCLUDE  'labcom.ins'                     ! WSM + THL manual modification for BPA EMTP
 CCCC      COMMON  / C0B002 /   YKM   (   1 )    ! WSM + THL manual modification for BPA EMTP
 CCCC      COMMON  / C0B014 /   SPTACS(  29 )    ! WSM + THL manual modification for BPA EMTP
 CCCC      COMMON  / C0B063 /   TEXVEC(1000 )    ! WSM + THL manual modification for BPA EMTP

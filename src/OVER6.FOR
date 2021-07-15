@@ -107,7 +107,7 @@ C     REQUEST (KNOWN BY N7 .NE. DEFAULT VALUE OF 1000 IN OVER1):        M32.2940
       CALL MOVE0 ( KOLUM(1), IBR )                                      M32.2963
 C     OUTPUT NETWORK-CONNECTIVITY TABLE IF SO REQUESTED (IDOUBL=1).     M42.4465
       IF( IDOUBL  .LE.  0 )  GO TO 5324                                 M31. 904
-      CALL MOVE0 ( LOC(1), NTOT )                                       M42.4466
+      CALL MOVE0 ( LOCX(1), NTOT )                                       M42.4466
       NEXT = 1                                                          M42.4467
       I = 1                                                             M42.4468
  5010 IF( I .GT. IBR )  GO TO 5040                                      M42.4469
@@ -143,10 +143,10 @@ C     OUTPUT NETWORK-CONNECTIVITY TABLE IF SO REQUESTED (IDOUBL=1).     M42.4465
       GO TO 5065                                                        M42.4496
  5200 IF( K .GT. NTOT  .OR.  M .GT. NTOT )  GO TO 5240                  M42.4497
       IPASS = 0                                                         M42.4498
- 5204 LLEFT = LOC(K)                                                    M42.4499
+ 5204 LLEFT = LOCX(K)                                                    M42.4499
       IF( LLEFT .GT. 0 )  GO TO 5214                                    M42.4500
       LTEST = 0                                                         M42.4501
- 5208 LOC(K) = NEXT                                                     M42.4502
+ 5208 LOCX(K) = NEXT                                                     M42.4502
       GO TO 5235                                                        M42.4503
  5214 ISUBS1 =  IOFKOL+LLEFT                                            M16.1109
       JLEFT = KOLUM(ISUBS1)                                             M16.1110
@@ -196,9 +196,9 @@ C     OUTPUT NETWORK-CONNECTIVITY TABLE IF SO REQUESTED (IDOUBL=1).     M42.4465
       N22 = KWTSPY                                                              
       IPASS = 0                                                         M42.4523
       K = 2                                                             M42.4524
- 5268 IF( LOC(K) .EQ. 0 )  GO TO 5294                                   M42.4525
+ 5268 IF( LOCX(K) .EQ. 0 )  GO TO 5294                                   M42.4525
       BUS5 = BUS(K)                                                     M28.4256
- 5270 LTEST = LOC(K)                                                    M42.4526
+ 5270 LTEST = LOCX(K)                                                    M42.4526
       IF( LTEST  .EQ.  0 )  GO TO 5294                                  M42.4527
  5272 ISUBS1 =  IOFKOL+LTEST                                            M16.1121
       M = KOLUM(ISUBS1)                                                 M16.1122
@@ -265,7 +265,7 @@ C     NEGATIVE SIGN ON "KPARTB" IS FOR "RENUMBER BYPASS":               M32.2978
       GO TO 40013                                                       M19. 781
  5351 NEXT = 1                                                          M19. 782
       NZ = 0                                                            M42.4544
-      CALL MOVE0 ( LOC(1), NTOT )                                       M42.4545
+      CALL MOVE0 ( LOCX(1), NTOT )                                       M42.4545
       CALL MOVE0 ( KOWNT(1), NTOT )                                     M42.4546
       I = 1                                                             M42.4547
 41001 L = IABS(LENGTH(I))                                               M42.4548
@@ -448,13 +448,13 @@ C     FOLLOWING CARRIES "NEXT" AMONG OVER6, INSERT, OVER7, & OVER9:     M37.2895
       IR = IRRR                                                         M42.4603
       IRR = IRRR                                                        M42.4604
       IC = ICC                                                          M42.4605
-   99 IRN = LOC(IR)                                                     M42.4606
+   99 IRN = LOCX(IR)                                                     M42.4606
       IF (IRN.EQ.0) GO TO 1                                             M42.4607
       N2 = IRN + IOFGND                                                 M33. 599
       N1 = IC - KOLUM(N2)                                               M19. 794
       IF( N1 .GT. 0 )  GO TO 2                                          M42.4608
       IF( N1 .EQ. 0 )  GO TO 5                                          M42.4609
-    1 LOC(IR) = NEXT                                                    M42.4610
+    1 LOCX(IR) = NEXT                                                    M42.4610
       GO TO 4                                                           M42.4611
     2 IR = IRN                                                          M42.4612
       ISUBS1 =  IOFBND+IR                                               M33. 600
