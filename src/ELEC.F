@@ -1,8 +1,8 @@
       SUBROUTINE elec
       IMPLICIT REAL*8 (A-H, O-Z),  INTEGER*4 (I-N)
       INCLUDE  'tacsto.ins'
-      INCLUDE  'blkcom.inc'                     ! WSM + THL manual modification for BPA EMTP
-      INCLUDE  'tacsar.inc'                     ! WSM + THL manual modification for BPA EMTP
+      INCLUDE  'blkcom.fd'                     ! WSM + THL manual modification for BPA EMTP
+      INCLUDE  'tacsar.fd'                     ! WSM + THL manual modification for BPA EMTP
       INCLUDE  'labcom.INS'                     ! WSM + THL manual modification for BPA EMTP
 CCCC      COMMON  / C0B014 /   SPTACS(  29 )    ! WSM + THL manual modification for BPA EMTP
       sptr=sptr-1

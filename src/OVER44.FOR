@@ -1,10 +1,9 @@
       SUBROUTINE SUBR44                                                 M22.6091
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'
-      INCLUDE  'DECK29.INC'                                           
-      INCLUDE  'DECK44.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                          
+      INCLUDE  'DECK44.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
       DIMENSION  LLTEMP(20)                                             M22.6093
       DIMENSION  STG(1)                                                 M31.6300
       EQUIVALENCE (STG(1), KARRAY(1) )                                  M31.6301
@@ -86,11 +85,10 @@ C     LIST-ZERO "KARRAY" IS ALWAYS 1ST, AND MAYBE "OVER29":             M31.6302
      2          NDIM,NTRI,NSQR2)                                        M31.6352
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'
-      INCLUDE  'DECK29.INC'                                                 
-      INCLUDE  'DECK44.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
-      INCLUDE  'VOLT45.INC'    
+      INCLUDE  'BLKCOM.fd'
+      INCLUDE  'DECK44.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
+      INCLUDE  'VOLT45.fd'    
       COMMON  /LINEMODEL/ KEXACT, NSOLVE, FMINSV, NUMRUN,NPHLMT
       COMMON / LINEMODEL / CHAR80, CHLMFS(18)
       CHARACTER*6 CHLMFS     ! 9-PHASE AS LIMIT FOR LMFS TEST
@@ -2037,10 +2035,9 @@ C     SHUNT IMPEDANCE MATRIX FOR SYMMETRICAL COMP. IS IN P+J*Z.         M14.3869
       SUBROUTINE PUNPIE ( KCIRCT )                                      M42.8327
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC' 
-      INCLUDE  'DECK29.INC'                                           
-      INCLUDE  'DECK44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd' 
+      INCLUDE  'DECK44.fd'                                           
       IF ( IPRSUP .GE. 1 )  WRITE (*,*) ' Top "PUNPIE".'                M42.8331
       WRITE (LUNIT7, 1201)                                              M42.8332
  1201 FORMAT ( 11H$VINTAGE, 1)                                          M42.8333
@@ -2070,10 +2067,9 @@ C     SHUNT IMPEDANCE MATRIX FOR SYMMETRICAL COMP. IS IN P+J*Z.         M14.3869
      3 MRR,NRP,NTOL,CONDUC)                                             M43.3647
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'              
-      INCLUDE  'DECK29.INC'                                                 
-      INCLUDE  'DECK44.INC' 
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd'              
+      INCLUDE  'DECK44.fd' 
       COMMON  /LINEMODEL/ KEXACT, NSOLVE, FMINSV, KBRNUM, NUMRUN
       REAL*8        TEXT1, TEXT2, TEXT3, TEXT4, TEXT5, TEXT6            M32, 327
       REAL*8        TEXT7, TEXT8, TEXT9, TEXT10                         M32, 328
@@ -2633,8 +2629,8 @@ C TO GET ZSURGE MATRIX IN PHASE DOMAIN                                  M29.4409
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C   THIS SUBROUTINE PERFORMS INVERSION OF A COMPLEX MATRIX              M31.6537
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
       DIMENSION A(1), B(1), IJ(50)                                      M31.6540
       EPSPV2 = 1.0D-16                                                  M31.6541
       DO 110  I=1, M                                                    M31.6542
@@ -3153,7 +3149,7 @@ CC    IF (ABSZ(YR) .LT. D13 .AND. ABSZ(YI) .LT. D13) GO TO 160          M44.2322
       SUBROUTINE COMLR(NM,N,LOW,IGH,HR,HI,WR,WI,IERR,NDIM)              M31.6625
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DIMENSION HR(NDIM,NDIM),HI(NDIM,NDIM),WR(NDIM),WI(NDIM)           M31.6626
 C     THIS SUBROUTINE IS A TRANSLATION OF THE ALGOL PROCEDURE COMLR,    M29.4848
 C     NUM. MATH. 12, 369-376(1968) BY MARTIN AND WILKINSON.             M29.4849
@@ -3360,7 +3356,7 @@ C     :::::::::: LAST CARD OF COMLR ::::::::::                          M29.5041
      1,IORD)                                                            M43.3948
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DIMENSION HR(NDIM,NDIM),HI(NDIM,NDIM),WR(NDIM),WI(NDIM)           M31.6648
       DIMENSION ZR(NDIM,NDIM),ZI(NDIM,NDIM)                             M31.6649
       DIMENSION INT(20),IORD(20),LSEQ(20)                               M31.6650
@@ -3856,8 +3852,8 @@ C                                   END K-LOOP                          M14.3947
      1      INTEGER*4 (I-N)
       DIMENSION P(1), Z(1)                                              M14.3952
       DIMENSION AR(3,3),AI(3,3),FR(3),FI(3)                             M14.3953
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
       IF(KCIRCT.EQ.2) GO TO 100                                         M14.3956
       FR(1) = UNITY                                                     M14.3957
       FI(1) = 0.                                                        M14.3958
@@ -3933,8 +3929,8 @@ C                                   END OF SYMMETRICAL COMPONENTS MATRIXM14.4010
       SUBROUTINE SKIN (S,R,FREQ,RF,XF)                                  M14.4028
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
       DOUBLE PRECISION  VSMALL                                          M32, 460
       VSMALL = 1.E-37                                                   M32, 461
       CALL UNDRFL(JJJ)                                                  M33.2366
@@ -4120,8 +4116,8 @@ C)    RESULT IS REDUCED MATRIX IN COLUMNS 1,...M IN CASE OF REDUCTION   M15.1655
 C)    (M UNEQUAL 0) OR NEGATIVE INVERSE MATRIX IN COLUMNS 1,...N IN CASEM15.1656
 C)    OF INVERSION (M=0).                                               M15.1657
       DIMENSION A(1), B(1)                                              M14.4182
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
       J = N + 1                                                         M14.4190
       W=UNITY                                                           M14.4191
       IF(M.GT.0) W=-W                                                   M14.4192
@@ -4184,8 +4180,8 @@ C                                   END K-LOOP                          M14.4239
       SUBROUTINE OUTPUT(METRIK,P,Z,SWITCH,KMAX,IS,K2)                   M14.4243
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
       DIMENSION P(1), Z(1)                                              M14.4244
       REAL*8       TXTMI,TXTKM,TXTUNT                                   M14.4245
       DATA TXTMI/ 6HMILES  /                                            M14.4246
@@ -4295,8 +4291,8 @@ C                                   END K-LOOP                          M14.4239
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       DIMENSION P(1), Z(1)                                              M14.4340
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL44.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL44.fd'                                           
       IF(KMAX.EQ.4) GO TO 999                                           M14.4343
       WRITE(LUNIT6,222)                                                 M17.1358
   222 FORMAT ( /, 55H SPECIAL OUTPUT FOR MUTUALS NOT APPLICABLE TO THIS M14.4345

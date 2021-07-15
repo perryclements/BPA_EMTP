@@ -1,10 +1,10 @@
       SUBROUTINE OVER9 
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SPACE2.INC'                                           
-      INCLUDE  'DECK10.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SPACE2.fd'                                           
+      INCLUDE  'DECK10.fd'                                           
       EQUIVALENCE ( IOFKOL, IOFGND ), ( IOFKOR, IOFBND )                M33. 869
 C     FOLLOWING CARRIES "NEXT" AMONG OVER6, INSERT, OVER7, & OVER9:     M37.3694
       EQUIVALENCE  ( LOOPSS(11), NEXT )                                         

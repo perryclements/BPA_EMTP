@@ -1,10 +1,10 @@
       SUBROUTINE OVER1 
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'    ! WSM + THL
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'UMDECK.INC'                                           
-      INCLUDE  'LABL02.INC'                                           
+      INCLUDE  'BLKCOM.fd'    ! WSM + THL
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'UMDECK.fd'                                           
+      INCLUDE  'LABL02.fd'                                           
 C      %INCLUDE  '//c/tsu/cables.INS.FTN'                               M43.   5
 C     TO AVOID "INSERT DECK TACSAR" HERE, USE SMALL PART OF IT:         M31. 190
       REAL*4  R4(1)                                                     M43.   6
@@ -777,8 +777,8 @@ C     READ INPUT CARD USING CIMAGE                                      M13. 337
  9200 NCHAIN = 51                                                       M42.1152
       LSTAT(18) = 1                                                     M42.1153
  9800 LASTOV = 1                                                        M16. 349
-      N5 = LOCINT ( [IDA] )                                               M43. 112
-      N6 = LOCINT ( [IFKC] )                                              M43. 113
+      N5 = LOCINT ( IDA )                                               M43. 112
+      N6 = LOCINT ( IFKC )                                              M43. 113
 C      write (*,*) ' End over1.  N5, N6, IDA, IFKC =',                  M43. 114
 C     1                          N5, N6, IDA, IFKC                      M43. 115
       IF ( IPRSUP  .GE.  1 )                                            M32. 703
@@ -791,9 +791,9 @@ C     1                          N5, N6, IDA, IFKC                      M43. 115
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     CALLED ONLY BY OVER1 FOR START AGAIN USAGE                        M37.1094
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'TACSAR.fd'                                           
       REAL*8        ALNODE                                              M37.1098
  1000 IF ( IPRSUP  .GE.  1 )                                            M37.1099
      1 WRITE ( LUNIT6,4567 )                                            M37.1100
@@ -830,8 +830,8 @@ C     CALLED ONLY BY OVER1 FOR START AGAIN USAGE                        M37.1094
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     CALLED ONLY BY OVER1 FOR START AGAIN USAGE                        M37.1133
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       REAL*8         TEXT14, TEXT15                                     M39. 351
       DATA  TEXT14   /  6HING     /                                     M37.1138
       DATA  TEXT15   / 6HCLOSED /                                       M37.1139
@@ -878,8 +878,8 @@ C     CALLED ONLY BY OVER1 FOR START AGAIN USAGE                        M37.1133
       SUBROUTINE REQUES                                                 M28. 886
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'UMDECK.fd'                                           
       DIMENSION  ANGLEX(1), FARRAY(1)                                   M32. 706
       EQUIVALENCE  ( ANGLEX(1), ANGLE )                                 M28. 890
       EQUIVALENCE (MONCAR(2), KBASE),   (MONCAR(3), LTDELT)             M37.1181
@@ -2026,11 +2026,11 @@ C     $$$$$$$  ADDITIONAL KEY WORDS GO IN SLOTS BELOW:                  M36. 312
       SUBROUTINE SYSDEP                                                 M40. 445
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       COMMON  /KOMTHL /  PEKEXP                                                 
       DIMENSION  INTBUS(1)                                              M31. 332
       EQUIVALENCE  (INTBUS(1), BUS1 )                                   M31. 333
-      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'DEKSPY.fd'                                           
       REAL*8         BUSNM1, BUSNM2, BUSNM3, TEXT1, TEXT2               M24. 320
       CHARACTER*1      LETTRA, LETTRB, LETTRC, COLXXX(18)               M35. 586
 C     FIRST 5 CHARACTERS OF FILE NAME "COL" ARE RESERVED                M28.1839
@@ -2078,7 +2078,11 @@ C     FOR EXPLICIT DIRECTORY (E.G., "[PLT]" ), IF DESIRED.              M28.1840
       CLOSE ( UNIT=LUNT13 )                                             M35. 609
       CLOSE ( UNIT=LUNT14 )                                             M35. 610
       CLOSE ( UNIT=LUNT15 )                                             M35. 611
- 1342 OPEN (UNIT=LUNIT1, TYPE='NEW', FORM='FORMATTED')                  M36. 313
+ !!1342 OPEN (UNIT=LUNIT1, TYPE='NEW', FORM='FORMATTED')                  M36. 313
+ 1342 open(unit=LUNIT1, iostat=nstat, file='fort.1', status='old')
+      if (nstat == 0) then
+          close(LUNIT1, status='delete')
+      endif    
       OPEN (UNIT=LUNIT2, TYPE='SCRATCH', FORM='FORMATTED',              M29.1150
      1      DISPOSE='DELETE' )                                          M29.1151
       OPEN ( UNIT=LUNIT3, TYPE='SCRATCH', FORM='UNFORMATTED',           M35. 612
@@ -2193,8 +2197,8 @@ C     NEXT CARD IMAGE FROM MEMORY RATHER THAN UNIT 5.                   M29.1166
      1      INTEGER*4 (I-N)
 C     MODULE CALLED ONLY FROM ONE LOCATION IN "OVER1" OF OVERLAY        M37.1247
 C     ONE.  IT SHOULD BE ACCEPTABLE TO ALL FORTRAN 77 COMPILERS         M37.1248
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DEKSPY.fd'                                           
       EQUIVALENCE    (MONCAR(3), LTDELT)                                M37.1249
       IF ( M4PLOT .EQ. 1  .AND. ! IF INTERACTIVE EXECUTION (SPY),       M37.1250
      1     NENERG .EQ. 0 )      ! AND IF NOT MONTE CARLO STUDY,         M37.1251
@@ -2249,10 +2253,10 @@ C     WRITE (*,*)  ' Exit "NMINCR".   N12 =',  N12,  '   TEXTA =', TEXTAM40. 464
       SUBROUTINE  TACS1                                                 M13. 340
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'TACSAR.INC'                                           
-      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'TACSAR.fd'                                           
+      INCLUDE  'SYNCOM.fd'                                           
       REAL*8        STACS, ALPH, ALNODE, ALNM1, ALNM2                   M39. 372
       DIMENSION  STACS(11), ALPH(5), DUM(3), DUMJ(13)                   M39. 373
       REAL*8        DUMJ, SMINUS, SPLUS, SBN(2)                         M39. 374
@@ -2341,7 +2345,7 @@ C     WRITE (*,*)  ' Exit "NMINCR".   N12 =',  N12,  '   TEXTA =', TEXTAM40. 464
  4499 D1 = ALOG1Z(FLTINF)                                               M42.1422
       IUTY(KIUTY+11) = D1 + 0.5                                         M39. 435
 C                                                        $$$  INPUT  $$$M13. 364
-      LBSTAC  =  LOCINT( ISMTAC(1) )     -     LOCF( ETAC(1) )            M18. 246
+      LBSTAC  =  LOCF( ISMTAC(1) )     -     LOCF( ETAC(1) )            M18. 246
       NTOTAC = 0                                                        M13. 366
       NSU = 0                                                           M13. 372
       NSUDV = LSTAT(63)                                                 M39. 436
@@ -2802,9 +2806,9 @@ C                                                        $$$  INPUT  $$$M13. 364
       SUBROUTINE TACS1A                                                 M37.1446
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'TACSAR.fd'                                           
       REAL*8        ALPH, DUMJ                                          M38. 507
       DIMENSION  ALPH(5), DUM(3), DUMJ(13)                              M38. 508
       REAL*8       TEXT1, TEXT2, TEXT4, SMINUS, SPLUS, SMULTP           M39. 646
@@ -3900,9 +3904,9 @@ C     READ INPUT CARD USING CIMAGE                                      M22.2102
       SUBROUTINE TACS1B                                                 M28.2772
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'TACSAR.fd'                                           
       DIMENSION  DUMJ(13)                                               M38. 610
       REAL*8        DUMJ, DELAY                                         M38. 611
       DATA  DELAY   / 6HDELAY  /                                        M38. 612
@@ -4650,7 +4654,7 @@ C                             ******   INITIAL CONDITION   **********   M38.1078
       SUBROUTINE EXPCHK ( N1, N2, N5 )                                  M09.  10
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       REAL*8         TEXNUM, TEXT1, X                                   M12. 246
       REAL*8         TEXTP, TEXTN                                       M23. 434
       DIMENSION X(80), TEXNUM(11)                                       M23. 435
@@ -4697,7 +4701,7 @@ C                             ******   INITIAL CONDITION   **********   M38.1078
       SUBROUTINE  INTCHK ( N1, N2, N5 )                                 M08. 133
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       REAL*8         X                                                  M21.  24
       DIMENSION X(80)                                                   M08. 135
       DECODE (80, 2642, ABUFF)  ( X(I), I=1, 80 )                       M08. 136
@@ -4765,8 +4769,8 @@ C           REPLOT, FILE SPECIFICATION                                  M28.2824
 C           START AGAIN, FILE SPECIFICATION                             M28.2825
 C     FREE-FORMAT IS HERE REQUIRED, TEMPORARILY.                        M28.2826
 C        MODULE WRITTEN SPECIALLY FOR  DEC  VAX-11/780 .                M27. 633
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DEKSPY.fd'                                           
       BYTE  FILEN(25)                                                   M27. 635
       IF ( M4PLOT .NE. 1 )  GO TO 4519  ! NOT INTERACTIVE EMTP          M35. 692
       WRITE (PROM80, 4504)                                              M35. 693

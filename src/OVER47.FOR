@@ -1,9 +1,9 @@
       SUBROUTINE  SUBR47                                                M16.6325
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK29.INC'                                           
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DECK29.fd'                                           
+      INCLUDE  'LABL47.fd'                                           
       DIMENSION  LLTEMP(20)                                             M35.9239
       DIMENSION  RTG(1), ITG(1), CTG(1)                                 M35.9240
       COMPLEX*16  CTG                                                   M35.9241
@@ -115,9 +115,9 @@ C     STEP OVER LAST VECTOR TO FIND TOTAL MEMORY REQUIREMENTS:          M35.9321
      4    CA, CB, CC, CD, F, LDM, LDN, LDN2, LNQ2  )                    M35.9347
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL47.INC'                                           
-      INCLUDE  'VOLT45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL47.fd'                                           
+      INCLUDE  'VOLT45.fd'                                           
       COMPLEX*16  YS(LDN, LDN), YC(LDN, LDN), ZS(LDN, LDN), ZC(LDN, LDN)M35.9348
       COMPLEX*16  ZE(LDN, LDN), AI(LDN, LDN), BI(LDN, LDN), ZP(LDN, LDN)M35.9349
       COMPLEX*16  ZPC(LDN, LDN), A(LDN, LDN),  B(LDN, LDN), YO(LDN, LDN)M35.9350
@@ -1589,8 +1589,8 @@ C     IPRI=3 ; RECIEVING END                                            M31.7114
      1            AN,  CA, ZO, CC, F, LDN, LDN2, LNQ2, MRR, NRP )       M35.9541
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL47.fd'                                           
       DIMENSION  GN(LDN), AN(LNQ2)                                      M35.9542
       DIMENSION  TIR(20,20), TII(20,20)                                 VAX.4210
       DIMENSION  PP1(20,20), PP2(20,20)                                 VAX.4211
@@ -1929,7 +1929,7 @@ C    **********  THLTHL                                                 VAX.4425
       SUBROUTINE UNWIND (PING,KTHL,MRR,NRP,NTOL,ISEQ)                   VAX.4431
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
 CCCCC %INCLUDE  '//A/TSU/TPPLOTKOM.INS.FTN'                             VAX.4433
       DIMENSION PING(200),TPING(200)                                    VAX.4434
       DIMENSION PS(30),ZZ(30)                                           VAX.4435
@@ -2278,8 +2278,8 @@ CCC      write(*,*) 'Done with UNWIND '                                 VAX.4772
      3  CA,CB,CC,CD,F, LDM, LDN, LDN2, LNQ2 )                           M35.9574
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  ZPC(LDN, LDN), CMPLXZ, CJW                            M35.9575
       COMPLEX*16  YS(LDN, LDN), YC(LDN, LDN), ZP(LDN, LDN)              M35.9576
       COMPLEX*16  ZS(LDN, LDN), ZE(LDN, LDN), ZC(LDN, LDN)              M35.9577
@@ -2492,7 +2492,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
      1   ESI, AL0, AL1I, AL2I, AL3I, A1, A2, LDM, LDN )                 M35.9662
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       DIMENSION  A1(LDN,LDN), A2(LDN,LDN), NCPP(LDM)                    M35.9663
       DIMENSION  ZY(LDN, LDN), YZ(LDN, LDN), AL0(LDM, LDM)              M35.9664
       DIMENSION  ESI(LDM, 3), AL1I(LDM), AL2I(LDM), AL3I(LDM)           M35.9665
@@ -2604,7 +2604,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
       SUBROUTINE  SIMP(NW,H,DD,RAD,ZY,DIR,DIJ,ANG,LDM,LDN)              M35.9668
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       DIMENSION  RAD(LDN), H(LDM), DD(LDN),  ZY(LDN, LDN)               M35.9669
       DIMENSION  DIR(LDM, LDM), DIJ(LDM, LDM), ANG(LDM, LDM)            M35.9670
       IF ( IPRS47  .GE.  1 )                                            M23.5976
@@ -2658,7 +2658,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
       SUBROUTINE  SCZY1 ( W,ISYST,ZY,DIR,DIJ,ANG,HI,DI,ZS,ZE,LDM,LDN )  M35.9671
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       DIMENSION  ZY(LDN, LDN), DIR(LDM, LDM), DIJ(LDM, LDM)             M35.9672
       DIMENSION  ANG(LDM, LDM), HI(LDM), DI(LDN)                        M35.9673
       COMPLEX*16  ZS(LDN, LDN),  ZE(LDN, LDN)                           M35.9674
@@ -2755,7 +2755,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
      1  BI2, BI3, BI4, BI5, AL1I, AL2I, AL3I, ZC, LDM, LDN )            M35.9678
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMMON  / KOMTHL /  PEKEXP                                        VAX.4790
       COMPLEX*16  S, SS, S1, S2, S3, S4, S5, S6, S8, SU0                VAX.4791
       COMPLEX*16  Z11, Z12, Z2I, Z2M, Z2O, Z23                          M28.7457
@@ -2953,7 +2953,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
       SUBROUTINE  PTZY1 ( RADI, DCI, THC, DR0, TH0, AL0, LDM )          M35.9684
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       DIMENSION  RADI(LDM, 7), DCI(LDM), THC(LDM)                       M35.9685
       DIMENSION  DR0(LDM, LDM), TH0(LDM, LDM), AL0(LDM, LDM)            M35.9686
       P2=2.*PAI                                                         M20.6720
@@ -3011,7 +3011,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
       SUBROUTINE PTZY2(S,NCPP,DCI,DR0,TH0,AL0,ZP,ZPC,LDM,LDN)           M35.9687
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMMON  / KOMTHL /  PEKEXP                                        VAX.4794
       COMPLEX*16  S, SS, S1, S2, S3, S4, S5, S6, SU0                    M28.7478
       COMPLEX*16  CEXPZ, CMPLXZ, CSQRTZ                                 M28.7479
@@ -3163,7 +3163,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
       SUBROUTINE BSIKM (X, KN, BBIN, BBKN, IKM, IXA)                    M20.6831
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  BK0, BK1, BI0, BJ1, X                                 M28.7516
       COMPLEX*16  Y, Y0, Y1, Y2, Y3, Y4, Y5, Y6, Y7, Y8                 M28.7517
       COMPLEX*16  CEXPZ, CMPLXZ, CLOGZ, CSQRTZ                          M28.7518
@@ -3266,7 +3266,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
      1                  LDM,LDN )                                       M35.9693
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       DIMENSION  NCPP(LDM)                                              M35.9694
       DIMENSION  ZY(LDN, LDN), DIJ(LDM, LDM), ANG(LDM,LDM), DI(LDN)     M35.9695
       DIMENSION  USI(LDM, 3),  USR(LDM, 3),   ESI(LDM, 3),  HI(LDM)     M35.9696
@@ -3339,7 +3339,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
       SUBROUTINE TRANSP(YYC, NCPP, ANN, JNN, ZNN , LDM, LDN)            M35.9699
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  CMPLXZ                                                M28.7524
       COMPLEX*16  YYC(LDN,LDN), ZSS, ZMM, ZNN(LDN)                      M35.9700
       DIMENSION  NCPP(LDM), ANN(LDN), JNN(LDN)                          M35.9701
@@ -3425,7 +3425,7 @@ C     NOW RESTORE  'YC'  TO ADMITTANCE IN  DO 4928  LOOP BELOW.         M18.1166
       SUBROUTINE SKIN47(B1,B2,UR,CJW,SJW,ZCC)                           M16.7172
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMMON  / KOMTHL /  PEKEXP                                        VAX.4796
       COMPLEX*16  CJW, SJW, X1, X2, X3, X4, ZCC                         M28.7525
       COMPLEX*16  CEXPZ, CMPLXZ                                         M28.7526
@@ -3477,7 +3477,7 @@ CCCC  D2 = 50.                                                          VAX.4797
       SUBROUTINE ZEGEN(BE1,BE2,TH,W,XE,ISYST)                           M16.7204
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMMON  / KOMTHL /  PEKEXP                                        VAX.4799
       COMPLEX*16  CJ, CJW, X1, X2, XE                                   M28.7527
       COMPLEX*16  CEXPZ, CMPLXZ, CSQRTZ                                 M28.7528
@@ -3600,8 +3600,8 @@ CCCC  D2 = 50.                                                          VAX.4797
       SUBROUTINE EIGEN ( CJW, P, N, A, AI, QN, Q, XX, YY, LDN )         M35.9704
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  AD, CJW, QI, S, SA                                    M28.7530
       COMPLEX*16  CMPLXZ, CSQRTZ                                        M28.7531
       COMPLEX*16  Q(LDN, LDN), XX(LDN, LDN), YY(LDN, LDN)               M35.9705
@@ -3748,7 +3748,7 @@ C     NON-64-BIT COMPLEX MATH REDEFINES TOLERANCE IN "SYSDEP":          M35.9708
       SUBROUTINE  ZEST ( H1, H2, E, RES, OMG, S )                       M16.7469
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  QQ, BBB, ROM, S, SA, S1, S2                           M28.7541
       COMPLEX*16  S3, S5, S6, S8, SP12, SP23, SM12                      M28.7542
       COMPLEX*16  SM23, SQ1, SQ3, U, U1, U2, Z                          M28.7543
@@ -3917,9 +3917,9 @@ C     NON-64-BIT COMPLEX MATH REDEFINES TOLERANCE IN "SYSDEP":          M35.9708
       SUBROUTINE MINV ( TCMPX, M, F, LDN, LDN2 )                        M35.9711
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       COMPLEX*16  AD, CC, D                                             M28.7545
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  TCMPX(LDN,LDN), F(LDN, LDN2),  D2,  CMPLXZ, FNEW      M43.4066
       COMPLEX*16  FIDENT                                                M43.4067
       DIMENSION  FR(10,20), FI(10,20), FNEW(10,20), FIDENT(10,20)       M43.4068
@@ -4064,7 +4064,7 @@ C     2    I, J, J1, FR(I,J1), FI(I,J1), TCMPX(I,J)                     M43.4127
       SUBROUTINE MXM(XM,YYM,C,N,LDN)                                    M35.9715
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  XM(LDN,LDN), YYM(LDN,LDN), C(LDN,LDN)                 M35.9716
       IF ( IPRS47  .GE.  1 )                                            M23.6263
      1 WRITE (LOGSIX, 4062)  N, XM(1,1), YYM(1,1)                       M23.6264
@@ -4099,8 +4099,8 @@ C     2    I, J, J1, FR(I,J1), FI(I,J1), TCMPX(I,J)                     M43.4127
       SUBROUTINE PRINT(C,N,IFORM,LDN)                                   M35.9720
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL47.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL47.fd'                                           
       COMPLEX*16  C(LDN,LDN)                                            M35.9721
       DIMENSION  WORKR(8), WORKI(8)                                     M16.7645
       REAL*8          TEXT1, TEXT2, TEXT3                               M16.7646

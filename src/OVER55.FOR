@@ -1,7 +1,7 @@
       SUBROUTINE OVER55
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       EQUIVALENCE                       (MONCAR(4),  ISW)               M39.3667
       IF ( IPRSUP  .GE.  1 )                                            M32,2297
      1 WRITE ( LUNIT6, 4567 )  KILL                                     M39.3668
@@ -219,7 +219,7 @@ C     SPECIAL TIMING CODE FOR SUPPORTING PROGRAMS.                      M39.3789
       SUBROUTINE SUBR55                                                 M39.3879
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       EQUIVALENCE  (MONCAR(1),  KNT),   (MONCAR(4),  ISW)               M39.3881
       EQUIVALENCE                       (MONCAR(10), MTAPE)             M39.3882
       REAL*8         TEXT1, TEXT2, TEXT3, TEXT4, TEXT5                  M39.3883

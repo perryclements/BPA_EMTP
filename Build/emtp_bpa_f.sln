@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "emtp_bpa", "emtp_bpa.vfproj", "{DEC5115D-C71B-47A3-BDD0-F984969428D8}"
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "emtp_bpa_f", "emtp_bpa_f.vfproj", "{DEC5115D-C71B-47A3-BDD0-F984969428D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,9 +5,9 @@ C     UNIVERSAL MODULE OF INTERACTIVE EMTP (SPY OF "EMTSPY").           M37. 156
 C     IF NON-INTERACTIVE VERSION, MODULE CAN BE DESTROYED.              M37. 157
 C     FIRST EMTP DATA INPUT, AND "SPY" CHOICE, ARE MADE HERE.           M37. 158
 C     MODULE IS CALLED ONLY BY INSTALLATION-DEPENDENT "EREXIT".         M37. 159
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DEKSPY.INC'                                           
-      INCLUDE  'LABCOM.INC'   
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DEKSPY.fd'                                           
+      INCLUDE  'LABCOM.fd'   
       COMMON / LINEMODEL / KEXACT, NSOLVE, FMINSV, NUMRUN, nphlmt
       COMMON / LINEMODEL / CHAR80, CHLMFS(18)
       CHARACTER*6 CHLMFS
@@ -41,6 +41,7 @@ C     MODULE IS CALLED ONLY BY INSTALLATION-DEPENDENT "EREXIT".         M37. 159
       DATA  TYPDAT(14) / 'STATISTICS  ' /,   LENTYP(14) / 10  /         M37. 185
       DATA  NUMTYP   /  14  /  ! TOTAL NUMBER OF DATA TYPE NAMES        M37. 186
       DATA  FILSAV  / '                                '  /  ! for LMFS
+      integer numhld/0/;
       IF ( KEXACT .NE. 88333 )  NUMRUN = 0  ! INIT. NUMRUN for LMFS runs
       IF ( KEXACT .EQ. 88333 .AND. NUMRUN .GT. 0 )
      1     GO TO 5266

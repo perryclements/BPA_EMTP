@@ -1,10 +1,10 @@
       SUBROUTINE OVER6 
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SYNCOM.INC'                                           
-      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SYNCOM.fd'                                           
+      INCLUDE  'SPACE2.fd'                                           
       REAL*8           BUFF                                             M11. 111
       DIMENSION BUFF(20)                                                M42.4433
       EQUIVALENCE  ( IOFKOL, IOFGND ), ( IOFKOR, IOFBND )               M33. 594
@@ -371,8 +371,8 @@ C     1                     .AND. IMODEL(I) .NE. -4) L = IABS(KODEBR(I))M43. 850
       SUBROUTINE RINFIN                                                 VAX. 923
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       N3 = 0                                                            M42.4435
       D1 = 1.0 / ( 100. * FLZERO )                                      M22.3181
 C     1ST REMOVE MINUS SIGN OF "KPARTB" IF PRESENT AS FLAG              M32.2937
@@ -435,9 +435,9 @@ C      GO TO 9200                                                       VAX. 924
       SUBROUTINE INSERT(IRRR,ICC)                                       M42.4596
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SPACE2.fd'                                           
 C     FOLLOWING CARRIES "NEXT" AMONG OVER6, INSERT, OVER7, & OVER9:     M37.2895
       EQUIVALENCE  ( LOOPSS(11), NEXT )                                         
       IF( IRRR .LE. 1 )  RETURN                                         M42.4599

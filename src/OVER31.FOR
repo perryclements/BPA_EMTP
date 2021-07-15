@@ -1,7 +1,7 @@
       SUBROUTINE SUBR31                                                 M22.5507
       IMPLICIT REAL*4 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
 C     FLAG-1.   BEGIN CLASS-1  /BLANK/  VARIABLES                       M10.   1
 C     FLAG-2.   BEGIN CLASS-2  /BLANK/  VARIABLES                       M10.   3
 C               (FLOATING-POINT NUMERIC USAGE ONLY, WITH SCALARS        M10.   4
@@ -18,7 +18,7 @@ C                PRECEDING ARRAYS).                                     M10.   5
 C     FLAG-3.   BEGIN CLASS-3  /BLANK/  VARIABLES                       M10.   7
 C               (INTEGER-NUMERIC USAGE ONLY, WITH ARRAYS                M10.   8
 C                PRECEDING SCALARS).                                    M10.   9
-      INCLUDE  'DECK29.INC'                                           
+      INCLUDE  'DECK29.fd'                                           
       COMMON   /LDEC31/  KALCOM                                                 
       DIMENSION ARRAY(1), EVDOUB(1)                                     M28.6626
       REAL*8         AUPPER, DAYTIM, TEXTAX, HORZL, SEXT, BUSLST        M09.  41
@@ -1670,8 +1670,8 @@ C     SEGMENTED, 1, VAX E/T CAN SKIP TRANSLATION OF REWIND:             M29.2707
       SUBROUTINE SERIES ( NFOUR, KPL, JPLT, MAXEVK )                    M28.6883
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK29.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DECK29.fd'                                           
       DIMENSION EVDOUB(2)                                               M39.3307
       EQUIVALENCE ( EVDOUB(1), KARRAY(1) )                              M28.6887
       IF ( NFOUR  .GT.  0 )   GO TO 3184                                M28.6888
@@ -1800,7 +1800,7 @@ C     SEGMENTED, 1, VAX E/T CAN SKIP TRANSLATION OF REWIND:             M29.2707
       SUBROUTINE BEGPLT                                                 M19.2244
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       IF ( IPRSOV(38) .EQ. 0 )                                          M39.3308
      1 CALL PLOTS (0, 0, 0 )                                            M24. 753
       RETURN                                                            M19.2248
@@ -1819,7 +1819,7 @@ C     IS NOT CLOSED HERE, BUT RATHER IN  "FINTP" .                      M28.7015
       SUBROUTINE FINTP                                                  M15.1430
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       IF ( IPRSOV(38) .GT. 0 )                                          M39.3309
      1 CALL PLOT ( 0.0, 0.0, 999 )                                      M24. 756
       IF (IVOLT .EQ. 7777)                                              M24. 757
@@ -1837,7 +1837,7 @@ C     APPROXIMATE EQUIVALENT.   UNFORTUNATELY, BPA DOES NOT FALL INTO   M14.2640
 C     THIS CLASS (OUR SYSTEM PROGRAMMERS THOUGHT THEY WERE BEING CLEVER M14.2641
 C     BY ADDING TWO MORE ARGUMENTS TO THE MODULE WHICH IS AVAILABLE IN  M14.2642
 C     OUR SYSTEM LIBRARY).                                              M14.2643
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       REAL*8          TEXT1, TITLE                                      M21. 401
       DATA  TIC   /  .075  /                                            M14.2644
       DATA  TICD2   /  .03  /                                           M15.1435
@@ -2006,7 +2006,7 @@ C                     (VARIABLE KOM) IN COLUMN  KLM.                    M28.7019
 C          KRV = 77   BYPASSES THE VERTICAL FILL BETWEEN MIN            M28.7020
 C                     AND MAX, JUST BEFORE PRINTING.                    M28.7021
 C                                                                       M10. 308
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DIMENSION  KUT(131), KTSIN(4)                                     M12. 588
       DIMENSION  MAX(4), MIN(4)                                         M10. 309
       DATA  KTSIN(1)   /  1HA  /                                        M10. 310

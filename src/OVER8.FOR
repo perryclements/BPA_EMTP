@@ -1,11 +1,11 @@
       SUBROUTINE OVER8 
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SYNMAC.INC'                                           
-      INCLUDE  'UMDECK.INC'                                           
-      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SYNMAC.fd'                                           
+      INCLUDE  'UMDECK.fd'                                           
+      INCLUDE  'SPACE2.fd'                                           
 C %INCLUDE  '//c/tsu/cables.INS.FTN'                                    M43. 852
       COMMON / LINEMODEL / KEXACT, NSOLVE, FMINSV,NUMRUN,NPHLMT
       COMMON / LINEMODEL / CHAR80, CHLMFS(18)
@@ -1247,8 +1247,8 @@ C     TEMPORARY ERROR STOP --- UNABLE TO ADD ANOTHER SOURCE.            M32.3183
 C     MODULE CALLED IN TWO PLACES BY "OVER8" TO DETERMINE WHICH         M31.1318
 C     NODES ARE EXCITED BY WHICH SOURCES (SUBNETWORK BOUNDING),         M31.1319
 C     WITH ERROR STOP IF THERE IS FREQUENCY MIXING.                     M31.1320
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       IF ( IPRSUP  .GE.  1 )                                            M31.1323
      1 WRITE (LUNIT6, 1428)    NTOT, KCONST, IBR, KSWTCH, IT            M31.1324
  1428 FORMAT (    17H TOP OF "FRQCHK".,                                 M31.1325
@@ -1510,10 +1510,10 @@ C                                   END K-LOOP                          M29.1645
      2 D12,D13,D14,D15,D16,D17,D18, LFIM3, LFIM4I, NCOMCL,              M42.4967
      3 NCOMUM, KCLD1, KCLQ1,KCLF, NMINUM,                               M42.4968
      4 LOPSS1, LOPSS2, LOPSS4, LOPSS8, LOPSS9, LOPSS10,slip             M42.4969
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SPACE2.INC'                                           
-      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SPACE2.fd'                                           
+      INCLUDE  'UMDECK.fd'                                           
 C     KCONST IS THE ENTRY OF THE SOURCE TYPE 14 VECTOR                  M31.1493
 C     NUMSUB IS THE ENTRY OF THE SUBNETWORK VECTOR                      M31.1494
 C     ISUBEG(NUMSUB) IS THE FIRST NODE OF SUBNETWORK NUMSUB             M31.1495
@@ -2867,10 +2867,10 @@ C.  PERMANENT EXIT OF UMRENU IF LOOPSS(4) .GE. 3                        M38.2199
      2 D12,D13,D14,D15,D16,D17,D18, LFIM3, LFIM4I, NCOMCL,              M42.4998
      3 NCOMUM, KCLD1, KCLQ1,KCLF,NMINUM,                                M42.4999
      4 LOPSS1, LOPSS2, LOPSS4, LOPSS8, LOPSS9, LOPSS10, slip            M42.5000
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SPACE2.INC'                                           
-      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SPACE2.fd'                                           
+      INCLUDE  'UMDECK.fd'                                           
 C   "FIRST PART" OF UMRENU CODE IS ENTERED TWICE IF LOAD-FLOW           M42.5005
 C       IS REQUESTED (LOOPSS(10) = 1 OR 2). THIS IS NEEDED TO           M42.5006
 C       LET THE LOAD-FLOW DO ITS WORK TO ADJUST THE SOURCES.            M42.5007
@@ -3701,7 +3701,7 @@ C  DETECTING PRESENCE OF ZERO COMPONENT CURRENT :                       M42.5814
       SUBROUTINE EQUIV(REQ,XEQ,GEQ,BEQ,Z,R,TAU,W,N)                     M31.2425
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DIMENSION REQ(1), XEQ(1), GEQ(1), BEQ(1), Z(1), R(1), TAU(1)      M05. 433
       EQUIVALENCE    (ANUMR, RZERO),    (ANUMX, XZERO),                 M42.5832
      1 (YPOS, SINB),     (YNEG, COSB),     (EPOS, SINHGR),              M42.5833

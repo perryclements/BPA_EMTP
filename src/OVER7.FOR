@@ -1,9 +1,9 @@
       SUBROUTINE OVER7 
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SPACE2.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SPACE2.fd'                                           
       DIMENSION LORDER(1), NDEX(1)                                      M31. 906
       EQUIVALENCE ( ICH2(1), LORDER(1) ),  ( E(1), NDEX(1) )            M31. 907
       EQUIVALENCE ( IOFKOL, IOFGND ), ( IOFKOR, IOFBND )                M33. 605
@@ -787,7 +787,7 @@ C1560 ISUBS1 =  IOFKOR+JB                                               M31.1122
       SUBROUTINE SUBSCR ( J, LIMIT, ISTAT, N1 )                         M31.1136
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
 C     MODULE USED TO CHECK OUT-OF-BOUNDS SUBSCRIPTS FOR "OVER7"         M31.1137
 C     SPECIAL N1=99 CASE IS FOR SUBSCRIPTS WHICH ARE USED ONLY          M31.1138
 C     IF POSITIVE (WSM CHANGES TO WALKER'S CODE).                       M31.1139

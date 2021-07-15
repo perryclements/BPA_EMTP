@@ -1,8 +1,8 @@
       program main
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'VOLT45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'VOLT45.fd'                                           
 C)**********************************************************************M15. 203
 C)                                                                     *M15. 204
 C)    --------------- ELECTROMAGNETIC TRANSIENTS PROGRAM ------------  *M15. 205
@@ -222,7 +222,7 @@ C          CASE TERMINATION).                                           M42.  79
      1      INTEGER*4 (I-N)
 C     TEMPORARY STOP STATEMENTS OF EMTP HAVE BEEN CONVERTED TO          M37. 130
 C     "CALL STOPTP", ALLOWING INSTALLATION-DEPENDENT CLEAN UP.          M37. 131
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DECODE (80, 5607, ABUFF)  TEXCOL                                  M37. 133
  5607 FORMAT ( 80A1 )                                                   M37. 134
       IF ( NCHAIN .EQ. 31  .AND.  LASTOV .EQ. 1  .AND.                  M38. 108
@@ -273,8 +273,8 @@ C     BEGINNING WITH WORD  TEXT2(1) .                                   M23.  33
      1      INTEGER*4 (I-N)
 C       VAX-11   INSTALLATION-DEPENDENT EMTP MODULE.   THIS IS          M37. 143
 C     CALLED BY THE TOP OF "MAIN00", BEFORE ANY EMTP DATA INPUT.        M37. 144
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DEKSPY.fd'                                           
       DIMENSION  IDUM(3)   !  DUMMY VECTOR FOR CTRL-C HANDLING          M38. 112
       EXTERNAL KWITER       ! NEEDED FOR CTRL-C INITIALIZATION          M38. 113
       COMMON /COMKWT/  KWTVAX  ! MAGIC BLOCK FOR VAX/VMS CTRL-C         M37. 146
@@ -366,8 +366,8 @@ C)    RATHER THAN COLONS, AND OF COURSE WE REQUIRE  2A4  FORMAT.        M24.  97
      1      INTEGER*4 (I-N)
 C       VAX-11  INSTALLATION-DEPENDENT EMTP MODULE WHICH SERVES         M36. 215
 C     TO RETURN THE NEXT INPUT CARD.  ALL SYSTEMS WILL SUBSTITUTE.      M36. 216
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       DIMENSION  BUFF10(10)                                             M29.  82
       EQUIVALENCE ( BUFF10(1), ABUFF(1) )                               M29.  83
       BYTE  FILEN(25)                                                   M27.  35
@@ -825,7 +825,7 @@ C     ONE SKIPS OVERLAY 12-15 CARDS WITH LUNIT5 READ IN OVER12          M32. 165
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       DIMENSION  ARRAY(1)                                               M29. 922
-      LOCF = LOC( ARRAY(1) ) / 2                                        M29. 923
+      LOCF = LOCINT( ARRAY(1) ) / 2                                        M29. 923
       RETURN                                                            M42. 552
       END                                                               M42. 553
       FUNCTION  LOCINT ( IARRAY )                                       M29. 924
@@ -847,7 +847,7 @@ C     IS AN ASSUMPTION FOR ALL EMTP USAGE).                             M29. 928
 C     THIS FUNCTION PROVIDES FOR ALL REAL LIBRARY FUNCTIONS OF          M19. 209
 C     A SINGLE REAL ARGUMENT.   ALL TRANSLATIONS WILL MAKE A            M19. 210
 C     SUBSTITUTION.                                                     M19. 211
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       RFUNL1 = X                                                        M24. 176
       RETURN                                                            M24. 177
       ENTRY ABSZ   (X)                                                  M24. 178
@@ -911,7 +911,7 @@ C     SUBSTITUTION.                                                     M19. 211
       SUBROUTINE TRGWND ( X, D17 )                                      M42. 571
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       D17 = X                                                           M42. 573
       IF ( DABS(X) .LT. 25000. )  GO TO 9000                                    
       N13 = X / TWOPI                                                           
@@ -1238,7 +1238,7 @@ C)    FOR THESE REAL, SYMMETRIC MATRICES.                               M15. 332
       SUBROUTINE FREFLD ( ARRAY )                                       M20. 235
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       REAL*8         TEXT1, CHTACS, TEXBUF, TEXVEC                      M29. 930
       DIMENSION  TEXBUF(30), ARRAY(1), TEXVEC(1)                        M29. 931
       EQUIVALENCE  ( TEXVEC(1),  TEXT1 )                                M29. 932
@@ -1409,8 +1409,7 @@ C     SYSTEM-DEPENDENT EMTP MODULE  'PACKA1'  FOR  VAX-11/780.          M28. 279
 C     ARGUMENT  'FROM'  CONTAINS  A1  INFORMATION WHICH IS TO BE STORED M20. 374
 C     IN CHARACTER POSITION  KK  OF ARGUMENT  'TO' .                    M20. 375
 C     FOR ALL EMTP USAGE,  1ST 2 ARGUMENTS MUST BE VECTORS.             M29. 945
-      !!LOGICAL*1   FROM(1), TO(6)                                        M29. 946
-      REAL*8   FROM(1), TO(6)                                           M29. 946
+      LOGICAL*1   FROM(1), TO(6)                                        M29. 946
       TO(KK) = FROM(1)                                                  M29. 947
       RETURN                                                            M20. 383
       END                                                               M20. 384
@@ -1522,7 +1521,7 @@ C                                                                       M27. 383
 C     INSTALLATION-DEPENDENT  EMTP  MODULE WRITTEN FOR THE  DEC         M24. 298
 C     VAX-11/780.    'RAN'  IS A  DEC  SYSTEM SUBROUTINE WHICH          M24. 299
 C     RETURNS A RANDOM NUMBER UNIFORMLY DISTRIBUTED OVER  (0, 1) .      M24. 300
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       EQUIVALENCE (MONCAR(1), KNT)                                      M39.  54
       IF ( XMAXMX  .LT.  0.0 )   GO TO 7265                             M27. 385
       IF ( X  .EQ.  0.0 )   GO TO 4213                                  M24. 306
@@ -1549,7 +1548,7 @@ C     IF  'STATISTICS'  MISCELLANEOUS DATA PARAMETER  'XMAXMX'          M27. 397
 C     IS INPUT BY THE USER WITH NEGATIVE VALUE, THE EMTP TAKES          M27. 398
 C     THIS TO MEAN THAT "SANDNM" IS TO BE USED FOR RANDOM               M27. 399
 C     NUMBERS RATHER THAN "RANDNM" .                                    M27. 400
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DIMENSION  A(100)                                                 M27. 402
       EQUIVALENCE  ( MONCAR(1), KNT )                                           
 C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M32. 247

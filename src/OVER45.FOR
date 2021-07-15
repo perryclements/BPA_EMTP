@@ -12,9 +12,9 @@ C)         THE LINE.                                                    M16.4562
 C)     4)  PHASE TO MODE TRANSFORMATION MATRICES.                       M16.4563
 C)  THIS ROUTINE PUNCHES THE BRANCH CARDS TO BE READ IN AS DATA WHEN    M16.4564
 C)  USING THE 'SEMLYEN RECURSIVE CONVOLUTION' FREQUENCY DEPENDENT LINE. M16.4565
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK29.INC'                                           
-      INCLUDE  'LABL45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DECK29.fd'                                           
+      INCLUDE  'LABL45.fd'                                           
       DIMENSION STG(11)                                                 M39.3617
       DIMENSION  LLTEMP(20)                                             M22.6284
       DOUBLE PRECISION ZIFT(11)                                         M39.3618
@@ -97,9 +97,9 @@ C     SEGMENTED, 1, VAX E/T CAN SKIP TRANSLATION OF REWIND:             M29.5412
      2     HHM, HHN, ZCOS )                                             M35.9100
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL45.INC'                                           
-      INCLUDE  'VOLT45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL45.fd'                                           
+      INCLUDE  'VOLT45.fd'                                           
       DIMENSION PBUF(1), CQ(1), Z(1), Y(1), ZY(1), ZYA(1), ZYB(1)       M20.5143
       DIMENSION ZYC(1), ZYD(1), CQT(1), Q(1), QI(1), G(1), G60(1)       M20.5144
       DIMENSION YO(1), XR(1), XL(1), XG(1), XC(1), UM(1), SI(1)         M20.5145
@@ -1085,9 +1085,9 @@ C)  REAL PART OF COMPLEX MTX, BY TRANSPOSE OF REAL PART OC COMPLEX MTX  M16.5588
 C)  (IN EITHER ORDER FOR LAST TWO) AND INVERSION OF COMPLEX MTX.        M16.5589
 C)  THESE OPERATIONS EACH HAVE A SEPARATE ENTRY, WHERE THE ARGUMENTS AREM16.5590
 C)  FIRST, FOLLOWED BY THE RESULT OF THE PROCEDURE.                     M16.5591
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL45.INC'                                           
-      INCLUDE  'VOLT45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL45.fd'                                           
+      INCLUDE  'VOLT45.fd'                                           
       DIMENSION A(1), B(1), C(1), IJ(50)                                M20.5536
       EQUIVALENCE (VIM(9),EPSPV2)                                       M20.5537
       GO TO (1000, 2000, 3000, 4000, 5000, 6000), KODE                  M18.1018
@@ -1227,9 +1227,9 @@ C)                                                                      M16.5728
 C)  THESE VALUES MAY BE CALCULATED ON THE BASIS OF EXACT DIAGONAL-      M16.5729
 C)  IZATION OF ZY MATRIX OR BY USE OF PRE-CALCULATED TRANSFORMATION     M16.5730
 C)  MATRICES.                                                           M16.5731
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL45.INC'                                           
-      INCLUDE  'VOLT45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL45.fd'                                           
+      INCLUDE  'VOLT45.fd'                                           
       EQUIVALENCE (VIM(8),EPSEIG),(IPNTV(5),NIEIG),(INDTV(2),NSS)       M16.5734
       DIMENSION PBUF(1), Z(1), Y(1), ZY(1), ZYA(1), ZYB(1), ZYC(1)      M20.5542
       DIMENSION ZYD(1), CQ(1), CQT(1), Q(1), QI(1), G(1), G60(1)        M20.5543
@@ -1905,8 +1905,8 @@ C     OUTPUT EIGENVECTORS, ATTENUATION, AND VELOCITY                    M16.6057
       FUNCTION XIFT( TSP, OMEGAS, FUNW, COSI )                          M32, 559
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL45.INC'                                           
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'LABL45.fd'                                           
+      INCLUDE  'BLKCOM.fd'                                           
 C  THIS ROUTINE CALCULATES THE INVERSE FOURIER TRANSFORM OF A GEOMETRIC M20.5625
 C     SERIES OF FREQUENCIES IN OMEGAS  WITH THE POINTS IN THE FREQUENCY M20.5626
 C     DOMAIN IN FUNW(NFR1).  LINEAR INTERPOLATION BETWEEN THE FREQUENCY M20.5627
@@ -2027,9 +2027,9 @@ C     AND THE FINAL APPROXIMATION IS RETURNED THRU THE SAME ARGUMENT.   M20.5724
 C     THE PRINCIPLE OF OPERATION IS LINEAR INTERPOLATION/EXTRAPOLATION  M20.5725
 C     TO FIND A NEW TIME CLOSER TO 'THR'.                               M20.5726
 C                                                                       M20.5727
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL45.INC'                                           
-      INCLUDE  'VOLT45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL45.fd'                                           
+      INCLUDE  'VOLT45.fd'                                           
       DIMENSION SI(1), VRESP(1)                                         M35.9216
       DOUBLE PRECISION COSI(1)                                          M35.9217
       EQUIVALENCE (IPNTV(1), NFIT),  (VIM(5), EPSRSE)                   M28.7301
@@ -2113,9 +2113,9 @@ C                                                                       M20.5765
 C     Z(T) = D*(1.0 - EXP(-(T - X(3))/X(1))) + (FFIN - D) *             M20.5766
 C                          (1.0 -EXP(-(T-X(3))/X(2)))                   M21. 487
 C                                                                       M20.5768
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL45.INC'                                           
-      INCLUDE  'VOLT45.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL45.fd'                                           
+      INCLUDE  'VOLT45.fd'                                           
       EQUIVALENCE (VIM(1),EPS),(VIM(2),EPS1),(VIM(3),FIT2Z)             M20.5771
       EQUIVALENCE (VIM(4),PIVTHR),(VIM(7),FT2EMX),(VIM(9),EPSPV2)       M20.5772
       EQUIVALENCE (IPNTV(2),NITER1),(IPNTV(3),NITER),(INDTV(1),NPOINT)  M29.5500

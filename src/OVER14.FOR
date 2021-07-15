@@ -1,8 +1,8 @@
       SUBROUTINE OVER14
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       EQUIVALENCE   ( MONCAR(1), KNT )                                          
       IF ( IPRSUP  .GE. 1 )                                             M32.4454
      1 WRITE ( LUNIT6, 4567 )                                           M32.4455
@@ -134,8 +134,8 @@ C     VARIABLES    *   *   *   *   *   *   *   *   *   *   *   *   *   *M32.4493
       SUBROUTINE LAST14                                                 M32.4516
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       DIMENSION CBLHST(1)                                               M44. 621
       EQUIVALENCE  ( CNVHST(1),  CBLHST(1) )                            M44. 622
       DIMENSION INFDLI(1)                                               M44.1473
@@ -799,8 +799,8 @@ C                                                                       VAX.2330
       SUBROUTINE BREQIV( IKF, ISFD, IBF )                               M32.4592
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       DIMENSION  UR(40)                                                 M32.4595
 C     THIS ROUTINE PRODUCES COMPANION MODEL FOR EACH BRANCH. IT ALSO    M32.4596
 C     INITIALIZES THE CURRENT INJECTIONS FOR THE BRANCHES  *   *   *   *M32.4597
@@ -896,10 +896,10 @@ C     STORE CONSTANTS FOR LATER USE IN THE TIME-STEP LOOP  *   *   *   *M32.4668
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
 C     THIS MODULE IS USED BY BRANDWAJN (TYPE-59) S.M. MODEL             M31.3077
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'TACSAR.INC'                                           
-      INCLUDE  'SYNMAC.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'TACSAR.fd'                                           
+      INCLUDE  'SYNMAC.fd'                                           
 C     INITIALIZATION AFTER PHASOR SOLUTION FOR TYPE-59 S.M.             M31.3079
 C     THIS ROUTINE MOVES THE INITIAL CONDITIONS TO TIME '-DELTAT'       M20.3946
       IBR = IBROLD                                                      M38.2834

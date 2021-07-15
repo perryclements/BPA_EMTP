@@ -1,8 +1,8 @@
       SUBROUTINE OVER13
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       DIMENSION CBLHST(1)                                               M44. 476
       EQUIVALENCE  ( CNVHST(1),  CBLHST(1) )                            M44. 477
       DIMENSION INFDLI(1)                                               M44. 768
@@ -2011,8 +2011,8 @@ C     TRANSFER CONTROL TO 2ND HALF OF OVERLAY 13, IN "LAST13".          M29.1859
       SUBROUTINE FDINT( IKF, ISFD, IBF, OMG )                           M32.4334
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       DIMENSION  UR(40), UI(40)                                         M32.4337
 C     THIS ROUTINE INITIALIZES A)CAPACITOR VOLTAGES, B)BRANCH CURRENTS**M32.4338
       IDK = 2 * IKF                                                     M32.4339
@@ -2174,8 +2174,8 @@ C     MAXIMUM ORDER OF MATRIX X IS 20                                   M30. 359
       SUBROUTINE LAST13                                                 M31.3022
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       DIMENSION   TAILP(1), TAILQ(1), TAILT(1), VIM(1)                  M32.4436
       EQUIVALENCE    ( LSTAT(14), MDRIVE ),  ( VOLT(1), VIM(1) )        M35.1399
       DOUBLE PRECISION DBLPR1, DBLPR2, DBLPR3, DBLPR4                   M29.1884

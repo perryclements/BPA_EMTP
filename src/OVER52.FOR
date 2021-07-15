@@ -1,7 +1,7 @@
       SUBROUTINE OVER52
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       IF ( IPRSUP  .GE.  1 )                                            M32,2268
      1 WRITE ( LUNIT6, 4567 )                                           M32,2269
  4567 FORMAT ( 24H  "BEGIN MODULE OVER52." )                            M32,2270

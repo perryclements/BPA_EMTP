@@ -1,11 +1,11 @@
       SUBROUTINE SUBR10                                                 M22. 732
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'TACSAR.INC'                                           
-      INCLUDE  'SYNCOM.INC'                                           
-      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'TACSAR.fd'                                           
+      INCLUDE  'SYNCOM.fd'                                           
+      INCLUDE  'UMDECK.fd'                                           
 C %INCLUDE  '//c/tsu/cables.INS.FTN'                                    M43.   3
       KTAB = 0                                                          M13. 179
  3000 IF ( NCHAIN  .GT.  20 )   GO TO 9000                              M22. 734
@@ -118,8 +118,8 @@ C     VS. DISK) OF  /LABEL/ .   THIS DOES NOT WORK FOR THOSE            M28. 285
 C     COMPUTERS LIKE PRIME AND BURROUGHS WHERE  COMMON  BLOCKS          M28. 286
 C     ARE NOT ORDERED REGULARLY IN MEMORY.   SWITCH "KBURRO"            M29. 948
 C     SELECTS BETWEEN DISK OR VIRTUAL MEMORY (/C29B01/).                M29. 949
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK29.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DECK29.fd'                                           
       DIMENSION  NARRAY(1), KPEN(2)                                     M32. 252
       IF ( IPRSUP  .LT.  1 )   GO TO 5840                               M22. 747
       N9 = 0                                                            M39.  60
@@ -363,9 +363,9 @@ C     "M4PLOT" OF  /BLANK/  IS NONZERO.   THIS                          M35. 430
 C     IS ALTERNATIVE TO CONVENTIONAL IN-LINE DUMPING ON DISK.           M32. 324
 C     MODULE SHOULD BE UNIVERSAL FOR COMPUTERS USING FORTRAN 77         M37. 899
 C     COMPILERS AND REAL*4 VARIABLES WHICH GIVE SINGLE PRECISION.       M37. 900
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'DEKSPY.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'DEKSPY.fd'                                           
       SAVE                                                              M38. 116
       DATA  N17   /  0  /   ! INITIALIZE ROLLING PLOT FREQ COUNT        M38. 117
       IF ( M4PLOT  .EQ.  1 )   GO TO 7286   ! SIMULATOR USE             M32. 341
@@ -442,7 +442,7 @@ C     CALLED BY "TACS2" ONLY, IF AND ONLY IF M4PLOT .NE. 0              M32. 436
 C     THIS MODULE IS UNIVERSAL FOR FORTRAN 77 COMPILERS AND             M37. 906
 C     COMPUTERS FOR WHICH REAL*4 CORRESPONDS TO SINGLE PRECISION.       M37. 907
       DIMENSION  VOLTI(1)                                               M32. 437
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       REAL*4  FORBYT(150)                                                       
       IF ( IOFGND .GT. 149 )                                                    
      1 CALL STOPTP                                                              
@@ -464,9 +464,9 @@ C     MODULE FOR VECTOR DUMPING/RESTORING OF "OVER6", "OVER8", ETC.     M37. 910
 C     THIS IS UNIVERSAL FOR VIRTUAL COMPUTERS WHICH CHOSE TO            M37. 911
 C     USE /C29B01/ SPACE FOR THIS, AS WELL AS ALL OF "LABCOM".          M37. 912
 C     ALSO NEEDED ARE UNCOUNTED HOLLERITH.  PARALLEL TO "VECISV".       M37. 913
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK29.INC'                                           
-      DIMENSION  ARRAY(1), FARRAY(1)                                    M34.   5
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DECK29.fd'                                           
+      DIMENSION  ARRAY(*), FARRAY(1)                                    M34.   5
       EQUIVALENCE  ( KARRAY(1),  FARRAY(1) )                            M34.   6
 C     BLOCK /VECCOM/ IS SHARED BY "VECRSV" AND "VECISV".                M34.   7
 C     KOFVEC(KNTVEC) REMEMBERS INDEX FOR KNTVEC-TH DUMPING.             M37. 914
@@ -530,8 +530,8 @@ C     MODULE FOR VECTOR DUMPING/RESTORING OF "OVER6", "OVER8", ETC.     M37. 949
 C     THIS IS UNIVERSAL FOR VIRTUAL COMPUTERS WHICH CHOSE TO            M37. 950
 C     USE /C29B01/ SPACE FOR THIS, AS WELL AS ALL OF "LABCOM".          M37. 951
 C     ALSO NEEDED ARE UNCOUNTED HOLLERITH.  PARALLEL TO "VECISV".       M37. 952
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'DECK29.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'DECK29.fd'                                           
       DIMENSION   FARRAY(1)                                             M34.  58
       EQUIVALENCE  ( KARRAY(1),  FARRAY(1) )                            M34.  59
       DIMENSION  KARR(1)                                                M34.  60
@@ -585,7 +585,7 @@ C     BEGIN CODE TO DUMP  (KARR(K), K=1, N13)  INTO TANK:               M34.  77
      1      INTEGER*4 (I-N)
 C     UNIVERSAL (NON-VIRTUAL) FORM OF MODULE FOR BINARY I/O.  IF        M32. 568
 C     EXTRACTED FROM UTPF FOR USE, CONVERT NAME "VECRXX" TO "VECRSV"    M32. 569
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DIMENSION  ARRAY(1), FARRAY(1)                                    M32. 571
       IF ( IPRSUP  .GE.  1 )                                            M32. 572
      1 WRITE (LUNIT6, 1575)  N13, N2                                    M32. 573
@@ -622,7 +622,7 @@ C     BEGIN CODE TO DUMP  (ARRAY(K), K=1, N13)  ONTO TAPE:              M32. 595
      1      INTEGER*4 (I-N)
 C     UNIVERSAL (NON-VIRTUAL) FORM OF MODULE FOR BINARY I/O.  IF        M32. 603
 C     EXTRACTED FROM UTPF FOR USE, CONVERT NAME "VECIXX" TO "VECISV"    M32. 604
-      INCLUDE  'BLKCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
       DIMENSION  KARR(1)                                                M32. 606
       IF ( IPRSUP  .GE.  1 )                                            M32. 607
      1 WRITE (LUNIT6, 1423)  N13, N2                                    M32. 608
@@ -645,8 +645,8 @@ C     MODULE FOR MAINTAINANCE OF ALPHANUMERIC VECTOR TEXVEC OF          M38. 139
 C     "LABCOM".  MAXBUS OF "BLKCOM" IS LAST USED CELL.  N24 CHOOSES     M38. 140
 C     MODE OF USE:  0 WILL ADD TEXT1, POSITIVE WILL LOCATE IT,          M38. 141
 C     AND NEGATIVE WILL DESTROY (REMOVE) IT.                            M38. 142
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
       REAL*8        TEXT1, TEXT2                                        M38. 145
 C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M38. 146
       DATA  N17   /   0   /                                                     
@@ -701,9 +701,9 @@ C     ALSO USED BY  $RESTART  REQUEST OF  "CIMAGE"  (CALLED             M29. 974
 C     FROM  "LOOKIE"  WHICH IS CALLED BY  "SUBTS3"  OF  OV16).          M29. 975
 C     ALSO USED BY  "RESTORE"  REQUEST OF RTM, WHERE TABLE              M30. 111
 C     RESTORATION IS IN  "KATALG"  OF OVERLAY 20.                       M37. 977
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'SYNCOM.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'SYNCOM.fd'                                           
       COMMON  /COMLOCK/  LOCKER(2)                                              
 C     NOTE ABOUT DECK "SYNMAC".   IF EMTP S.M. MODELING                 M38. 188
 C     BRANDWAJN (TYPE-59), IS TO BE DELETED,                            M38. 189
@@ -715,9 +715,9 @@ C     BUT THEN  "DIMENSION Z(1)"  SHOULD BE ADDED IN ITS                M39.  69
 C     PLACE,  AND THE  "N4 ="  CALCULATION INVOLVING "LOCINT"           M31. 169
 C     SHOULD BE REPLACED BY THE SIMPLE STATEMENTS  "N4 = 1" .           M31. 170
 C     COMMENT CARD IMMEDIATELY PRECEDING "SYNMAC" -------------         M31. 171
-      INCLUDE  'SYNMAC.INC'                                           
+      INCLUDE  'SYNMAC.fd'                                           
 C     COMMENT CARD IMMEDIATELY FOLLOWING "SYNMAC" -------------         M31. 172
-      INCLUDE  'UMDECK.INC'                                           
+      INCLUDE  'UMDECK.fd'                                           
       DIMENSION  INTEGX(1)                                              M39.  70
       EQUIVALENCE  ( X(1), INTEGX(1) )                                  M39.  71
       DIMENSION  BUSONE(1), IDISTX(1)                                   M33. 108
@@ -732,13 +732,13 @@ C     BURROUGHS: PRESERVE LOCAL VARIABLE BETWEEN MODULE CALLS:          M42.1016
       LL1 = 1                                                           M25. 101
       LL2 = 2                                                           M25. 102
       LL4 = 4                                                           M42.1018
-      NWORD1 = LOCF( VOLTBC(1) )  -  LOCINT( KPEN(1) )                   M31. 176
+      NWORD1 = LOCINT( VOLTBC(1) )  -  LOCINT( KPEN(1) )                M31. 176
       NWORD2 = LOCINT(IDISTX(1)) - LOCINT(LUNSAV(15))                   M39.  73
-      N4 = LOCINT( [MSMOUT] ) -  LOCF( Z(1) )  +  1                        M39.  74
-      N5 = LOCINT([LBSTAC])  -  LOCF(ETAC(1))  +  1                        M38. 195
+      N4 = LOCINT( MSMOUT ) -  LOCINT( Z(1) )  +  1                     M39.  74
+      N5 = LOCINT(LBSTAC)  -  LOCINT(ETAC(1))  +  1                     M38. 195
       IF ( KBASE  .EQ.  0 )                                             M28. 309
-     1 NWORD1 = LOCINT(IDISTX(1)) - LOCF(BUSONE(1))                     M28. 310
-      N9 = LOCINT([ISTART])  -  LOCF(BUSUM(1))  +  1                       M28. 311
+     1 NWORD1 = LOCINT(IDISTX(1)) - LOCINT(BUSONE(1))                   M28. 310
+      N9 = LOCINT(ISTART)  -  LOCINT(BUSUM(1))  +  1                    M28. 311
       REWIND LUNIT2                                                     M39.  75
       IF ( NCHAIN  .EQ.  1 )   GO TO 3289                               M29. 976
       IF ( NCHAIN  .EQ.  20 )  GO TO 3289                               M29. 977
@@ -800,9 +800,9 @@ C     REQUEST FOR THE FIRST ENERGIZATION IN A STATISTICS CASE           M42.1022
       SUBROUTINE CSUP( L )                                              M39.  78
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABCOM.INC'                                           
-      INCLUDE  'TACSAR.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABCOM.fd'                                           
+      INCLUDE  'TACSAR.fd'                                           
       DIMENSION ARG( 50), ACC( 20), AMX( 20)                            M28. 331
       DIMENSION IOP( 50), IFL( 20), IDN( 20)                            M28. 332
 C     000  B = THE ARGUMENT AND LATER THE VALUE OF THE FUNCTION,        M14. 232

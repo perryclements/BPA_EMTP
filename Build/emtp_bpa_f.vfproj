@@ -5,7 +5,7 @@
 		<Platform Name="x64"/></Platforms>
 	<Configurations>
 		<Configuration Name="Debug|Win32">
-				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="..\src" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" AdditionalIncludeDirectories="..\src" Traceback="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
 				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
 				<Tool Name="VFResourceCompilerTool"/>
 				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
@@ -46,31 +46,32 @@
 				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration></Configurations>
 	<Files>
 		<Filter Name="Header Files" Filter="fi;fd">
-		<File RelativePath="..\src\BLKCOM.INC"/>
-		<File RelativePath="..\src\DECK10.INC"/>
-		<File RelativePath="..\src\DECK29.INC"/>
-		<File RelativePath="..\src\DECK31.INC"/>
-		<File RelativePath="..\src\DECK39.INC"/>
-		<File RelativePath="..\src\DECK44.INC"/>
-		<File RelativePath="..\src\DECK45.INC"/>
-		<File RelativePath="..\src\DECK47.INC"/>
-		<File RelativePath="..\src\DEKPLT.INC"/>
-		<File RelativePath="..\src\DEKSPY.INC"/>
-		<File RelativePath="..\src\FIXCOM.INC"/>
-		<File RelativePath="..\src\LABCOM.INC"/>
-		<File RelativePath="..\src\LABL02.INC"/>
-		<File RelativePath="..\src\LABL29.INC"/>
-		<File RelativePath="..\src\LABL39.INC"/>
-		<File RelativePath="..\src\LABL44.INC"/>
-		<File RelativePath="..\src\LABL45.INC"/>
-		<File RelativePath="..\src\LABL47.INC"/>
-		<File RelativePath="..\src\SPACE1.INC"/>
-		<File RelativePath="..\src\SPACE2.INC"/>
-		<File RelativePath="..\src\SYNCOM.INC"/>
-		<File RelativePath="..\src\SYNMAC.INC"/>
-		<File RelativePath="..\src\TACSAR.INC"/>
-		<File RelativePath="..\src\UMDECK.INC"/>
-		<File RelativePath="..\src\VOLT45.INC"/></Filter>
+		<File RelativePath="..\src\BLKCOM.fd"/>
+		<File RelativePath="..\src\DECK10.fd"/>
+		<File RelativePath="..\src\DECK29.fd"/>
+		<File RelativePath="..\src\DECK30.fd"/>
+		<File RelativePath="..\src\DECK31.fd"/>
+		<File RelativePath="..\src\DECK39.fd"/>
+		<File RelativePath="..\src\DECK44.fd"/>
+		<File RelativePath="..\src\DECK45.fd"/>
+		<File RelativePath="..\src\DECK47.fd"/>
+		<File RelativePath="..\src\DEKPLT.fd"/>
+		<File RelativePath="..\src\DEKSPY.fd"/>
+		<File RelativePath="..\src\FIXCOM.fd"/>
+		<File RelativePath="..\src\LABCOM.fd"/>
+		<File RelativePath="..\src\LABL02.fd"/>
+		<File RelativePath="..\src\LABL29.fd"/>
+		<File RelativePath="..\src\LABL39.fd"/>
+		<File RelativePath="..\src\LABL44.fd"/>
+		<File RelativePath="..\src\LABL45.fd"/>
+		<File RelativePath="..\src\LABL47.fd"/>
+		<File RelativePath="..\src\SPACE1.fd"/>
+		<File RelativePath="..\src\SPACE2.fd"/>
+		<File RelativePath="..\src\SYNCOM.fd"/>
+		<File RelativePath="..\src\SYNMAC.fd"/>
+		<File RelativePath="..\src\TACSAR.fd"/>
+		<File RelativePath="..\src\UMDECK.fd"/>
+		<File RelativePath="..\src\VOLT45.fd"/></Filter>
 		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
 		<File RelativePath="..\src\BUILD1.F"/>

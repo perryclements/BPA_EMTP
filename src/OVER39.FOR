@@ -1,9 +1,9 @@
       SUBROUTINE SUBR39                                                 M32.7612
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       DIMENSION  LLTEMP(20)                                             M32.7616
       EQUIVALENCE ( KDEFLT, INDTV(1) )                                          
       REAL*8         TEXT1, TEXT2, TEXT3, TEXT4, TEXT5, TEXT6           M32.7619
@@ -1550,8 +1550,8 @@ C                                                                       M32.8779
       SUBROUTINE LOCSL (XBEG,XEND,ALPHA,XMID,XCORNA,XCORNB,ERYMAX)      M32.8815
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       D78 = XEND - XBEG
       IF ( ABSZ(D78) .GE.  0.01 )  GO TO 50
       IF ( D78 .GT. 0.0 )  XMID = XBEG + D78/2  ! REALLY SMALL RANGE
@@ -1655,8 +1655,8 @@ C  OBTAIN MAXIMUM DEVIATION                                             M32.8904
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       DIMENSION FPZ1(50),FPZ2(50)                                       VAX.3424
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
 C  CHANGE THIS LIMIT IF DIMENSION IS CHANGED                            M32.8931
 C   ORDER OF SLOPE IN SEGMENT (CONSECUTIVE POLES OR ZEROES)             M32.8932
       MDIMPZ = 50                                                       VAX.3425
@@ -1798,8 +1798,8 @@ C               TERMINATING CONDITIONS                                  M32.9051
       SUBROUTINE ADJCR                                                  M32.9057
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       CALL REFH                                                         M32.9060
       XLAST = XDAT(NDATA)                                               M32.9061
       XFIRST = XDAT(1)                                                  M32.9062
@@ -1947,8 +1947,8 @@ C   SECOND RANGE (3-R CASE)                                             M32.9227
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       DIMENSION FPZ(50)                                                 VAX.3429
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
 C  CHANGE THIS LIMIT IF DIMENSION IS CHANGED                            M32.9315
 C   ORDER OF SLOPE IN SEGMENT * 2                                       M32.9316
       MDIFPZ = 100                                                      VAX.3430
@@ -2054,8 +2054,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
       SUBROUTINE INRAN (IRANGE,INDX0,INDXR1,INDXR2,INDXR3,INDXL1,INDXL2)M32.9412
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       ID = IRANGE                                                       M32.9415
       INDX0 = INDXV(ID)                                                 M32.9416
       ID = ID+1                                                         M32.9417
@@ -2078,8 +2078,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
       SUBROUTINE REFH                                                   M32.9434
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       XREF = XDAT(1)                                                    M32.9437
       I2 = NTOTRA                                                       M32.9438
       IF (IFTYPE.EQ.2) I2 = NTOTRA-1                                    M32.9439
@@ -2118,8 +2118,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
       SUBROUTINE RATP (FREQ,AMAGLG)                                     M32.9472
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       I2 = NTOTRA                                                       M32.9475
       IF (IFTYPE.EQ.2) I2 = NTOTRA-1                                    M32.9476
       FREQ2 = FREQ**2                                                   M32.9477
@@ -2157,8 +2157,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
       SUBROUTINE SPLIT (XBEG,XEND,YCUTPU,XCUT)                          M32.9510
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       DXSPLI = .1D0                                                     M32.9513
       XFIRST = XDAT(1)                                                  M32.9514
       XLAST = XDAT(NDATA)                                               M32.9515
@@ -2203,8 +2203,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
       FUNCTION YFUN39(X)                                                M33.2347
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       IF (X.LE.XDAT(1)) GO TO 120                                       M32.9552
       IF (X.GE.XDAT(NDATA)) GO TO 100                                   M32.9553
       AI = APTDEC*(X-XDAT(1))+1.D0                                      M32.9554
@@ -2220,8 +2220,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
       FUNCTION APH(X)                                                   M32.9564
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       IF (X.LE.XDAT(1)) GO TO 120                                       M32.9567
       IF (X.GE.XDAT(NDATA)) GO TO 100                                   M32.9568
       AI = APTDEC*(X-XDAT(1))+1.D0                                      M32.9569
@@ -2239,8 +2239,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
      1      INTEGER*4 (I-N)
       REAL*8       TEXT1,TEXT2,TEXT3,BLANK,PL                           M32.9581
       DIMENSION PL(92)                                                  M32.9582
-      INCLUDE  'LABL39.INC'                                           
-      INCLUDE  'DECK39.INC'                                           
+      INCLUDE  'LABL39.fd'                                           
+      INCLUDE  'DECK39.fd'                                           
       DATA TEXT1 / 1H0 /, TEXT2 / 1HI /, TEXT3 /1H* /, BLANK / 1H  /    M32.9585
       DO 200 J=1,92                                                     M32.9586
   200 PL(J) = BLANK                                                     M32.9587
@@ -2335,8 +2335,8 @@ C             TERMINATING CONDITIONS                                    M32.9406
       SUBROUTINE MISC39                                                 M32.9663
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
-      INCLUDE  'BLKCOM.INC'                                           
-      INCLUDE  'LABL39.INC'                                           
+      INCLUDE  'BLKCOM.fd'                                           
+      INCLUDE  'LABL39.fd'                                           
 C     THIS MODULE IS CALLED BY "SUBR39"  OF                             M32.9666
 C     OVERLAY 39 WHEN NEW MISCELLANEOUS DATA CARDS ARE REQUIRED         M32.9667
 C     (POSSIBLY ONCE FOR EACH MODE,  IN THE MOST EXTREME CASE).         M32.9668

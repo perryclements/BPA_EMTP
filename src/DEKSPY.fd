@@ -1,6 +1,7 @@
 C     THIS DECK IS USED ONLY BY INTERACTIVE EXECUTION MODULES           M35.  11
 C     WHICH BEGIN WITH "EMTSPY".  NOTE "DECK29" WORKING SPACE:          M35.  12
-      COMMON /C29B01/  KARRAY(1992869)  ! "DECK29" STORES PLOT POINTS         M35.  13
+C      COMMON /C29B01/  KARRAY(1992869)  ! "DECK29" STORES PLOT POINTS         M35.  13
+      INCLUDE  'DECK29.fd' 
       REAL  PLTBUF(1), FORBYT(600)       ! REAL*4 PLOT STORAGE          M38.  45
       EQUIVALENCE  ( PLTBUF(1), KARRAY(1) )  ! /C29B01/ PLOT POINTS     M35.  15
       LOGICAL  LOGVAR   ! LOGICAL VARIABLE FOR "INQUIRE" USAGE          M35.  16
@@ -10,22 +11,22 @@ C     WHICH BEGIN WITH "EMTSPY".  NOTE "DECK29" WORKING SPACE:          M35.  12
       COMMON  /SPYCOM/   TBREAK, EPSKON(14)                             M37. 101
 C       END REALS, NEXT COME INTEGERS, IN NEW COMMON BLOCK:             M35.  20
       COMMON  /SPYKOM/  INDXRP(20), IVEC(1000), IASCII(1000)            M35.  21
-      COMMON  /SPYKOM/  NUMSYM,  JJROLL, ITEXP, LABELS(15)              M35.  22
-      COMMON  /SPYKOM/  MAXARG, KILPER, KFILE5, KVERFY, JWORD           M36.   4
-      COMMON  /SPYKOM/  IBEGCL, IENDCL, LIDNT1, LIDNT2, NBREAK          M36.   5
-      COMMON  /SPYKOM/  LINNOW, LINSPN, NUMCRD, MUNIT5, NUMKEY          M36.   6
-      COMMON  /SPYKOM/  INDBUF, INDBEG, MFLUSH, NEWVEC, MAXFLG          M38.  46
-      COMMON  /SPYKOM/  KSPSAV, MEMKAR, NOBACK, KSMSPY(3)               M38.  47
-      COMMON  /SPYKOM/  LSERLC, KSERLC, KBRSER, LOCKBR, KERASE          M38.  48
-      COMMON  /SPYKOM/  KOMADD                                          M39.  42
-      COMMON  /SPYKOM/  IPRSPY,  MONITR, MONITS, LOCATE(1000)           M35.  24
-      COMMON  /SPYKOM/  NLINE(1000),  KBREAK, LIMBUF, KOLOUT            M37. 104
-      COMMON  /SPYKOM/  LIMARR(4), IMIN(55), IMAX(55), NUMEX            M38.  49
-      COMMON  /SPYKOM/  LOCOUT(55), INTOUT(55), NEXMOD, NEXTSN          M38.  50
-      COMMON  /SPYKOM/  INCHLP, KSYMBL, KOPYIT, KSLOWR, LIMCRD          M35.  26
-      COMMON  /SPYKOM/  LOOPRP(20), N10RMP(20), MEMRMP(20)              M35.  27
-      COMMON  /SPYKOM/  KONTAC(14), KONADD(14), KBEGTX(85)              M37. 107
-      COMMON  /SPYKOM/  KAR1(1), KAR2(2), NUMRMP, LUNTSP, LOGVAR        M35.  28
+     + ,  NUMSYM,  JJROLL, ITEXP, LABELS(15)                            M35.  22
+     + ,  MAXARG, KILPER, KFILE5, KVERFY, JWORD                         M36.   4
+     + ,  IBEGCL, IENDCL, LIDNT1, LIDNT2, NBREAK                        M36.   5
+     + ,  LINNOW, LINSPN, NUMCRD, MUNIT5, NUMKEY                        M36.   6
+     + ,  INDBUF, INDBEG, MFLUSH, NEWVEC, MAXFLG                        M38.  46
+     + ,  KSPSAV, MEMKAR, NOBACK, KSMSPY(3)                             M38.  47
+     + ,  LSERLC, KSERLC, KBRSER, LOCKBR, KERASE                        M38.  48
+     + ,  KOMADD                                                        M39.  42
+     + ,  IPRSPY,  MONITR, MONITS, LOCATE(1000)                         M35.  24
+     + ,  NLINE(1000),  KBREAK, LIMBUF, KOLOUT                          M37. 104
+     + ,  LIMARR(4), IMIN(55), IMAX(55), NUMEX                          M38.  49
+     + ,  LOCOUT(55), INTOUT(55), NEXMOD, NEXTSN                        M38.  50
+     + ,  INCHLP, KSYMBL, KOPYIT, KSLOWR, LIMCRD                        M35.  26
+     + ,  LOOPRP(20), N10RMP(20), MEMRMP(20)                            M35.  27
+     + ,  KONTAC(14), KONADD(14), KBEGTX(85)                            M37. 107
+     + ,  KAR1(1), KAR2(2), NUMRMP, LUNTSP, LOGVAR                      M35.  28
       DIMENSION   FKAR1(1), FKAR2(1)                                    M35.  29
       EQUIVALENCE (KAR1, FKAR1), (KAR2, FKAR2)                          M35.  30
       CHARACTER*1   CHAR1, FILBYT(1), COL, FILEXT, DIGIT                M35.  31
