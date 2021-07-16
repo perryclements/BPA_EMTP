@@ -380,9 +380,13 @@ C     SINGLE-PRECISION (REAL*4) NUMBERS ONLY:                           M32. 343
       CALL STOPTP   ! INSTALLATION-DEPENDENT PROGRAM STOP CARD          M37. 901
  7273 DO 7278  J=1, K                                                   M32. 351
  7278 FORBYT(J) = VOLTI(J)                                              M32. 352
+      if (volti(1) .LE. -1) GO TO 9000 !! the last item is -9999
 C     FOLLOWING APOLLO CARD REPLACES 2 PRECEDING VAX ONES:              M38. 118
 C7273 CALL VEC_$DP_SP ( VOLTI(1), FORBYT(1), K )                        M38. 119
-      WRITE (LUNIT4)  ( FORBYT(J), J=1, K )                             M32. 353
+      !!WRITE (LUNIT4)  ( FORBYT(J), J=1, K )                             M32. 353
+      WRITE (LUNIT4, "(ES10.3, 50(',', ES10.3))")
+     + (FORBYT(J), J=1, K)
+
       GO TO 9000         ! EXIT MODULE AFTER POSSIBLE DIAGNOSTIC        M35. 432
  7286 IF ( IPRSUP  .GE.  3 )                                            M35. 433
      1 WRITE (LUNIT6, 7301)  INDBUF, MFLUSH, K, LIMBUF, NEWVEC,         M35. 434

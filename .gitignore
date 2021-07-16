@@ -52,3 +52,9 @@ Temporary Items
 /Build/emtp_bpa.u2d
 *.PL4
 *.bak
+/Build/.vs/emtp_bpa_f/v16
+*.obj
+/Build/x64/Debug
+*.htm
+*.u2d
+/Build/x64/Release

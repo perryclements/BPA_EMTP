@@ -2,7 +2,10 @@
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.fd'                                           
-      INCLUDE  'VOLT45.fd'                                           
+      INCLUDE  'VOLT45.fd' 
+      COMMON /INFILE/ filein                  
+      CHARACTER*80 filein 
+
 C)**********************************************************************M15. 203
 C)                                                                     *M15. 204
 C)    --------------- ELECTROMAGNETIC TRANSIENTS PROGRAM ------------  *M15. 205
@@ -135,10 +138,10 @@ C     UNIT ASSIGNMENTS OF "OVER1" NEEDED EARLIER BY SPY:                M38.  90
       GO TO 2000                                                        M15. 253
  2290 IF ( NCHAIN  .GT.  55 )   GO TO 2300                              M25.  50
       CALL OVER55
-      GO TO 2000                                                        M25.  52
+      stop !!GO TO 2000                                                        M25.  52
  2300 WRITE (LUNIT6, 9236)  NCHAIN                                      M37. 124
  9236 FORMAT ( /,  26H ILLEGAL NCHAIN IN MAIN00., I8 )                  M37. 125
-      GO TO 2000                                                                
+      !!GO TO 2000                                                                
 C)                                                                      M15. 258
 C)    THE PRESENT MODULE  MAIN00  IS ALWAYS IN MEMORY.   IT IS THE      VAX.  10
 C)    HIGHEST LEVEL MODULE OF A PROGRAM WHICH HAS TWO LEVELS OF         M15. 260

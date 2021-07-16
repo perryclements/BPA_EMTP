@@ -2027,7 +2027,10 @@ C     $$$$$$$  ADDITIONAL KEY WORDS GO IN SLOTS BELOW:                  M36. 312
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.fd'                                           
-      COMMON  /KOMTHL /  PEKEXP                                                 
+      COMMON  /KOMTHL /  PEKEXP 
+      COMMON /INFILE/ filein                  
+      CHARACTER*80 filein, filplt
+
       DIMENSION  INTBUS(1)                                              M31. 332
       EQUIVALENCE  (INTBUS(1), BUS1 )                                   M31. 333
       INCLUDE  'DEKSPY.fd'                                           
@@ -2132,13 +2135,12 @@ C     ACCORDING TO 1ST APPEARANCE (SIZE OF VARDIM OUTPUT):              M31. 347
  !!3652 FORMAT (2A1, 1X, A1, 4X, A1, 1X, 2A1 )                            M24. 420
  !!     WRITE (ANSI32, 3668)  ( COL(J), J=1, 18 )                         M36. 314
  !!3668 FORMAT ( 18A1, 14X )                                              M36. 315
-      WRITE (ANSI32, '(A,A)') TRIM(ANSI32), '.pl4'
+      WRITE (filplt, '(A,A)') TRIM(filein), '.pl4'
       IF (IPRSUP .GE. 1 )                                               M24. 423
-     1 WRITE (LUNIT6, 3672) ANSI32                                      M36. 316
- 3672 FORMAT ( /,  ' IN  #SYSDEP# ,   ANSI32 =',  A32 )                 M36. 317
-      
-      OPEN (UNIT=LUNIT4, FILE=ANSI32, FORM='UNFORMATTED'                    M36. 318
-     2       , action='write')                                          M29.1156
+     1 WRITE (LUNIT6, 3672) filplt                                      M36. 316
+ 3672 FORMAT ( /,  ' IN  #SYSDEP# ,   filplt =',  A32 )                 M36. 317     
+      OPEN (UNIT=LUNIT4, FILE=filplt, action='write')                   M36. 318
+
       BLANK = BUSNM1                                                    M24. 427
       TRASH = BUSNM2                                                    M24. 428
       TERRA = BUSNM3                                                    M24. 429
