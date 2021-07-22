@@ -4,7 +4,7 @@
       INCLUDE  'BLKCOM.fd'                                           
       INCLUDE  'VOLT45.fd' 
       COMMON /INFILE/ filein                  
-      CHARACTER*80 filein 
+      CHARACTER*160 filein 
 
 C)**********************************************************************M15. 203
 C)                                                                     *M15. 204
@@ -281,7 +281,7 @@ C     CALLED BY THE TOP OF "MAIN00", BEFORE ANY EMTP DATA INPUT.        M37. 144
       DIMENSION  IDUM(3)   !  DUMMY VECTOR FOR CTRL-C HANDLING          M38. 112
       EXTERNAL KWITER       ! NEEDED FOR CTRL-C INITIALIZATION          M38. 113
       COMMON /COMKWT/  KWTVAX  ! MAGIC BLOCK FOR VAX/VMS CTRL-C         M37. 146
-      LUNIT6 = 6  ! FOR USE OF "PROMPT" UNTIL FIXED TT?? ADDRESS        M37. 147
+!!      LUNIT6 = 6  ! FOR USE OF "PROMPT" UNTIL FIXED TT?? ADDRESS        M37. 147
       MUNTSV(2) = 49  ! ALTERNATE MUNIT5 UNIT NUMBER OF SPY             M37. 148
       KWTVAX = 0    ! SET FLAG CORRESPONDING TO NO CTRL-C USAGE         M38. 114
 C      CALL ENABLE_CTRL_C ( KWITER, IDUM(1) )  ! INITIALIZE CTRL-C       M38. 115

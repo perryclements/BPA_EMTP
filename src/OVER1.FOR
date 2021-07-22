@@ -80,7 +80,7 @@ C     DEFAULT LIST SIZES FOR TACS PROPORTIONING OF EMTP LIST 19.        M22. 943
       LUNIT3 = 3                                                        M15. 369
       LUNIT4 = 4                                                        M15. 370
       LUNIT5 = 5                                                        M15. 371
-      LUNIT6 = 6                                                        M15. 372
+!!      LUNIT6 = 6                                                        M15. 372
       LUNIT7 = 7                                                        M15. 373
       LUNIT8 = 8                                                        M15. 374
       LUNIT9 = 9                                                        M20. 446
@@ -2029,7 +2029,7 @@ C     $$$$$$$  ADDITIONAL KEY WORDS GO IN SLOTS BELOW:                  M36. 312
       INCLUDE  'BLKCOM.fd'                                           
       COMMON  /KOMTHL /  PEKEXP 
       COMMON /INFILE/ filein                  
-      CHARACTER*80 filein, filplt
+      CHARACTER*160 filein, filplt
 
       DIMENSION  INTBUS(1)                                              M31. 332
       EQUIVALENCE  (INTBUS(1), BUS1 )                                   M31. 333
@@ -2119,10 +2119,10 @@ C     ACCORDING TO 1ST APPEARANCE (SIZE OF VARDIM OUTPUT):              M31. 347
       CALL TIME44 ( TCLOCK(1) )                                         M24. 398
       IF ( NOUTPR  .EQ.  0 )                                            M24. 402
      1 WRITE (LUNIT6, 6301)                                             M24. 403
- 6301 FORMAT (  ' ELECTROMAGNETIC TRANSIENTS PROGRAM (EMTP),',          M25. 191
-     1          ' DIGITAL (DEC) VAX-11/780 TRANSLATION AS',             M25. 192
-     2          ' USED BY BPA IN PORTLAND, OREGON  97208;',             M28.1845
-     3          '  USA.'  )                                             M28.1846
+ 6301 FORMAT (  ' ELECTROMAGNETIC TRANSIENTS PROGRAM (EMTP)')           M25. 191
+!!     1          ' DIGITAL (DEC) VAX-11/780 TRANSLATION AS',             M25. 192
+!!     2          ' USED BY BPA IN PORTLAND, OREGON  97208;',             M28.1845
+!!     3          '  USA.'  )                                             M28.1846
  !!     DECODE (4, 3641, DATE1(1) ) COL(25), COL(6), COL(7)               M24. 412
  !!3641 FORMAT (2A1, 1X, A1)                                              M24. 413
  !!     IF ( COL(25)  .EQ.  '0' ) GO TO 3642                              M35. 620
@@ -2135,7 +2135,7 @@ C     ACCORDING TO 1ST APPEARANCE (SIZE OF VARDIM OUTPUT):              M31. 347
  !!3652 FORMAT (2A1, 1X, A1, 4X, A1, 1X, 2A1 )                            M24. 420
  !!     WRITE (ANSI32, 3668)  ( COL(J), J=1, 18 )                         M36. 314
  !!3668 FORMAT ( 18A1, 14X )                                              M36. 315
-      WRITE (filplt, '(A,A)') TRIM(filein), '.pl4'
+      WRITE (filplt, '(A,A)') TRIM(filein), '.out'
       IF (IPRSUP .GE. 1 )                                               M24. 423
      1 WRITE (LUNIT6, 3672) filplt                                      M36. 316
  3672 FORMAT ( /,  ' IN  #SYSDEP# ,   filplt =',  A32 )                 M36. 317     
@@ -2162,10 +2162,10 @@ C     FOLLOWING ZERO DEFINITION IS REDUNDANT.                           M32. 809
       TWOPI = 6.28318530717958647692D+00                                M24. 441
       USERID = BLANK                                                    M24. 444
       IF ( NOUTPR  .EQ.  0 )                                            M28.1848
-     1 WRITE (LUNIT6, 6305)  DATE1, TCLOCK, (COL(J), J=6,18)            M28.1849
- 6305 FORMAT ( 45H DATE (MM/DD/YY) AND TIME OF DAY (HH.MM.SS.)=,        M28.1850
-     1    1X, 2A4, 2X, 2A4,  11X,  'NAME OF VAX/VMS PLOT DATA',         M38. 307
-     2    ' FILE (IF ANY) =',  13A1 )                                   M38. 308
+     1 WRITE (LUNIT6, 6305)  DATE1, TCLOCK !!, (COL(J), J=6,18)            M28.1849
+ 6305 FORMAT (' DATE (MM/DD/YY) AND TIME OF DAY (HH.MM.SS.)=',          M28.1850
+     1    1X, 2A4, 2X, 2A4)                                             M38. 307
+!!     2    )                                                             M38. 308
       IF ( M4PLOT .NE. 1 )   ! IF NOT INTERACTIVE EMTP USAGE,           M35. 625
      1 M4PLOT = 2     ! USE "PLTFIL" FOR REAL*4 PLOT FILE ON DISK       M35. 626
       LUNIT5 = -5    ! INTERACTIVE OR NOT USES "NEXTCARD", NOT 5        M35. 627
