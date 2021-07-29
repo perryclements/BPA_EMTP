@@ -368,6 +368,7 @@ C     COMPILERS AND REAL*4 VARIABLES WHICH GIVE SINGLE PRECISION.       M37. 900
       INCLUDE  'DEKSPY.fd'                                           
       SAVE                                                              M38. 116
       DATA  N17   /  0  /   ! INITIALIZE ROLLING PLOT FREQ COUNT        M38. 117
+      character*20 t_str0, t_str1
       IF ( M4PLOT  .EQ.  1 )   GO TO 7286   ! SIMULATOR USE             M32. 341
 C     WE PASS HERE WITH M4PLOT=2,  INDICATING DISK STORAGE,  BUT        M32. 342
 C     SINGLE-PRECISION (REAL*4) NUMBERS ONLY:                           M32. 343
@@ -380,12 +381,20 @@ C     SINGLE-PRECISION (REAL*4) NUMBERS ONLY:                           M32. 343
       CALL STOPTP   ! INSTALLATION-DEPENDENT PROGRAM STOP CARD          M37. 901
  7273 DO 7278  J=1, K                                                   M32. 351
  7278 FORBYT(J) = VOLTI(J)                                              M32. 352
-      if (volti(1) .LE. -1) GO TO 9000 !! the last item is -9999
+      if (FORBYT(1) .LE. -1) GO TO 9000 !! the last item is -9999
+      if (9999 .lt. istep) then
+        WRITE (t_str0, "(ES10.3)") FORBYT(1) - DELTAT
+        WRITE (t_str1, "(ES10.3)") FORBYT(1)
+        if (t_str1 .eq. t_str0) return !! if it's outside of the precision, do not print
+      endif
 C     FOLLOWING APOLLO CARD REPLACES 2 PRECEDING VAX ONES:              M38. 118
 C7273 CALL VEC_$DP_SP ( VOLTI(1), FORBYT(1), K )                        M38. 119
       !!WRITE (LUNIT4)  ( FORBYT(J), J=1, K )                             M32. 353
-      WRITE (LUNIT4, "(ES10.3, 50(',', ES10.3))")
-     + (FORBYT(J), J=1, K)
+      do 11 j = 1, k
+        if (j .ne. 1) WRITE (LUNIT4, "(',')", advance="no")  
+        WRITE (LUNIT4, "(ES10.3)", advance="no") FORBYT(J)
+   11 end do
+      WRITE (LUNIT4,"()",advance="yes")
 
       GO TO 9000         ! EXIT MODULE AFTER POSSIBLE DIAGNOSTIC        M35. 432
  7286 IF ( IPRSUP  .GE.  3 )                                            M35. 433

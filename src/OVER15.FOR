@@ -547,22 +547,41 @@ C     PARTITIONS OF SIZE  LIST 12:  (XMAX TMAX XMIN TMIN) .             M27.1322
       IF (IPLOT .LT. 0 .AND.  KBASE .EQ. 0 ) GO TO 7802                 M32.4817
       IF ( IPLOT .LT. 0 )  GO TO 3106                                   M32.4818
       REWIND LUNIT4                                                     M29.2001
-      !!WRITE (LUNIT4)  DATE1, TCLOCK,                                    M29.2002
-      WRITE (LUNIT4, "(2A4, ' ', 2A4, 4I4, /, 50(' ', A))") 
-     + DATE1, TCLOCK, N18, NUMNVO, NUMBCO, NC
-     1        ,  ( BUS(I), I=1, NTOT),                                  M27.1332
-     2                   ( TEXVEC(I), I = 1, MAXBUS ),                  M38.2970
-     3                   ( BUSUM(I), I=1, N16 )                         M38.2971
+!!      WRITE (LUNIT4)  DATE1, TCLOCK,                                    M29.2002
+!!       WRITE (LUNIT4, "(2A4, ' ', 2A4, 4I4, /, 50(' ', A))") 
+!!      + DATE1, TCLOCK, N18, NUMNVO, NUMBCO, NC
+!!      1        ,  ( BUS(I), I=1, NTOT),                                  M27.1332
+!!      2                   ( TEXVEC(I), I = 1, MAXBUS ),                  M38.2970
+!!      3                   ( BUSUM(I), I=1, N16 )                         M38.2971                                   
+       WRITE (LUNIT4, "(2A4, ' ', 2A4, 4I4)") 
+     + DATE1, TCLOCK, N18, NUMNVO, NUMBCO, NC  
       IF ( IPRSUP  .GE.  1 )                                            M20.4175
      1 WRITE (*, 3207)  NC, LSIZ12, NSMOUT, IOUTCS,                     M43.   9
      2                   NTOT, NUMNVO, NV, N8, MAXBUS, N9, N18          M38.2973
       IF ( IVOLT  .NE.  1 )   GO TO 3103                                   12450
       WRITE (LUNIT4, *)   ( I, I=2, NTOT )                                 M29.2003
       GO TO 3104                                                           12452
- 3103 IF( NUMNVO .GT. 0 )                                                  12453
-     1 WRITE (LUNIT4, *)  ( IBSOUT(I), I=1, NUMNVO )                       M29.2004
- 3104 IF( NC .GT. 0 )                                                      12455
-     1 WRITE (LUNIT4,*) (IBRNCH(I), I = 1, NC), (JBRNCH(I), I = 1, NC)   M29.2005
+ 3103 IF( NUMNVO .GT. 0 ) then                                                 12453
+        WRITE (LUNIT4, "('Time')", advance="no") 
+        do 11 i = 1, NUMNVO
+          WRITE (LUNIT4, "(',' A6)", advance="no") BUS(IBSOUT(I))                       M29.2004
+   11   end do     
+      endif
+ 3104 IF( NC .GT. 0 ) then                                                      12455
+        if (NUMNVO .eq. 0) WRITE (LUNIT4, "('Time')", advance="no")
+        do 12 i = 1, NC
+          n1 = IBRNCH(I)
+          n2 = JBRNCH(I)
+          if (n1 .LE. NTOT .AND. n2 .LE. NTOT) then
+            WRITE (LUNIT4,"(',', A6, '->', A6)", advance="no")
+     +                       BUS(n1), BUS(n2)                           M29.2005  
+          else
+            WRITE (LUNIT4,"(',', A6, '->', A6)", advance="no") 
+     +       TEXVEC(n1 - NTOT), TEXVEC(n2 - NTOT)                               
+          endif
+   12   end do  
+      endif
+      WRITE (LUNIT4,"()",advance="yes")
  3106 IF ( KBASE .NE. 1  .AND.  KBASE .NE. INTINF )  GO TO 7802         M32.4819
       WRITE (LUNIT9)  DATE1, TCLOCK, IVOLT, MAXBUS, NDX1, NDX2, N16,    M38.2974
      1     NSMOUT, IOUTCS, NUMOUT, N18, NUMNVO, NUMBCO, NC, KSWTCH      M32.4821
