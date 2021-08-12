@@ -79,7 +79,6 @@
 		<File RelativePath="..\src\CALC.F"/>
 		<File RelativePath="..\src\CALSTO.F"/>
 		<File RelativePath="..\src\COMB.F"/>
-		<File RelativePath=".\ConsoleFortran1.f90"/>
 		<File RelativePath="..\src\DATAIN.FOR"/>
 		<File RelativePath="..\src\ELEC.F"/>
 		<File RelativePath="..\src\ERRSTP.F"/>
