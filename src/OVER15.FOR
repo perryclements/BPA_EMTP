@@ -553,8 +553,21 @@ C     PARTITIONS OF SIZE  LIST 12:  (XMAX TMAX XMIN TMIN) .             M27.1322
 !!      1        ,  ( BUS(I), I=1, NTOT),                                  M27.1332
 !!      2                   ( TEXVEC(I), I = 1, MAXBUS ),                  M38.2970
 !!      3                   ( BUSUM(I), I=1, N16 )                         M38.2971                                   
-       WRITE (LUNIT4, "(2A4, ' ', 2A4, 4I4)") 
-     + DATE1, TCLOCK, N18, NUMNVO, NUMBCO, NC  
+       WRITE (LUNIT4, 
+     + "(2A4, ' ', 2A4, ',', I4, ',', I4, ',', I4, ',', I4)") 
+     + DATE1, TCLOCK, N18, NUMNVO, NUMBCO, NC
+      do I=1, NTOT
+        if (I .ne. 1) WRITE (LUNIT4, "(',')", advance="no")
+        WRITE (LUNIT4, "(A)", advance="no") BUS(I) 
+      end do
+      do I=1, MAXBUS
+        WRITE (LUNIT4, "(',', A)", advance="no") TEXVEC(I) 
+      end do
+      do I=1, N16
+        WRITE (LUNIT4, "(',', A)", advance="no") BUSUM(I) 
+      end do
+      WRITE (LUNIT4,"()",advance="yes")
+       
       IF ( IPRSUP  .GE.  1 )                                            M20.4175
      1 WRITE (*, 3207)  NC, LSIZ12, NSMOUT, IOUTCS,                     M43.   9
      2                   NTOT, NUMNVO, NV, N8, MAXBUS, N9, N18          M38.2973

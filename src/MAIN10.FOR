@@ -382,17 +382,12 @@ C     SINGLE-PRECISION (REAL*4) NUMBERS ONLY:                           M32. 343
  7273 DO 7278  J=1, K                                                   M32. 351
  7278 FORBYT(J) = VOLTI(J)                                              M32. 352
       if (FORBYT(1) .LE. -1) GO TO 9000 !! the last item is -9999
-      if (9999 .lt. istep) then
-        WRITE (t_str0, "(ES10.3)") FORBYT(1) - DELTAT
-        WRITE (t_str1, "(ES10.3)") FORBYT(1)
-        if (t_str1 .eq. t_str0) return !! if it's outside of the precision, do not print
-      endif
 C     FOLLOWING APOLLO CARD REPLACES 2 PRECEDING VAX ONES:              M38. 118
 C7273 CALL VEC_$DP_SP ( VOLTI(1), FORBYT(1), K )                        M38. 119
       !!WRITE (LUNIT4)  ( FORBYT(J), J=1, K )                             M32. 353
       do 11 j = 1, k
         if (j .ne. 1) WRITE (LUNIT4, "(',')", advance="no")  
-        WRITE (LUNIT4, "(ES10.3)", advance="no") FORBYT(J)
+        WRITE (LUNIT4, "(ES12.5)", advance="no") FORBYT(J)
    11 end do
       WRITE (LUNIT4,"()",advance="yes")
 
