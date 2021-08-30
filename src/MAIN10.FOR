@@ -384,12 +384,13 @@ C     SINGLE-PRECISION (REAL*4) NUMBERS ONLY:                           M32. 343
       if (FORBYT(1) .LE. -1) GO TO 9000 !! the last item is -9999
 C     FOLLOWING APOLLO CARD REPLACES 2 PRECEDING VAX ONES:              M38. 118
 C7273 CALL VEC_$DP_SP ( VOLTI(1), FORBYT(1), K )                        M38. 119
-      !!WRITE (LUNIT4)  ( FORBYT(J), J=1, K )                             M32. 353
-      do 11 j = 1, k
-        if (j .ne. 1) WRITE (LUNIT4, "(',')", advance="no")  
-        WRITE (LUNIT4, "(ES12.5)", advance="no") FORBYT(J)
-   11 end do
-      WRITE (LUNIT4,"()",advance="yes")
+      WRITE (LUNIT4)  ( FORBYT(J), J=1, K )                             M32. 353
+      
+      do j = 1, k
+        if (j .ne. 1) write (LUNIT8, "(',')", advance="no")  
+        write (LUNIT8, "(ES12.5)", advance="no") FORBYT(J)
+      end do
+      write (LUNIT8,"()",advance="yes")
 
       GO TO 9000         ! EXIT MODULE AFTER POSSIBLE DIAGNOSTIC        M35. 432
  7286 IF ( IPRSUP  .GE.  3 )                                            M35. 433

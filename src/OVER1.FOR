@@ -80,7 +80,7 @@ C     DEFAULT LIST SIZES FOR TACS PROPORTIONING OF EMTP LIST 19.        M22. 943
       LUNIT3 = 3                                                        M15. 369
       LUNIT4 = 4                                                        M15. 370
       LUNIT5 = 5                                                        M15. 371
-!!      LUNIT6 = 6                                                        M15. 372
+      LUNIT6 = 6                                                        M15. 372
       LUNIT7 = 7                                                        M15. 373
       LUNIT8 = 8                                                        M15. 374
       LUNIT9 = 9                                                        M20. 446
@@ -2027,10 +2027,9 @@ C     $$$$$$$  ADDITIONAL KEY WORDS GO IN SLOTS BELOW:                  M36. 312
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.fd'                                           
-      COMMON  /KOMTHL /  PEKEXP 
-      COMMON /INFILE/ filein                  
-      CHARACTER*160 filein, filplt
-
+      COMMON  /KOMTHL /  PEKEXP
+      COMMON /INFILE/FILEIN                                     
+      CHARACTER*160 FILEIN, filepl4                                       
       DIMENSION  INTBUS(1)                                              M31. 332
       EQUIVALENCE  (INTBUS(1), BUS1 )                                   M31. 333
       INCLUDE  'DEKSPY.fd'                                           
@@ -2072,7 +2071,7 @@ C     FOR EXPLICIT DIRECTORY (E.G., "[PLT]" ), IF DESIRED.              M28.1840
       IF (ICAT .GT. 2) GO TO 120                                        M24. 352
   100 CLOSE (UNIT=LUNIT4, DISPOSE='SAVE')                               M29.1146
       GO TO 140                                                         M24. 354
-  120 CLOSE (UNIT=LUNIT4, DISPOSE='SAVE')                               M29.1147
+  120 CLOSE (UNIT=LUNIT4, DISPOSE='DELETE')                             M29.1147
   140 CONTINUE                                                          M24. 356
       CLOSE ( UNIT=LUNIT9 )                                             M35. 605
       CLOSE ( UNIT=LUNT10 )                                             M35. 606
@@ -2119,28 +2118,28 @@ C     ACCORDING TO 1ST APPEARANCE (SIZE OF VARDIM OUTPUT):              M31. 347
       CALL TIME44 ( TCLOCK(1) )                                         M24. 398
       IF ( NOUTPR  .EQ.  0 )                                            M24. 402
      1 WRITE (LUNIT6, 6301)                                             M24. 403
- 6301 FORMAT (  ' ELECTROMAGNETIC TRANSIENTS PROGRAM (EMTP)')           M25. 191
-!!     1          ' DIGITAL (DEC) VAX-11/780 TRANSLATION AS',             M25. 192
-!!     2          ' USED BY BPA IN PORTLAND, OREGON  97208;',             M28.1845
-!!     3          '  USA.'  )                                             M28.1846
- !!     DECODE (4, 3641, DATE1(1) ) COL(25), COL(6), COL(7)               M24. 412
- !!3641 FORMAT (2A1, 1X, A1)                                              M24. 413
- !!     IF ( COL(25)  .EQ.  '0' ) GO TO 3642                              M35. 620
- !!     IF ( COL(6)   .EQ.  '0' ) COL(6) = LETTRA                         M35. 621
- !!     IF ( COL(6)   .EQ.  '1' ) COL(6) = LETTRB                         M35. 622
- !!     IF ( COL(6)   .EQ.  '2' ) COL(6) = LETTRC                         M35. 623
- !!3642 CONTINUE                                                          M25. 194
- !!     DECODE (4, 3641, DATE1(2) ) COL(8)                                M25. 195
- !!     DECODE (16, 3652, TCLOCK(1) ) ( COL(J), J=9, 14 )                 M24. 419
- !!3652 FORMAT (2A1, 1X, A1, 4X, A1, 1X, 2A1 )                            M24. 420
- !!     WRITE (ANSI32, 3668)  ( COL(J), J=1, 18 )                         M36. 314
- !!3668 FORMAT ( 18A1, 14X )                                              M36. 315
-      WRITE (filplt, '(A,A)') TRIM(filein), '.out'
+ 6301 FORMAT (  ' ELECTROMAGNETIC TRANSIENTS PROGRAM (EMTP),',          M25. 191
+     1          ' DIGITAL (DEC) VAX-11/780 TRANSLATION AS',             M25. 192
+     2          ' USED BY BPA IN PORTLAND, OREGON 97208;',              M28.1845
+     3          ' USA.'  )                                              M28.1846
+ !     DECODE (4, 3641, DATE1(1) ) COL(25), COL(6), COL(7)               M24. 412
+ !3641 FORMAT (2A1, 1X, A1)                                              M24. 413
+ !     IF ( COL(25)  .EQ.  '0' ) GO TO 3642                              M35. 620
+ !     IF ( COL(6)   .EQ.  '0' ) COL(6) = LETTRA                         M35. 621
+ !     IF ( COL(6)   .EQ.  '1' ) COL(6) = LETTRB                         M35. 622
+ !     IF ( COL(6)   .EQ.  '2' ) COL(6) = LETTRC                         M35. 623
+ !3642 CONTINUE                                                          M25. 194
+ !     DECODE (4, 3641, DATE1(2) ) COL(8)                                M25. 195
+ !     DECODE (16, 3652, TCLOCK(1) ) ( COL(J), J=9, 14 )                 M24. 419
+ !3652 FORMAT (2A1, 1X, A1, 4X, A1, 1X, 2A1 )                            M24. 420
+ !     WRITE (ANSI32, 3668)  ( COL(J), J=1, 18 )                         M36. 314
+ !3668 FORMAT ( 18A1, 14X )                                              M36. 315
+      WRITE (filepl4, '(A,A)') TRIM(filein), '.pl4'
       IF (IPRSUP .GE. 1 )                                               M24. 423
-     1 WRITE (LUNIT6, 3672) filplt                                      M36. 316
- 3672 FORMAT ( /,  ' IN  #SYSDEP# ,   filplt =',  A32 )                 M36. 317     
-      OPEN (UNIT=LUNIT4, FILE=filplt, action='write')                   M36. 318
-
+     1 WRITE (LUNIT6, 3672) filepl4                                      M36. 316
+ 3672 FORMAT ( /,  ' IN  #SYSDEP# , filepl4 =',  A)                     M36. 317
+      OPEN (UNIT=LUNIT4, FILE=filepl4, status="replace"                 M36. 318
+     2    , FORM='UNFORMATTED')                                         M29.1156
       BLANK = BUSNM1                                                    M24. 427
       TRASH = BUSNM2                                                    M24. 428
       TERRA = BUSNM3                                                    M24. 429

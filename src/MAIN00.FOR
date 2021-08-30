@@ -4,7 +4,7 @@
       INCLUDE  'BLKCOM.fd'                                           
       INCLUDE  'VOLT45.fd' 
       COMMON /INFILE/ filein                  
-      CHARACTER*160 filein 
+      CHARACTER*160 filein, filelog, fileout 
 
 C)**********************************************************************M15. 203
 C)                                                                     *M15. 204
@@ -74,6 +74,26 @@ C     UNIT ASSIGNMENTS OF "OVER1" NEEDED EARLIER BY SPY:                M38.  90
       KOL132 = 132                                                      M32. 122
       NCHAIN = -1                                                               
       LASTOV = 0                                                        M20. 186
+      
+      filein = ''
+      if (1 .EQ. command_argument_count()) then
+        call GET_COMMAND_ARGUMENT(1, filein)
+      endif
+      if (filein .NE. '') goto 11  
+      WRITE (*, "('Enter data file name: ')") ! PROMPT USER
+   10 READ (*, '(A)') filein
+   11 INQUIRE (FILE=filein, EXIST=LOGVAR ) 
+      IF (.NOT. LOGVAR ) THEN 
+          WRITE (filein, '(A)') 'Not found, please re-enter: '
+          GO TO 10
+      END IF
+      WRITE (filelog, '(A,A)') TRIM(filein), '.log'
+      WRITE (fileout, '(A,A)') TRIM(filein), '.out'
+    
+      OPEN (UNIT=LUNIT5, FILE=filein, action='read')                  
+      OPEN (UNIT=LUNIT6, FILE=filelog, action='write')                
+      OPEN (UNIT=LUNIT8, FILE=fileout, action='write', IOSTAT=ios)
+                      
       KILL = 0                                                          M22. 623
  2000 IF ( KILL  .EQ.  0 )   GO TO 2001                                 M22. 624
       IF ( KILL  .EQ.  9999 )   GO TO 2001                              M22. 625

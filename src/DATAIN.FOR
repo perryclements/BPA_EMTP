@@ -11,7 +11,7 @@ C     MODULE IS CALLED ONLY BY INSTALLATION-DEPENDENT "EREXIT".         M37. 159
       COMMON / LINEMODEL / KEXACT, NSOLVE, FMINSV, NUMRUN, nphlmt
       COMMON / LINEMODEL / CHAR80, CHLMFS(18)
       COMMON /INFILE/ filein                  
-      CHARACTER*160 filein, filelog 
+      CHARACTER*160 filein 
 
       CHARACTER*6 CHLMFS
       CHARACTER*80 CHAR80
@@ -79,24 +79,10 @@ C     MODULE IS CALLED ONLY BY INSTALLATION-DEPENDENT "EREXIT".         M37. 159
       CALL DATE44 ( DATE1(1) )   ! FIND CALENDAR DATE AND THE           M37. 207
       CALL TIME44 ( TCLOCK(1) )  ! TIME OF DAY FOR DOCUMENTATION        M37. 208
       CALL INITSP ! INITIALIZE SPY COMMON (DIGIT NEEDED TO SORT)        M37. 209
- !!1311 WRITE (LUNIT6, 1324)    ! PROMPT USER AT "EMTSPY" KEYBOARD        M38.4641
- !!1324 FORMAT (  ' EMTP BEGINS.  SEND (SPY, $ATTACH, DEBUG,',            M35. 204
- !!    1          ' HELP, MODULE, JUNK, STOP) :'  )                       M38.4642
-      FILEIN = ''
-      if (1 .EQ. command_argument_count()) then
-        call GET_COMMAND_ARGUMENT(1, FILEIN)
-      endif
-      if (FILEIN .NE. '') goto 1326  
- 1311 WRITE (LUNIT6, 1324)    ! PROMPT USER AT "EMTSPY" KEYBOARD        M38.4641
- 1324 FORMAT ('Enter data file name: ')
- 1325 READ (MUNIT5, '(A80)') FILEIN
- 1326 INQUIRE (FILE=FILEIN, EXIST=LOGVAR ) 
-      IF (.NOT. LOGVAR ) THEN 
-          WRITE (LUNIT6, '(A)') 'Not found, please re-enter: '
-          GO TO 1325
-      END IF
       goto 1753
-
+ 1311 WRITE (LUNIT6, 1324)    ! PROMPT USER AT "EMTSPY" KEYBOARD        M38.4641
+ 1324 FORMAT (  ' EMTP BEGINS.  SEND (SPY, $ATTACH, DEBUG,',            M35. 204
+     1          ' HELP, MODULE, JUNK, STOP) :'  )                       M38.4642
       READ (MUNIT5, 1329) BUFF77  ! READ FIRST CARD OF EMTP DATA        M35. 207
  1329 FORMAT ( A80 )                                                    M35. 208
       IF ( BUFF77(1:5) .EQ. 'STOP ' )  CALL STOPTP                      M39.3277
@@ -183,19 +169,15 @@ C       "$ATTACH,FILENAME,5" USAGE REQUIRES EXTRACTION OF NAME:         M35. 225
       FILE6(1) = 'C '//BUFF77(1:78)  ! MAKE $ATTACH INTO COMMENT        M37. 239
       KCUT = 0
  1753 CONTINUE
-      
-      WRITE (filelog, '(A,A)') TRIM(filein), '.log'
-      LUNIT6 = 56
-      OPEN (UNIT=LUNIT6, FILE=filelog, action='write')                   M36. 318
 
-      OPEN (UNIT=LUNT13, STATUS='OLD', FILE=FILEIN )                     M36. 114
-      FILE6(1) = 'C '//FILEIN(1:78)  ! MAKE $ATTACH INTO COMMENT        M37. 239
+      !FILE6(1) = 'C '//FILEIN  ! MAKE $ATTACH INTO COMMENT              M37. 239
+      !numcrd = 1
       KCUT = 0      
       
       krdoff = numcrd
       krdcom = 0
       DO 1758  J=1, LIMCRD  ! READ UNTIL AN END-OF-FILE DETECTED        M36. 115
-      READ (LUNT13, 1329, END=1766)  FILE6(KRDOFF+J)                    M35. 236
+      READ (LUNIT5, 1329, END=1766)  FILE6(KRDOFF+J)                    M35. 236
       IF ( KCUT .EQ. 1 )  GO TO 5486
       if ( file6(krdoff+j)(1:2) .eq. 'C ' )
      1 krdcom = krdcom + 1
