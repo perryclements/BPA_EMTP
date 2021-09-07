@@ -58,3 +58,4 @@ Temporary Items
 *.htm
 *.u2d
 /Build/x64/Release
+*.user
