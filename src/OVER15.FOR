@@ -553,7 +553,7 @@ C     PARTITIONS OF SIZE  LIST 12:  (XMAX TMAX XMIN TMIN) .             M27.1322
      3                   ( BUSUM(I), I=1, N16 )                         M38.2971
       
        write (LUNIT8, 
-     + "(2A4, ' ', 2A4, 4(',', I4))",  advance="no") 
+     + "('//', 2A4, ' ', 2A4, 4(',', I4))",  advance="no") 
      + DATE1, TCLOCK, N18, NUMNVO, NUMBCO, NC
       !do I=1, NTOT
       !  if (I .ne. 1) write (LUNIT8, "(',')", advance="no")

@@ -88,7 +88,7 @@ C     UNIT ASSIGNMENTS OF "OVER1" NEEDED EARLIER BY SPY:                M38.  90
           GO TO 10
       END IF
       WRITE (filelog, '(A,A)') TRIM(filein), '.log'
-      WRITE (fileout, '(A,A)') TRIM(filein), '.out'
+      WRITE (fileout, '(A,A)') TRIM(filein), '.adf'
     
       OPEN (UNIT=LUNIT5, FILE=filein, action='read')                  
       OPEN (UNIT=LUNIT6, FILE=filelog, action='write')                
