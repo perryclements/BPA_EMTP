@@ -593,7 +593,9 @@ C                                                                       M44. 766
       CALL VECRSV( BND(IOFBND+1), IOFFD, N3 )                                   
       N12 = -4                                                                  
       N15 = 0                                                                   
-      CALL VECRSV( VOLT(1), N12, N15 )                                          
+      CALL VECRSV( VOLT(1), N12, N15 )
+      ipp=iprsup
+      iprsup=4                                          
       IF( IPRSUP .LT. 3 )  GO TO 4517                                   M42.6478
       WRITE(LUNIT6, 4513)  NTOT, IOFFD                                  M17. 506
  4513 FORMAT( /,  77H Y-MATRIX OF S.S. PHASOR SOLUTION, B4 STARTING ELIMM42.6479
@@ -609,6 +611,19 @@ C                                                                       M44. 766
  4514 FORMAT( 3I10, 2E20.8, 5X, 2E20.8 )                                M42.6488
       N1 = N1 + 1                                                               
  4516 N2 = N2 + 1                                                               
+
+C ##############################################
+C HEVIA
+C WRITE THE ADMITANCE MATRIX IN FULL FORMAT
+C
+      CALL PACKMAT(
+     1 NTOT,IOFFD,IOFGND,IOFBND,ILOC,INDEX1,GND,BND,DIAG,DIAB)
+C 
+C HEVIA
+C ##############################################
+     
+      iprsup=ipp
+
  4517 DO 4570 I = 1, NTOT                                                       
       IF (KODE(I) .GT. 0) GO TO 4570                                    M42.6492
       J = I                                                                     
