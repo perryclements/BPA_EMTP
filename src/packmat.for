@@ -18,6 +18,7 @@ c      write(*,*)'packmat'
           ENDIF
       N1 = N1 + 1
  4516 N2 = N2 + 1
+      CLOSE (LUNT99)
       RETURN
       END
       

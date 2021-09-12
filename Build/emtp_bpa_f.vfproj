@@ -120,6 +120,7 @@
 		<File RelativePath="..\src\OVER7.FOR"/>
 		<File RelativePath="..\src\OVER8.FOR"/>
 		<File RelativePath="..\src\OVER9.FOR"/>
+		<File RelativePath="..\src\packmat.for"/>
 		<File RelativePath="..\src\PMODL.F"/>
 		<File RelativePath="..\src\PSTMT.F"/>
 		<File RelativePath="..\src\PTACS.F"/>

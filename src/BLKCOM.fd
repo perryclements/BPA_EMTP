@@ -28,7 +28,7 @@ C                PRECEDING SCALARS).                                    M10.   9
       COMMON          MONCAR(10)                                        M39.   2
       COMMON          LUNIT1, LUNIT2, LUNIT3, LUNIT4, LUNIT5, LUNIT6    M15.   2
       COMMON          LUNIT7, LUNIT8, LUNIT9, LUNT10, LUNT11            M20.   4
-      COMMON          LUNT12, LUNT13, LUNT14, LUNT15                    M39.   3
+      COMMON          LUNT12, LUNT13, LUNT14, LUNT15, LUNT99            M39.   3
       COMMON          NRIGHT, NFRFLD, KOLBEG, MAX99M                    M32.   1
       COMMON          KPRCHG(6), MULTPR(5), IPNTV(11), INDTV(10)        M32.   2
       COMMON          LSTAT(80), NBYTE(6), LUNSAV(15),IPRSOV(39)        M42.   6
