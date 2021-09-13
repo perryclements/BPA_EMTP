@@ -4,7 +4,7 @@
       INCLUDE  'BLKCOM.fd'                                           
       INCLUDE  'VOLT45.fd' 
       COMMON /INFILE/ filein                  
-      CHARACTER*160 filein, filelog, fileout, filemtx
+      CHARACTER*160 filein, filelog, fileout
 
 C)**********************************************************************M15. 203
 C)                                                                     *M15. 204
@@ -90,10 +90,8 @@ C     UNIT ASSIGNMENTS OF "OVER1" NEEDED EARLIER BY SPY:                M38.  90
       END IF
       WRITE (filelog, '(A,A)') TRIM(filein), '.log'
       WRITE (fileout, '(A,A)') TRIM(filein), '.adf'
-      WRITE (filemtx, '(A,A)') TRIM(filein), '.mtx'
       OPEN (UNIT=LUNIT5, FILE=filein, action='read')                  
       OPEN (UNIT=LUNIT6, FILE=filelog, action='write')
-      OPEN (UNIT=LUNT99, FILE=filemtx, action='write')    
       OPEN (UNIT=LUNIT8, FILE=fileout, action='write', IOSTAT=ios)
                       
       KILL = 0                                                          M22. 623
