@@ -190,6 +190,7 @@ C     SPECIAL TIMING CODE FOR SUPPORTING PROGRAMS.                      M39.3789
  6656 FORMAT (  29H SECONDS AFTER DELTAT-LOOP  :,  3F9.3  )             M39.3850
       D1 = FLSTAT(11) + FLSTAT(12)                                      M39.3851
       D4 = D1 + D4                                                      M39.3852
+      call CPU_TIME(tcpu)
       IF ( KOL132  .EQ.  132 )                                          M39.3853
      1 WRITE (LUNIT6, 38009)  FLSTAT(11), FLSTAT(12), D1                M39.3854
 38009 FORMAT ( 5X,  37H'DELTAT'-CHANGE RESTART TIME  .......,  58X,     M39.3855
@@ -200,8 +201,8 @@ C     SPECIAL TIMING CODE FOR SUPPORTING PROGRAMS.                      M39.3789
       D2 = D2 + FLSTAT(I)                                               M39.3860
 38011 D3 = D3 + FLSTAT(I+1)                                             M39.3861
       IF ( KOL132  .EQ.  132 )                                          M39.3862
-     1 WRITE (LUNIT6, 38010)  D2, D3, D4                                M39.3863
-38010 FORMAT ( 93X, 7HTOTALS , 3F10.3, //,1X)                           M39.3864
+     1 WRITE (LUNIT6, 38010)  tcpu, D2, D3, D4
+38010 FORMAT ( 68x, 8HcpuTime , F10.3, 7X, 7HTOTALS , 3F10.3, //,1X)
       IF ( KOL132  .EQ.  80 )                                           M39.3865
      1 WRITE (LUNIT6, 6658)  D2, D3, D4                                 M39.3866
  6658 FORMAT (  29X,  27H-------------------------   ,/,                M39.3867
