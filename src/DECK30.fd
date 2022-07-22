@@ -6,6 +6,6 @@
       COMMON  / SPAC06 /   SOLR  (    3002 )
       COMMON  / SPAC07 /   SOLI  (    3002 )
       COMMON  / SPAC08 /   ICH1  (    3002 )
-      COMMON  / SPAC09 /   BND   (     300 )
+      COMMON  / SPAC09 /   BND   (   30000 ) !!
       COMMON  / SPAC10 /   ILOC  (   30000 )
       COMMON  / SPAC11 /   GND   (   30000 )
