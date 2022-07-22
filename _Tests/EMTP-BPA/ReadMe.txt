@@ -22,4 +22,5 @@ case0007 - Reclosing Of Transmission Lines, "EMTP Primer.pdf" Section 7, Case 7
 case0008 - Lightning surge studies, "EMTP Primer.pdf" Section 4, Case 4
 case0009 - Potential transformer ferroresonance, "EMTP Primer.pdf" Section 9
 case0010 - Subsynchronous resonance studies, "EMTP Primer.pdf" Section 10, Case 10.
-case0011 - TACS Studies, "EMTP Primer.pdf" Section 11, Case 11.
+case0011 - universal machine
+case0012 - TACS Studies, "EMTP Primer.pdf" Section 11, Case 11.

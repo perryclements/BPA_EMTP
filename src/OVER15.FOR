@@ -583,17 +583,30 @@ C     PARTITIONS OF SIZE  LIST 12:  (XMAX TMAX XMIN TMIN) .             M27.1322
  3104 IF( NC .GT. 0 ) then
         WRITE (LUNIT4)  (IBRNCH(I), I = 1, NC), (JBRNCH(I), I = 1, NC)  M29.2005
         if (NUMNVO .eq. 0) write (LUNIT8, "('Time')", advance="no")
-        do i = 1, NC
+        do i = 1, NCSAVE ! branch
           n1 = IBRNCH(I)
           n2 = JBRNCH(I)
-          if (n1 .LE. NTOT .AND. n2 .LE. NTOT) then
-            write (LUNIT8,"(',', A6, '->', A6)", advance="no")
-     +                       BUS(n1), BUS(n2)                           M29.2005  
-          else
-            write (LUNIT8,"(',', A6, '->', A6)", advance="no") 
-     +       TEXVEC(n1 - NTOT), TEXVEC(n2 - NTOT)                               
-          endif
-        end do  
+          write (LUNIT8,"(',', A6, '->', A6)", advance="no")
+     +      BUS(n1), BUS(n2)                                            M29.2005  
+        end do
+        do i = 1, NSMOUT ! dynamic sm
+          n1 = ISMOUT(3*i - 1)
+          n2 = ISMOUT(3*i)
+          write (LUNIT8,"(',', A6, '->', A6)", advance="no") 
+     +        TEXVEC(n1), TEXVEC(n2)                               
+        end do
+        do i = 1, IOUTCS ! TACS
+          n2 = JOUT(KJOUT + i)
+          n2 = ILNTAB(KLNTAB + n2)
+          write (LUNIT8,"(',', A6, '->', A6)", advance="no") 
+     +        TEXT1, TEXVEC(n2)                                               
+        end do
+        do i = 1, NUMOUT ! universal machine
+          n1 = ISPUM(N17 + i)
+          n2 = ISPUM(N19 + i)
+          write (LUNIT8,"(',', A6, '->', A6)", advance="no") 
+     +        BUSUM(n1), BUSUM(n2)                                               
+        end do
       endif
       write (LUNIT8,"()",advance="yes")
  3106 IF ( KBASE .NE. 1  .AND.  KBASE .NE. INTINF )  GO TO 7802         M32.4819
