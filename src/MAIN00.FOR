@@ -1428,6 +1428,10 @@ C     A FLOATING POINT NUMBER.                                          M28. 253
       SUBROUTINE  PACKA1 ( FROM, TO, KK )                               M20. 372
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
+!
+!     Packs one character (Al information) of one word into any character
+!     position of another words. Both words must be ALPHANUMERIC (UTPF type).
+!
 C     SYSTEM-DEPENDENT EMTP MODULE  'PACKA1'  FOR  VAX-11/780.          M28. 279
 C     ARGUMENT  'FROM'  CONTAINS  A1  INFORMATION WHICH IS TO BE STORED M20. 374
 C     IN CHARACTER POSITION  KK  OF ARGUMENT  'TO' .                    M20. 375
@@ -1439,6 +1443,11 @@ C     FOR ALL EMTP USAGE,  1ST 2 ARGUMENTS MUST BE VECTORS.             M29. 945
       SUBROUTINE PACKCH ( FROM, TO, K4OR6, NCHBEG, NWORD )              M23.  40
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
+!
+!     Packs A1 or A6 word strings into ALPHANUMERIC vector storage so
+!     that there are no imbedded blanks. This was originally designed
+!     for CalComp plotting, to remove excess blanks.
+!      
 C)                                                                      M23.  41
 C)    THIS MODULE PERFORMS THE SYSTEM-DEPENDENT FUNCTION OF PACKING BCD M23.  42
 C)    CHARACTERS FROM  A4  OR  A6  WORDS TOGETHER SO AS TO FORM A       M23.  43
