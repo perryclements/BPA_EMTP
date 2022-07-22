@@ -2161,9 +2161,9 @@ C     FOLLOWING ZERO DEFINITION IS REDUNDANT.                           M32. 809
       TWOPI = 6.28318530717958647692D+00                                M24. 441
       USERID = BLANK                                                    M24. 444
       IF ( NOUTPR  .EQ.  0 )                                            M28.1848
-     1 WRITE (LUNIT6, 6305)  DATE1, TCLOCK !!, (COL(J), J=6,18)            M28.1849
+     1 WRITE (LUNIT6, 6305)  DATE1, TCLOCK, filein !!, (COL(J), J=6,18)            M28.1849
  6305 FORMAT (' DATE (MM/DD/YY) AND TIME OF DAY (HH.MM.SS.)=',          M28.1850
-     1    1X, 2A4, 2X, 2A4)                                             M38. 307
+     1    1X, 2A4, 2X, 2A4, 2X,'NAME OF FILE =',1X, 2A49)                                             M38. 307
 !!     2    )                                                             M38. 308
       IF ( M4PLOT .NE. 1 )   ! IF NOT INTERACTIVE EMTP USAGE,           M35. 625
      1 M4PLOT = 2     ! USE "PLTFIL" FOR REAL*4 PLOT FILE ON DISK       M35. 626
@@ -2626,7 +2626,8 @@ C                                                        $$$  INPUT  $$$M13. 364
      1   ,UD1(NDX5+2), UD1(NDX5+3),  UD1(NDX5+4), UD1(NDX5+5)           M39. 534
  2306 FORMAT ( 1X,I3, 1X, A8,I6,5E15.6 )                                M39. 535
  2323 CONTINUE                                                          M39. 536
-      IF ( NSUP .EQ. 0 )  GO TO 4444                                    M39. 537
+      !IF ( NSUP .EQ. 0 )  GO TO 4444 ! Bug below                       M39. 537
+      GO TO 4444
       WRITE (LUNIT6,2007) NSUP, ( N, ILNTAB(KSPVAR+N),                  M39. 538
      1  INSUP(KJSUP+N), INSUP(KKSUP+N), N=1, NSUP )                     M39. 539
  2007 FORMAT (7H0 NSUP=, I6, /, 8X,                                     M39. 540
