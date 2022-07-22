@@ -595,7 +595,7 @@ C                                                                       M44. 766
       N15 = 0                                                                   
       CALL VECRSV( VOLT(1), N12, N15 )                                          
       ipp=iprsup
-      IF(kssout .GT. 0) iprsup=4
+      IF(kssout .EQ. 4) iprsup=4
       IF( IPRSUP .LT. 3 )  GO TO 4517                                   M42.6478
       WRITE(LUNIT6, 4513)  NTOT, IOFFD                                  M17. 506
  4513 FORMAT( /,  77H Y-MATRIX OF S.S. PHASOR SOLUTION, B4 STARTING ELIMM42.6479
