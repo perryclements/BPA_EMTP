@@ -247,10 +247,10 @@ C                                                                       M43.  35
      4         20H LIST LIMITS 11-20 :,  10I6  ,/,                      M32. 678
      5         20H LIST LIMITS 21-END:,  10I6  )                        M32. 679
       GO TO 15                                                          M32. 680
- 6452 WRITE(LUNIT6, 83044)  LOCKER                                      M32. 681
+ 6452 WRITE(LUNIT6, 83044)
 83044 FORMAT ( ' ASSOCIATED USER DOCUMENTATION IS THE 864-PAGE',        M35. 470
      1         ' EMTP RULE BOOK DATED  JUNE, 1984.',                    M35. 471
-     2    3X,  'VERSION M43.   VARDIM TIME/DATE =', 2I7 )               M42.1070
+     2    3X,  'VERSION M43.   SOURCE CODE DATE = 22 JULY 2022.')
       WRITE (LUNIT6, 5241)  LTLABL, LBUS, LBRNCH, LDATA, LEXCT,         M32. 685
      1 LYMAT, LSWTCH, LSIZE7, LPAST, LNONL, LCHAR, LSMOUT, LSIZ12,      M38. 290
      2 LFDEP, LWT, LTAILS, LIMASS, LSYN, MAXPE, LTACST, LFSEM, LFD,     M39. 323
