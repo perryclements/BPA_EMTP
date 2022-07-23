@@ -328,14 +328,16 @@ C     INCLUDE  '[SCOTT]COMMUK.FOR' --- SHARE WITH "SETTYM" IN-LINE:     M37. 865
       COMMON /TIMER2/ L4CPU,CPUTIME_CODE,CPUTIME_ADR,ZERO,ZEROFIN       M37. 868
       INTEGER*2 L4CPU,CPUTIME_CODE                                      M37. 869
       INTEGER*4 CPUTIME_ADR,ZERO,ZEROFIN,SYS$GETJPI,NOW_CPUTIME         M37. 870
+      real*8 now
       !!DATA CPUTIME_CODE /1031/                                          M37. 871
       !!DATA L4CPU /4/                                                    M37. 872
       !!CPUTIME_ADR=%LOC(NOW_CPUTIME)                                     M24.  87
       !!IF (.NOT.SYS$GETJPI(,,,L4CPU,,,)) THEN                            M24.  88
       !!            WRITE(6,*) 'ERROR IN ANOTHER PRIVATE PLACE'           M24.  89
       !!            ENDIF                                                 M24.  90
-      !!D1=(NOW_CPUTIME-CPUTIME)/100.0                                    M24.  91
-      !!D2=0.0                                                            M24.  92
+      call CPU_TIME(now)
+      D1=(now-CPUTIME)                                 
+      D2=0.0                                                            M24.  92
       RETURN                                                            M40.  82
       END                                                               M40.  83
       SUBROUTINE SETTYM                                                 M24. 105
