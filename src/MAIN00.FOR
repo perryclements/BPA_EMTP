@@ -77,20 +77,35 @@ C     UNIT ASSIGNMENTS OF "OVER1" NEEDED EARLIER BY SPY:                M38.  90
       LASTOV = 0                                                        M20. 186
       
       filein = ''
+
       if (1 .EQ. command_argument_count()) then
         call GET_COMMAND_ARGUMENT(1, filein)
       endif
+C     Four arguments are normally passed to EMTP, DISK c:\path\file.dat c:\path\file. -r
+      if (4 .EQ. command_argument_count()) then
+        call GET_COMMAND_ARGUMENT(2, filein)
+        
+      endif
       if (filein .NE. '') goto 11  
-      WRITE (*, "('Enter data file name: ')") ! PROMPT USER
-   10 READ (*, '(A)') filein
+   10 WRITE (*, "('Enter data file name: ')") ! PROMPT USER
+      READ (*, '(A)') filein
    11 INQUIRE (FILE=filein, EXIST=LOGVAR ) 
       IF (.NOT. LOGVAR ) THEN 
           WRITE (filein, '(A)') 'Not found, please re-enter: '
           GO TO 10
       END IF
-      WRITE (filelog, '(A,A)') TRIM(filein), '.log'
-      WRITE (fileout, '(A,A)') TRIM(filein), '.adf'
-      OPEN (UNIT=LUNIT5, FILE=filein, action='read')                  
+     
+C     Check if file name has extension
+      ipos1 = scan(trim(filein),".",BACK= .true.)
+      if (ipos1 > 0) then
+         WRITE (filelog, '(A,A)') filein(1:ipos1), 'lis'
+         WRITE (fileout, '(A,A)') filein(1:ipos1), 'adf'
+      else
+         WRITE (filelog, '(A,A)') TRIM(filein), '.lis'
+         WRITE (fileout, '(A,A)') TRIM(filein), '.adf'
+      end if
+      
+      OPEN (UNIT=LUNIT5, FILE=filein, action='read')
       OPEN (UNIT=LUNIT6, FILE=filelog, action='write')
       OPEN (UNIT=LUNIT8, FILE=fileout, action='write', IOSTAT=ios)
                       
@@ -336,7 +351,7 @@ C     INCLUDE  '[SCOTT]COMMUK.FOR' --- SHARE WITH "SETTYM" IN-LINE:     M37. 865
       !!            WRITE(6,*) 'ERROR IN ANOTHER PRIVATE PLACE'           M24.  89
       !!            ENDIF                                                 M24.  90
       call CPU_TIME(now)
-      D1=(now-CPUTIME)                                 
+      D1=(now)                                 
       D2=0.0                                                            M24.  92
       RETURN                                                            M40.  82
       END                                                               M40.  83

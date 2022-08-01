@@ -202,7 +202,8 @@ C     SPECIAL TIMING CODE FOR SUPPORTING PROGRAMS.                      M39.3789
 38011 D3 = D3 + FLSTAT(I+1)                                             M39.3861
       IF ( KOL132  .EQ.  132 )                                          M39.3862
      1 WRITE (LUNIT6, 38010)  tcpu, D2, D3, D4
-38010 FORMAT ( 68x, 8HcpuTime , F10.3, 7X, 7HTOTALS , 3F10.3, //,1X)
+38010 FORMAT ( 62x, 14HTotal cpuTime , F10.3, 7X, 7HTOTALS , 3F10.3, //,
+     11X)
       IF ( KOL132  .EQ.  80 )                                           M39.3865
      1 WRITE (LUNIT6, 6658)  D2, D3, D4                                 M39.3866
  6658 FORMAT (  29X,  27H-------------------------   ,/,                M39.3867

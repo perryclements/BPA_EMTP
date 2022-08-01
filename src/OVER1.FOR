@@ -2134,7 +2134,13 @@ C     ACCORDING TO 1ST APPEARANCE (SIZE OF VARDIM OUTPUT):              M31. 347
  !3652 FORMAT (2A1, 1X, A1, 4X, A1, 1X, 2A1 )                            M24. 420
  !     WRITE (ANSI32, 3668)  ( COL(J), J=1, 18 )                         M36. 314
  !3668 FORMAT ( 18A1, 14X )                                              M36. 315
-      WRITE (filepl4, '(A,A)') TRIM(filein), '.pl4'
+C     Check if file name has extension      
+      ipos1 = scan(trim(filein),".",BACK= .true.)
+      if (ipos1 > 0) then
+         WRITE (filepl4, '(A,A)') filein(1:ipos1), 'pl4'
+      else   
+         WRITE (filepl4, '(A,A)') TRIM(filein), '.pl4'
+      end if
       IF (IPRSUP .GE. 1 )                                               M24. 423
      1 WRITE (LUNIT6, 3672) filepl4                                      M36. 316
  3672 FORMAT ( /,  ' IN  #SYSDEP# , filepl4 =',  A)                     M36. 317
