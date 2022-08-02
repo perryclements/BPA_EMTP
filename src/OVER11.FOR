@@ -66,10 +66,10 @@ C      AS SUCH, THERE MUST BE NO FREQ-DEPEND SOURCES PRESENT.           M35.1237
  1854 CONTINUE                                                          M31.2612
       IF ( KOL132  .EQ.  132 )                                          M32.3421
      1 WRITE (LUNIT6, 6003)  VIM(LSIZ26+1)                              M32.3422
- 6003 FORMAT( //, 113H SINUSOIDAL STEADY STATE SOLUTION, BRANCH BY BRANC   10154
-     1H.  ALL FLOWS ARE AWAY FROM BUS, AND REAL PART, MAGNITUDE, OR P  ,   10155
-     2 /,  41H IS PRINTED ABOVE THE IMAGINARY PART, THE,                M37.3786
-     3     42H ANGLE, OR Q.   FIRST SOLUTION FREQUENCY =,               M31.2615
+ 6003 FORMAT( //, 113HSinusoidal steady-state phasor solution.          
+     1  All flows are away from bus, and real part, magnitude, or P    ,
+     2 /,  41His printed above the imaginary part, the ,                M37.3786
+     3     42H angle, OR Q.   first solution frequency =,               M31.2615
      4   E18.9,   9H   HERTZ.   )                                       M31.2616
       IF ( KOL132  .NE.  132 )                                          M32.3423
      1 WRITE (LUNIT6, 6004)   VIM(LSIZ26+1)                             M32.3424
@@ -348,7 +348,7 @@ C              MULTIPLE  PI  SECTION  CALCULATIONS                         10268
       D26 = D26 * ONEHAF                                                        
       WRITE (LUNIT6, 2008)  D26                                         M36.1393
  2008 FORMAT ( /,  8X,                                                  M36.1394
-     1 56HTOTAL NETWORK LOSS "PLOSS" BY SUMMING NODAL INJECTIONS =,     M36.1395
+     1 51HTotal network loss  P-loss  by summing injections =,          M36.1395
      2  E20.10 )                                                        M36.1396
  7394 IF (KSWTCH .LE. 0) GO TO 7396                                     M36.1397
       DO 6009 I=1,KCONST                                                M32.3448
@@ -445,7 +445,7 @@ C              MULTIPLE  PI  SECTION  CALCULATIONS                         10268
  8681 IF ( KSSOUT  .EQ.  0 )   GO TO 8715                               M32.3530
       IF ( KOL132  .EQ.  132 )                                          M32.3531
      1 WRITE (LUNIT6, 8685)                                             M32.3532
- 8685 FORMAT (39H OUTPUT FOR STEADY STATE SWITCH CURRENT  ,/,           M32.3533
+ 8685 FORMAT (47HOutput for steady-state phasor switch currents.  ,/,   M32.3533
      1  7X,  6HNODE-K,  4X,  6HNODE-M,  10X,  6HI-REAL,                 M36.1398
      2  12X,  6HI-IMAG,  12X,  6HI-MAGN,  10X,  7HDEGREES,              M36.1399
      3  8X,  6HPOWER ,  10X,  8HREACTIVE )                              M36.1400
@@ -469,7 +469,7 @@ C              MULTIPLE  PI  SECTION  CALCULATIONS                         10268
       IF ( KOL132  .EQ.  132 )                                          M32.3550
      1 WRITE (LUNIT6,8692) BUS(K), BUS(M), TCLOSE(I),                   M32.3551
      2     ENERGY(I), D4, D5, POWER, REACT                              M36.1404
- 8692 FORMAT (5X,2A10,3E18.8,F13.4,2E18.8 )                             M36.1405
+ 8692 FORMAT (5X,2A10,3F18.8,F13.4,2F18.8 )                             M36.1405
       IF ( KOL132  .EQ.  80 )                                           M32.3554
      1 WRITE (LUNIT6, 8693)  BUS(K), BUS(M), TCLOSE(I),                 M32.3555
      2                       ENERGY(I), D4, D5                          M32.3556
@@ -2010,7 +2010,7 @@ C     BEGIN 80-COLUMN CODE FOR GENERATOR INJECTION PRINTOUT:            M32.3913
       GO TO 4500                                                        M32.3918
 C     BEGIN 132-COLUMN CODE FOR GENERATOR INJECTION PRINTOUT:           M32.3919
  3214 WRITE (LUNIT6, 2034)  BUS5, ERK, VK, CURRK, CMK, PK, PLOSS        M32.3920
- 2034 FORMAT ( 15X, A6,  3(5X, 2E15.7)  )                               M28.4291
+ 2034 FORMAT ( 15X, A6,  3(5X, 2F15.7)  )                               M28.4291
       GO TO 2051                                                        M28.4292
 C     BEGIN CODE FOR BRANCH FLOWS (80 OR 132 COLUMNS):                  M32.3921
  2040 IF ( KOL132  .EQ.  132 )   GO TO 2045                             M36.1411
@@ -2022,13 +2022,13 @@ C     BEGIN SPECIAL CODE DEDICATED TO 80-COL. BRANCH FLOW:              M32.3924
       GO TO 4500                                                        M32.3929
 C     BEGIN 132-COL. CODE FOR FORWARD BRANCH FLOW PRINTOUT:             M32.3930
  2045 WRITE(LUNIT6,2050)  BUS1, ERK, VK, CURRK, CMK, PK, PLOSS          M17. 593
- 2050 FORMAT ( /, 1X, A6, 14X,  3(5X, 2E15.7)  )                        M32.3931
+ 2050 FORMAT ( /, 1X, A6, 14X,  3(5X, 2F15.7)  )                        M32.3931
  2051 WRITE(LUNIT6, 2052)  EIK, THK, CURIK, CAK, QK, QLOSS              M28.4293
- 2052 FORMAT ( 21X,   2(5X, E15.7, F15.4),  5X, 2E15.7 )                   10615
+ 2052 FORMAT ( 21X,   2(5X, F15.7, F15.4),  5X, 2F15.7 )                   10615
       IF ( L  .LT.  0 )   GO TO 4500                                    M32.3932
 C     BEGIN CODE FOR REVERSE BRANCH FLOW, 132-COLUMN DISPLAY:           M32.3933
       WRITE(LUNIT6, 2054)  BUS2, ERM, VM, CURRM, CMM, PM                M32.3934
- 2054 FORMAT ( /, 15X, A6,   3(5X, 2E15.7)  )                              10618
+ 2054 FORMAT ( /, 15X, A6,   3(5X, 2F15.7)  )                              10618
       WRITE(LUNIT6, 2052)  EIM, THM, CURIM, CAM, QM                     M17. 596
  3278 WRITE(LUNIT6, 2052)                                               M32.3935
  4500 RETURN                                                            M36.1412
