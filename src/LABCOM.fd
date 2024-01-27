@@ -22,7 +22,7 @@
       COMMON  / C0B022 /   SEMAUX(   50000 )
       COMMON  / C0B023 /   IBSOUT(     900 )
       COMMON  / C0B024 /   BVALUE(     900 )
-      COMMON  / C0B025 /   SPTACS(   90000 )
+      COMMON  / C0B025 /   SPTACS(  150000 )
       COMMON  / C0B026 /   KSWTYP(    1200 )
       COMMON  / C0B027 /   MODSWT(    1200 )
       COMMON  / C0B028 /   KBEGSW(    1200 )

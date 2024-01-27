@@ -264,7 +264,7 @@
       LSIZE(16)  =      84                                                      
       LSIZE(17)  =       4                                                      
       LSIZE(18)  =     254                                                      
-      LSIZE(19)  =   90000                                                      
+      LSIZE(19)  =  150000                                                      
       LSIZE(20)  =  100000                                                      
       LSIZE(21)  =    3000                                                      
       LSIZE(22)  =   50000                                                      
