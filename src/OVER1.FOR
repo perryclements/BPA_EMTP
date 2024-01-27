@@ -1,4 +1,4 @@
-      SUBROUTINE OVER1 
+      SUBROUTINE OVER1
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.fd'    ! WSM + THL
@@ -250,7 +250,7 @@ C                                                                       M43.  35
  6452 WRITE(LUNIT6, 83044)
 83044 FORMAT ( ' ASSOCIATED USER DOCUMENTATION IS THE 864-PAGE',        M35. 470
      1         ' EMTP RULE BOOK DATED  JUNE, 1984.',                    M35. 471
-     2    3X,  'VERSION M43.   SOURCE CODE DATE = 22 JULY 2022.')
+     2    3X,  'VERSION M43.   SOURCE CODE DATE = JAN 2024.')
       WRITE (LUNIT6, 5241)  LTLABL, LBUS, LBRNCH, LDATA, LEXCT,         M32. 685
      1 LYMAT, LSWTCH, LSIZE7, LPAST, LNONL, LCHAR, LSMOUT, LSIZ12,      M38. 290
      2 LFDEP, LWT, LTAILS, LIMASS, LSYN, MAXPE, LTACST, LFSEM, LFD,     M39. 323
@@ -2024,6 +2024,7 @@ C     $$$$$$$  ADDITIONAL KEY WORDS GO IN SLOTS BELOW:                  M36. 312
       RETURN                                                            M28.1837
       END                                                               M28.1838
       SUBROUTINE SYSDEP                                                 M40. 445
+      use iso_fortran_env
       IMPLICIT REAL*8 (A-H, O-Z) ,
      1      INTEGER*4 (I-N)
       INCLUDE  'BLKCOM.fd'                                           
@@ -2167,10 +2168,14 @@ C     FOLLOWING ZERO DEFINITION IS REDUNDANT.                           M32. 809
       TWOPI = 6.28318530717958647692D+00                                M24. 441
       USERID = BLANK                                                    M24. 444
       IF ( NOUTPR  .EQ.  0 )                                            M28.1848
-     1 WRITE (LUNIT6, 6305)  DATE1, TCLOCK, filein !!, (COL(J), J=6,18)            M28.1849
+     1 WRITE (LUNIT6, 6305)  DATE1, TCLOCK, filein !!, (COL(J), J=6,18) M28.1849
  6305 FORMAT (' DATE (MM/DD/YY) AND TIME OF DAY (HH.MM.SS.)=',          M28.1850
-     1    1X, 2A4, 2X, 2A4, 2X,'NAME OF FILE =',1X, 2A49)                                             M38. 307
-!!     2    )                                                             M38. 308
+     1    1X, 2A4, 2X, 2A4, 2X,'NAME OF FILE =',1X, 2A49)               M38. 307
+      WRITE (LUNIT6, *) "COMPILER VERSION"
+      WRITE (LUNIT6, 6306)   compiler_version()
+      WRITE (LUNIT6, *) "COMPILER OPTIONS"
+      WRITE (LUNIT6, 6306)   compiler_options()
+ 6306 FORMAT (1X, A,/)
       IF ( M4PLOT .NE. 1 )   ! IF NOT INTERACTIVE EMTP USAGE,           M35. 625
      1 M4PLOT = 2     ! USE "PLTFIL" FOR REAL*4 PLOT FILE ON DISK       M35. 626
       LUNIT5 = -5    ! INTERACTIVE OR NOT USES "NEXTCARD", NOT 5        M35. 627
